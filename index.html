@@ -4,11 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Airlock redacts personal data on your device with Gemini Nano, lets a cloud model do the writing on the redacted text, then puts the real details back locally." />
+    <meta name="theme-color" content="#f4f2ec" />
     <title>Airlock</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <header class="top">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-device" viewBox="0 0 20 20"><rect x="3" y="3.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 16.5h6M10 13.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 20 20"><path d="M6 15.5h8.25a3.25 3.25 0 0 0 .5-6.46A4.75 4.75 0 0 0 5.6 8.1 3.75 3.75 0 0 0 6 15.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 13V9m0 0-1.75 1.75M10 9l1.75 1.75" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-return" viewBox="0 0 20 20"><rect x="3" y="3.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 16.5h6M10 13.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12.5 8.5h-5m0 0 2-2m-2 2 2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 20 20"><path d="m5 10.5 3.25 3.25L15 7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 20 20"><path d="M10 3.5 17.5 16.5h-15L10 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 8.5v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="14.25" r=".9" fill="currentColor"/></symbol>
+      <symbol id="i-out" viewBox="0 0 20 20"><path d="M4 10h11m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 20 20"><path d="m8 6 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </svg>
+
+    <header class="top enter">
       <div class="brand">
         <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg>
         <div>
@@ -17,80 +28,116 @@
         </div>
       </div>
       <div class="status" aria-live="polite">
-        <span id="chip-device" class="chip">Gemini Nano: checking…</span>
-        <span id="chip-cloud" class="chip">Cloud: checking…</span>
+        <span id="chip-device" class="chip"><span class="chip-k">On-device</span> <span class="chip-v">checking…</span></span>
+        <span id="chip-cloud" class="chip"><span class="chip-k">Cloud</span> <span class="chip-v">checking…</span></span>
       </div>
     </header>
 
-    <main class="flow">
+    <main class="flow enter">
       <section class="panel device" aria-labelledby="h-in">
-        <div class="zone">On this device</div>
-        <h2 id="h-in"><span class="step">1</span> Message</h2>
-        <div class="samples" id="samples"></div>
-        <label class="sr" for="input">Message with personal details</label>
-        <textarea id="input" spellcheck="false" placeholder="Paste a message that contains names, phone numbers, IC numbers, addresses…"></textarea>
-        <div class="row">
-          <label for="task">Task for the cloud model</label>
-          <select id="task">
-            <option value="reply">Draft a reply</option>
-            <option value="summary">Summarise for a colleague</option>
-            <option value="actions">Extract action items</option>
-            <option value="custom">Custom instruction…</option>
-          </select>
+        <div class="zone"><svg class="ic" aria-hidden="true"><use href="#i-device"/></svg>On this device</div>
+        <div class="panel-body">
+          <h2 id="h-in"><span class="step">1</span> Message</h2>
+          <div class="samples">
+            <span class="field-label" id="samples-label">Try a sample</span>
+            <div id="samples" class="pills" role="group" aria-labelledby="samples-label"></div>
+          </div>
+          <label class="sr" for="input">Message with personal details</label>
+          <textarea id="input" spellcheck="false" placeholder="Paste a message that contains names, phone numbers, IC numbers, addresses…"></textarea>
+          <div class="row">
+            <label for="task">Task for the cloud model</label>
+            <select id="task">
+              <option value="reply">Draft a reply</option>
+              <option value="summary">Summarise for a colleague</option>
+              <option value="actions">Extract action items</option>
+              <option value="custom">Custom instruction…</option>
+            </select>
+          </div>
+          <label class="sr" for="custom-task">Custom instruction</label>
+          <input id="custom-task" class="hidden" type="text" placeholder="e.g. Translate this into Bahasa Melayu" />
+          <button id="btn-redact" class="primary"><span class="spin" aria-hidden="true"></span><span class="lbl">Redact on this device</span></button>
+          <p class="hint" id="redact-hint"></p>
         </div>
-        <input id="custom-task" class="hidden" type="text" placeholder="e.g. Translate this into Bahasa Melayu" />
-        <button id="btn-redact" class="primary">Redact on this device</button>
-        <p class="hint" id="redact-hint"></p>
       </section>
 
       <section class="panel lock" aria-labelledby="h-lock">
-        <div class="zone out">Leaves this device</div>
-        <h2 id="h-lock"><span class="step">2</span> What the cloud will see</h2>
-        <div id="lock-empty" class="empty">Redacted text appears here. Nothing is sent until you press send.</div>
-        <div id="lock-body" class="hidden">
-          <pre id="redacted" class="text"></pre>
-          <div id="warn" class="warn hidden"></div>
-          <h3>Hidden details <span id="count" class="muted"></span></h3>
-          <ul id="entities" class="entities"></ul>
-          <form id="add-form" class="add">
-            <input id="add-text" type="text" placeholder="Hide something else (exact text)" />
-            <label class="sr" for="add-type">Kind of detail</label>
-            <select id="add-type">
-              <option value="PERSON">Name</option>
-              <option value="ADDRESS">Address</option>
-              <option value="ORGANIZATION">Organisation</option>
-              <option value="OTHER">Other</option>
-            </select>
-            <button type="submit" class="ghost">Hide</button>
-          </form>
-          <label id="consent-row" class="consent hidden"><input type="checkbox" id="consent" /> I checked the text above and it is safe to send.</label>
-          <button id="btn-send" class="primary">Send redacted text</button>
-          <p class="hint" id="send-hint"></p>
+        <div class="zone out"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg>Leaves this device</div>
+        <div class="panel-body">
+          <h2 id="h-lock"><span class="step">2</span> What the cloud will see</h2>
+          <div id="lock-empty" class="empty">
+            <svg class="empty-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 6v20" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.2" fill="currentColor"/></svg>
+            <p>The redacted text appears here.<br />Nothing is sent until you press send.</p>
+          </div>
+          <div id="lock-body" class="hidden">
+            <pre id="redacted" class="text" aria-live="polite"></pre>
+            <div id="warn" class="warn hidden"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span id="warn-text"></span></div>
+            <div class="sub-head">
+              <h3>Hidden details</h3>
+              <span id="count" class="count"></span>
+            </div>
+            <ul id="entities" class="entities"></ul>
+            <form id="add-form" class="add">
+              <label class="sr" for="add-text">Hide something else</label>
+              <input id="add-text" type="text" placeholder="Hide something else (exact text)" />
+              <label class="sr" for="add-type">Kind of detail</label>
+              <select id="add-type">
+                <option value="PERSON">Name</option>
+                <option value="ADDRESS">Address</option>
+                <option value="ORGANIZATION">Organisation</option>
+                <option value="OTHER">Other</option>
+              </select>
+              <button type="submit" class="ghost">Hide</button>
+            </form>
+            <label id="consent-row" class="consent hidden"><input type="checkbox" id="consent" /> <span>I checked the text above and it is safe to send.</span></label>
+            <button id="btn-send" class="primary"><span class="spin" aria-hidden="true"></span><span class="lbl">Send redacted text</span></button>
+            <p class="hint" id="send-hint"></p>
+          </div>
         </div>
       </section>
 
       <section class="panel device" aria-labelledby="h-out">
-        <div class="zone">Back on this device</div>
-        <h2 id="h-out"><span class="step">3</span> Result</h2>
-        <div id="out-empty" class="empty">The answer comes back with placeholders, and the real details are filled in here, locally.</div>
-        <div id="out-body" class="hidden">
-          <div class="row tight">
-            <span id="source-badge" class="badge"></span>
-            <label class="toggle"><input type="checkbox" id="show-raw" /> Show what the cloud wrote</label>
+        <div class="zone"><svg class="ic" aria-hidden="true"><use href="#i-return"/></svg>Back on this device</div>
+        <div class="panel-body">
+          <h2 id="h-out"><span class="step">3</span> Result</h2>
+          <div id="out-empty" class="empty">
+            <svg class="empty-ic" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-return"/></svg>
+            <p id="out-empty-text">The answer comes back with placeholders, and the real details are filled in here, locally.</p>
           </div>
-          <pre id="result" class="text"></pre>
-          <button id="btn-copy" class="ghost">Copy result</button>
+          <div id="out-body" class="hidden">
+            <div class="row tight">
+              <span id="source-badge" class="badge"></span>
+              <label class="toggle"><input type="checkbox" id="show-raw" /> Show what the cloud wrote</label>
+            </div>
+            <pre id="result" class="text"></pre>
+            <button id="btn-copy" class="ghost">Copy result</button>
+          </div>
+          <div id="out-error" class="error hidden" role="alert">
+            <p class="error-title"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span id="error-title"></span></p>
+            <p class="error-detail" id="error-detail"></p>
+          </div>
         </div>
-        <div id="out-error" class="error hidden" role="alert"></div>
       </section>
     </main>
 
-    <section class="log" aria-labelledby="h-log">
-      <h2 id="h-log">Egress log <span class="muted">— every request that left this device</span></h2>
-      <ol id="log" class="log-list"><li class="muted">Nothing has left this device yet.</li></ol>
+    <section class="log enter" aria-labelledby="h-log">
+      <div class="log-head">
+        <div>
+          <h2 id="h-log">Egress log</h2>
+          <p class="log-sub">Every request that left this device, with its full payload.</p>
+        </div>
+        <dl class="tally">
+          <div><dt>Requests sent</dt><dd id="tally-req">0</dd></div>
+          <div class="tally-safe"><dt>Hidden details in payloads</dt><dd id="tally-leak">0</dd></div>
+        </dl>
+      </div>
+      <ol id="log" class="log-list"></ol>
+      <div id="log-empty" class="log-empty">
+        <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>
+        <p><strong>Nothing has left this device.</strong> <span id="log-empty-why"></span></p>
+      </div>
     </section>
 
-    <footer class="foot">
+    <footer class="foot enter">
       Built with Firebase AI Logic hybrid inference: Gemini Nano on-device for redaction, Gemini in the cloud for writing.
     </footer>
     <script type="module" src="/src/main.ts"></script>

@@ -67,7 +67,7 @@ npm run demo      # with `npm run dev` running: records assets/demo.mp4 (needs f
 
 ## Tech
 
-TypeScript, Vite, Firebase JS SDK (`firebase/ai`, `firebase/app-check`), Gemini Nano via Chrome's Prompt API, Gemini Developer API, Vitest. Demo recording uses Playwright and ffmpeg.
+TypeScript, Vite, IBM Plex (self-hosted via Fontsource), Firebase JS SDK (`firebase/ai`, `firebase/app-check`), Gemini Nano via Chrome's Prompt API, Gemini Developer API, Vitest. Demo recording uses Playwright and ffmpeg.
 
 ## Status
 
