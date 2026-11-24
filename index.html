@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Airlock redacts personal data on your device with Gemini Nano, lets a cloud model do the writing on the redacted text, then puts the real details back locally." />
+    <title>Airlock</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg>
+        <div>
+          <h1>Airlock</h1>
+          <p class="tag">Redact on your device. Let the cloud write. Put the real details back locally.</p>
+        </div>
+      </div>
+      <div class="status" aria-live="polite">
+        <span id="chip-device" class="chip">Gemini Nano: checking…</span>
+        <span id="chip-cloud" class="chip">Cloud: checking…</span>
+      </div>
+    </header>
+
+    <main class="flow">
+      <section class="panel device" aria-labelledby="h-in">
+        <div class="zone">On this device</div>
+        <h2 id="h-in"><span class="step">1</span> Message</h2>
+        <div class="samples" id="samples"></div>
+        <label class="sr" for="input">Message with personal details</label>
+        <textarea id="input" spellcheck="false" placeholder="Paste a message that contains names, phone numbers, IC numbers, addresses…"></textarea>
+        <div class="row">
+          <label for="task">Task for the cloud model</label>
+          <select id="task">
+            <option value="reply">Draft a reply</option>
+            <option value="summary">Summarise for a colleague</option>
+            <option value="actions">Extract action items</option>
+            <option value="custom">Custom instruction…</option>
+          </select>
+        </div>
+        <input id="custom-task" class="hidden" type="text" placeholder="e.g. Translate this into Bahasa Melayu" />
+        <button id="btn-redact" class="primary">Redact on this device</button>
+        <p class="hint" id="redact-hint"></p>
+      </section>
+
+      <section class="panel lock" aria-labelledby="h-lock">
+        <div class="zone out">Leaves this device</div>
+        <h2 id="h-lock"><span class="step">2</span> What the cloud will see</h2>
+        <div id="lock-empty" class="empty">Redacted text appears here. Nothing is sent until you press send.</div>
+        <div id="lock-body" class="hidden">
+          <pre id="redacted" class="text"></pre>
+          <div id="warn" class="warn hidden"></div>
+          <h3>Hidden details <span id="count" class="muted"></span></h3>
+          <ul id="entities" class="entities"></ul>
+          <form id="add-form" class="add">
+            <input id="add-text" type="text" placeholder="Hide something else (exact text)" />
+            <label class="sr" for="add-type">Kind of detail</label>
+            <select id="add-type">
+              <option value="PERSON">Name</option>
+              <option value="ADDRESS">Address</option>
+              <option value="ORGANIZATION">Organisation</option>
+              <option value="OTHER">Other</option>
+            </select>
+            <button type="submit" class="ghost">Hide</button>
+          </form>
+          <label id="consent-row" class="consent hidden"><input type="checkbox" id="consent" /> I checked the text above and it is safe to send.</label>
+          <button id="btn-send" class="primary">Send redacted text</button>
+          <p class="hint" id="send-hint"></p>
+        </div>
+      </section>
+
+      <section class="panel device" aria-labelledby="h-out">
+        <div class="zone">Back on this device</div>
+        <h2 id="h-out"><span class="step">3</span> Result</h2>
+        <div id="out-empty" class="empty">The answer comes back with placeholders, and the real details are filled in here, locally.</div>
+        <div id="out-body" class="hidden">
+          <div class="row tight">
+            <span id="source-badge" class="badge"></span>
+            <label class="toggle"><input type="checkbox" id="show-raw" /> Show what the cloud wrote</label>
+          </div>
+          <pre id="result" class="text"></pre>
+          <button id="btn-copy" class="ghost">Copy result</button>
+        </div>
+        <div id="out-error" class="error hidden" role="alert"></div>
+      </section>
+    </main>
+
+    <section class="log" aria-labelledby="h-log">
+      <h2 id="h-log">Egress log <span class="muted">— every request that left this device</span></h2>
+      <ol id="log" class="log-list"><li class="muted">Nothing has left this device yet.</li></ol>
+    </section>
+
+    <footer class="foot">
+      Built with Firebase AI Logic hybrid inference: Gemini Nano on-device for redaction, Gemini in the cloud for writing.
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

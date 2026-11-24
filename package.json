@@ -1,0 +1,23 @@
+{
+  "name": "airlock",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Redact personal data on-device with Gemini Nano, let the cloud model do the heavy lifting, restore the real values locally. Built on Firebase AI Logic hybrid inference.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "firebase": "^13.4.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.62.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}
