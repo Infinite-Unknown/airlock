@@ -1,7 +1,7 @@
 import './style.css';
 import { checkOnDevice, detect, TASKS, write, writerPrompt, type OnDeviceStatus, type TaskId } from './airlock';
 import { cloudConfigured, CLOUD_MODEL, getModels } from './firebase';
-import { mergeEntities, redact, type Redaction } from './redact';
+import { findLeaks, mergeEntities, redact, type Redaction } from './redact';
 import type { Entity } from './rules';
 import { SAMPLES } from './samples';
 
@@ -138,20 +138,40 @@ async function downloadNano() {
   const lm = (globalThis as { LanguageModel?: { create(o: unknown): Promise<{ destroy?(): void }> } }).LanguageModel;
   if (!lm) return;
   els.btnRedact.textContent = 'Downloading Gemini Nano…';
+  // Give up waiting if Chrome reports no progress for 30 s; the download carries on in the
+  // background and the next redaction will use Gemini Nano once it is ready.
+  let stall: ReturnType<typeof setTimeout> | undefined;
+  let rearm = () => {};
+  const stalled = new Promise<'stalled'>((res) => {
+    rearm = () => {
+      clearTimeout(stall);
+      stall = setTimeout(() => res('stalled'), 30_000);
+    };
+    rearm();
+  });
   try {
-    const session = await lm.create({
+    const created = lm.create({
       expectedInputs: [{ type: 'text', languages: ['en'] }],
       expectedOutputs: [{ type: 'text', languages: ['en'] }],
       monitor(m: EventTarget) {
         m.addEventListener('downloadprogress', (e) => {
+          rearm();
           const pct = Math.round(((e as ProgressEvent).loaded ?? 0) * 100);
           els.btnRedact.textContent = `Downloading Gemini Nano… ${pct}%`;
         });
       },
     });
-    session.destroy?.();
+    const first = await Promise.race([created, stalled]);
+    if (first === 'stalled') {
+      els.redactHint.textContent =
+        'Gemini Nano is still downloading in the background. Using local pattern rules for now.';
+    } else {
+      first.destroy?.();
+    }
   } catch {
     // fall through: status is re-checked below and rules-only mode is used if needed
+  } finally {
+    clearTimeout(stall);
   }
   state.onDevice = await checkOnDevice();
   renderStatus();
@@ -241,10 +261,11 @@ async function onSend() {
 }
 
 function friendlyError(e: Error): string {
-  const m = e.message || String(e);
-  if (/api[- ]?key/i.test(m)) return `The cloud rejected the Firebase API key. Check .env. (${m})`;
-  if (/app.?check/i.test(m)) return `App Check blocked the request. Register a debug token (see README). (${m})`;
-  if (/fetch|network/i.test(m)) return `Could not reach the cloud and no on-device fallback was available. (${m})`;
+  const full = e.message || String(e);
+  const m = full.length > 240 ? `${full.slice(0, 240)}…` : full;
+  if (/api[- ]?key/i.test(full)) return `The cloud rejected the Firebase API key. Check .env. (${m})`;
+  if (/app.?check/i.test(full)) return `App Check blocked the request. Register a debug token (see README). (${m})`;
+  if (/failed to fetch|network/i.test(full)) return `Could not reach the cloud and no on-device fallback was available. (${m})`;
   return m;
 }
 
@@ -289,7 +310,7 @@ function addLog(payload: string, source?: string, outcome = 'answered') {
   const time = new Date().toLocaleTimeString();
   const where =
     source === 'on_device' ? 'stayed on device (on-device fallback)' : `sent to ${CLOUD_MODEL}, ${outcome}`;
-  li.innerHTML = `<details><summary><b>${time}</b> · ${payload.length} characters · ${where} · personal details sent: <b>0</b></summary><pre class="text small">${esc(payload)}</pre></details>`;
+  li.innerHTML = `<details><summary><b>${time}</b> · ${payload.length} characters · ${where} · hidden details in payload: <b>${findLeaks(payload, state.redaction?.placeholders ?? []).length}</b></summary><pre class="text small">${esc(payload)}</pre></details>`;
   els.log.prepend(li);
 }
 
