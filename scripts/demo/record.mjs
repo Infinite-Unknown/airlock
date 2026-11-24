@@ -50,18 +50,49 @@ const RECTS = {
   logRow: '#log > li:first-child',
   logSummary: '#log > li:first-child summary',
   logPayload: '#log > li:first-child pre',
+  logProof: '#log > li:first-child .log-proof',
+  tallyReq: '#tally-req',
+  tallyLeak: '#tally-leak',
+  tallyReqBox: '.tally > div:first-child',
+  tallyLeakBox: '.tally > div:last-child',
+  addForm: '#add-form',
+  rawToggleBox: '.toggle',
+  lockBody: '#lock-body',
+};
+// groups of small elements, clipped to the visible part of their scroll container
+const GROUPS = {
+  srcNano: ['#entities li .src', '#entities', /nano/i],
+  srcRule: ['#entities li .src', '#entities', /rule/i],
+  links: ['#entities li .link', '#entities', null],
+  restoredMarks: ['#result mark.restored', '#result', null],
+  resultToks: ['#result .tok', '#result', null],
+  redactedToks: ['#redacted .tok', '#redacted', null],
 };
 async function rects() {
-  return page.evaluate((sel) => {
+  return page.evaluate(([sel, groups]) => {
+    const box = (r) => ({ x: r.left, y: r.top, w: r.width, h: r.height });
     const out = {};
     for (const [k, s] of Object.entries(sel)) {
       const el = document.querySelector(s);
       if (!el) continue;
       const r = el.getBoundingClientRect();
-      if (r.width && r.height) out[k] = { x: r.left, y: r.top, w: r.width, h: r.height };
+      if (r.width && r.height) out[k] = box(r);
+    }
+    for (const [k, [s, clip, re]] of Object.entries(groups)) {
+      const c = document.querySelector(clip)?.getBoundingClientRect();
+      if (!c) continue;
+      const list = [];
+      for (const el of document.querySelectorAll(s)) {
+        if (re && !new RegExp(re.source, re.flags).test(el.textContent ?? '')) continue;
+        // one rect per line box, so wrapped values get one ring per line
+        for (const r of el.getClientRects()) {
+          if (r.width && r.height && r.top >= c.top - 1 && r.bottom <= c.bottom + 1) list.push(box(r));
+        }
+      }
+      if (list.length) out[k] = list;
     }
     return out;
-  }, RECTS);
+  }, [RECTS, Object.fromEntries(Object.entries(GROUPS).map(([k, [a, b, re]]) => [k, [a, b, re && { source: re.source, flags: re.flags }]]))]);
 }
 
 const run = { viewport: { width: W, height: H }, scale: 2, frames: [], marks: {}, moves: [], clicks: [], scrolls: [] };
@@ -118,6 +149,32 @@ await page.waitForFunction(() => !/checking/i.test(document.querySelector('#chip
 // Recording-only styles: hide the page scrollbar and leave room below the egress log so it can be
 // scrolled to the top of the viewport with its payload open.
 await page.addStyleTag({ content: 'html{scrollbar-width:none}body{padding-bottom:300px !important}' });
+// Log each placeholder as it lands in the redacted text, and each real value as it is restored in
+// the answer, with its position, so the editor can put a callout on it at that moment.
+await page.evaluate(() => {
+  window.__landed = [];
+  const watch = (root, match, kind) =>
+    new MutationObserver((muts) => {
+      for (const m of muts)
+        for (const n of m.addedNodes) {
+          if (!(n instanceof HTMLElement) || !n.matches(match)) continue;
+          const t = Date.now() / 1000;
+          requestAnimationFrame(() => {
+            // measure without the land-in scale so the ring fits the settled element
+            const anim = n.getAnimations();
+            anim.forEach((a) => a.pause());
+            const prev = n.style.transform;
+            n.style.transform = 'none';
+            const rs = [...n.getClientRects()].map((r) => ({ x: r.left, y: r.top, w: r.width, h: r.height }));
+            n.style.transform = prev;
+            anim.forEach((a) => a.play());
+            window.__landed.push({ kind, t, text: n.textContent, rects: rs });
+          });
+        }
+    }).observe(document.querySelector(root), { childList: true, subtree: true });
+  watch('#redacted', '.tok', 'placeholder');
+  watch('#result', 'mark.restored', 'restored');
+});
 await page.mouse.move(mouse.x, mouse.y);
 await wait(1200);
 
@@ -217,6 +274,7 @@ await mark('end');
 
 await cdp.send('Page.stopScreencast');
 await wait(300);
+run.landed = await page.evaluate(() => window.__landed);
 run.summary = {
   chip,
   cloudChip: ((await page.textContent('#chip-cloud')) ?? '').replace(/\s+/g, ' ').trim(),
