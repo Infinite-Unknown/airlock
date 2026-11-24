@@ -38,7 +38,9 @@ Without a `.env` the app still runs: redaction and review work, and the cloud st
 1. Create a Firebase project in the [Firebase console](https://console.firebase.google.com/) and add a **Web app**.
 2. Open **AI Logic** in the console and enable the **Gemini Developer API**.
 3. Copy the web app config values into `.env` (`VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_APP_ID`, and the rest).
-4. Optional, recommended: **App Check** with reCAPTCHA Enterprise. Put the site key in `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY`. For local testing with enforcement on, set `VITE_APPCHECK_DEBUG_TOKEN=true`, open the app, copy the debug token from the browser console, and register it under App Check > Manage debug tokens.
+4. **App Check.** Firebase AI Logic enforces App Check, so cloud requests fail with `401 Firebase App Check token is invalid` until one of these is set up:
+   - Local development: put a UUID in `VITE_APPCHECK_DEBUG_TOKEN` (or set it to `true` and copy the token the SDK prints in the browser console) and register that token under App Check > Apps > your web app > Manage debug tokens. No site key is needed for this.
+   - Hosted: create a reCAPTCHA Enterprise key for your domain, register the web app with it in App Check, and put the site key in `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY`.
 5. `VITE_CLOUD_MODEL` picks the cloud model (default `gemini-3.5-flash-lite`).
 
 ### Gemini Nano in Chrome
