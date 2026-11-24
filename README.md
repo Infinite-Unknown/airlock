@@ -73,12 +73,16 @@ TypeScript, Vite, IBM Plex (self-hosted via Fontsource), Firebase JS SDK (`fireb
 
 ## Status
 
-Tested so far (Chrome-based browsers without Gemini Nano, no Firebase project yet):
+Seen working (2026-11-24, Chromium without Gemini Nano, real Firebase project with an App Check debug token):
 
-- Pattern-rule redaction, manual hiding and un-hiding, the consent step, the leak check, and the egress log, in the browser and in unit tests.
-- The cloud call is a real Firebase AI Logic `generateContent` request: with a placeholder config it reaches `firebasevertexai.googleapis.com` and is rejected for the invalid key, and the captured request body contains only placeholders.
+- The full cloud path: redact with the pattern rules and manual hiding, send only the redacted text through Firebase AI Logic to Gemini, get a real answer back with placeholders, and restore the real values locally.
+- The egress log, the "what the cloud wrote" toggle, the consent step and the leak check.
 
-Still to be run: the Gemini Nano redaction step in Chrome with the model installed, and a successful cloud answer with a real Firebase project.
+Not yet seen: the Gemini Nano redaction step in Chrome with the model installed.
+
+## Deploying publicly
+
+Firebase AI Logic enforces App Check. The debug token is for local development only, so a public deploy (for example Firebase Hosting) needs a reCAPTCHA Enterprise key for the site's domain, registered for the web app under App Check, with its site key in `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY`. Also restrict the Firebase API key to that domain.
 
 ## Known limits
 
