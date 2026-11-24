@@ -99,6 +99,12 @@ describe('on-device gate', () => {
     ]);
   });
 
+  it('drops a model entity that overlaps a pattern-rule match', async () => {
+    const detector = stubModel('{"entities":[{"text":"IC 900101-14-5678","type":"ID_NUMBER"},{"text":"Aisyah","type":"PERSON"}]}', 'on_device');
+    const r = await detect('Aisyah, IC 900101-14-5678', detector, 'available');
+    expect(r.entities.map((e) => `${e.source}:${e.text}`)).toEqual(['rule:900101-14-5678', 'on-device:Aisyah']);
+  });
+
   it('parses junk as no entities', () => {
     expect(parseEntities('sorry, I cannot')).toEqual([]);
   });

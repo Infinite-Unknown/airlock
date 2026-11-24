@@ -53,6 +53,7 @@ The on-device step needs Google Chrome with the built-in Prompt API and the Gemi
 npm test          # unit tests (vitest)
 npm run build     # type-check and production build into dist/
 npm run demo      # with `npm run dev` running: records assets/demo.mp4 (needs ffmpeg and a Playwright Chromium)
+npm run demo:nano # records the Gemini Nano step in Google Chrome to assets/nano-clip.mp4 (dedicated profile in .chrome-profile/, Nano already downloaded)
 ```
 
 ## Project layout
@@ -73,12 +74,12 @@ TypeScript, Vite, IBM Plex (self-hosted via Fontsource), Firebase JS SDK (`fireb
 
 ## Status
 
-Seen working (2026-11-24, Chromium without Gemini Nano, real Firebase project with an App Check debug token):
+Seen working (2026-11-24):
 
-- The full cloud path: redact with the pattern rules and manual hiding, send only the redacted text through Firebase AI Logic to Gemini, get a real answer back with placeholders, and restore the real values locally.
-- The egress log, the "what the cloud wrote" toggle, the consent step and the leak check.
+- **Google Chrome 158 with Gemini Nano:** on-device redaction of all three samples through Firebase AI Logic (names, organisations, addresses, dates found by Gemini Nano; IDs, emails, phones and card numbers by the pattern rules), then the full flow: only the redacted text sent to Gemini in the cloud, the real answer restored locally.
+- **Chromium without Gemini Nano:** the same cloud flow with pattern rules plus manual hiding, the warning and consent step, the leak check and the egress log.
 
-Not yet seen: the Gemini Nano redaction step in Chrome with the model installed.
+Not yet seen: the writer's on-device fallback when the cloud is unreachable.
 
 ## Deploying publicly
 

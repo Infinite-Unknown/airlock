@@ -38,6 +38,13 @@ export function mergeEntities(source: string, ...lists: Entity[][]): Entity[] {
       if (!source.includes(text)) continue;
       const key = text.toLowerCase();
       if (seen.has(key)) continue;
+      // A pattern-rule match already covers this value (e.g. the model returns "IC 900101-14-5678"
+      // where a rule found "900101-14-5678"): keep the rule's, drop the overlapping one.
+      if (
+        e.source !== 'rule' &&
+        out.some((o) => o.source === 'rule' && (key.includes(o.text.toLowerCase()) || o.text.toLowerCase().includes(key)))
+      )
+        continue;
       seen.add(key);
       out.push({ ...e, text });
     }
