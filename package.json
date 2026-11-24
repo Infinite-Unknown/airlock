@@ -10,7 +10,10 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "demo": "node scripts/record-demo.mjs",
+    "demo:voice": "node scripts/demo/voiceover.mjs",
+    "demo:record": "node scripts/demo/record.mjs",
+    "demo:edit": "node scripts/demo/edit.mjs",
+    "demo:upload": "node scripts/demo/upload.mjs",
     "demo:nano": "node scripts/record-nano-clip.mjs"
   },
   "dependencies": {

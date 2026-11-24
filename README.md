@@ -52,8 +52,16 @@ The on-device step needs Google Chrome with the built-in Prompt API and the Gemi
 ```bash
 npm test          # unit tests (vitest)
 npm run build     # type-check and production build into dist/
-npm run demo      # with `npm run dev` running: records assets/demo.mp4 (needs ffmpeg and a Playwright Chromium)
 npm run demo:nano # records the Gemini Nano step in Google Chrome to assets/nano-clip.mp4 (dedicated profile in .chrome-profile/, Nano already downloaded)
+```
+
+The demo video (`assets/demo.mp4`) is made from the real app in these steps, with `npm run dev -- --port 5397` running:
+
+```bash
+KOKORO_PY=... KOKORO_TTS=... npm run demo:voice   # voice-over lines in scripts/demo/voiceover.json -> WAVs (Kokoro, af_heart)
+npm run demo:record   # Google Chrome + Gemini Nano, 1600x900 at 2x: frames, clicks and element positions
+npm run demo:edit     # camera moves, cursor, captions, title and end cards, audio at -16 LUFS -> assets/demo.mp4
+npm run demo:upload   # optional: a two-pass copy under 9.5 MB -> assets/demo-upload.mp4
 ```
 
 ## Project layout
@@ -67,10 +75,11 @@ npm run demo:nano # records the Gemini Nano step in Google Chrome to assets/nano
 | `src/main.ts`, `index.html`, `src/style.css` | The three-panel UI and egress log |
 | `src/samples.ts` | Fictional sample messages |
 | `tests/airlock.test.ts` | Unit tests for rules, redaction, the on-device gate and the send step |
+| `scripts/demo/` | Demo video pipeline: voice-over lines, Chrome recorder, editor (camera, cursor, captions, cards, audio) |
 
 ## Tech
 
-TypeScript, Vite, IBM Plex (self-hosted via Fontsource), Firebase JS SDK (`firebase/ai`, `firebase/app-check`), Gemini Nano via Chrome's Prompt API, Gemini Developer API, Vitest. Demo recording uses Playwright and ffmpeg.
+TypeScript, Vite, IBM Plex (self-hosted via Fontsource), Firebase JS SDK (`firebase/ai`, `firebase/app-check`), Gemini Nano via Chrome's Prompt API, Gemini Developer API, Vitest. Demo recording uses Playwright, ffmpeg and Kokoro for the voice-over.
 
 ## Status
 
