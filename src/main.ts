@@ -1,7 +1,9 @@
 import './style.css';
-import { checkOnDevice, detect, TASKS, write, writerPrompt, type OnDeviceStatus, type TaskId } from './airlock';
-import { cloudConfigured, CLOUD_MODEL, getModels } from './firebase';
-import { findLeaks, mergeEntities, redact, type Placeholder, type Redaction } from './redact';
+import { checkOnDevice, detect, TASKS, write, writerPrompt, type OnDeviceStatus, type TaskId } from './sulit';
+import { cloudConfigured, currentSettings, getModels, loadSettings } from './firebase';
+import { blockedRequests, installOutageSwitch, isOutage, setOutage } from './outage';
+import { expandNames, findLeaks, mergeEntities, redact, type Placeholder, type Redaction } from './redact';
+import { describeMode } from './settings';
 import type { Entity } from './rules';
 import { SAMPLES } from './samples';
 
@@ -14,6 +16,8 @@ const els = {
   input: $<HTMLTextAreaElement>('input'),
   task: $<HTMLSelectElement>('task'),
   customTask: $<HTMLInputElement>('custom-task'),
+  modeHint: $('mode-hint'),
+  outage: $<HTMLInputElement>('outage'),
   btnRedact: $<HTMLButtonElement>('btn-redact'),
   redactHint: $('redact-hint'),
   lockEmpty: $('lock-empty'),
@@ -155,13 +159,17 @@ function renderStatus() {
     'no-api': 'Gemini Nano not available in this browser',
   };
   setChip(els.chipDevice, 'On-device', deviceText[d], d === 'available');
+  const st = currentSettings();
   setChip(
     els.chipCloud,
     'Cloud',
-    cloudConfigured ? `${CLOUD_MODEL} via Firebase AI Logic` : 'not configured',
-    cloudConfigured,
-    cloudConfigured ? '' : 'Add your Firebase web config to .env (see README) to turn on the cloud step.',
+    !cloudConfigured ? 'not configured' : isOutage() ? 'unreachable (simulated outage)' : `${st.cloudModel} via Firebase AI Logic`,
+    cloudConfigured && !isOutage(),
+    !cloudConfigured
+      ? 'Add your Firebase web config to .env (see README) to turn on the cloud step.'
+      : `Model and modes from ${st.source === 'remote' ? 'Firebase Remote Config' : 'the in-app defaults (no Remote Config values yet)'}.`,
   );
+  renderMode();
 
   els.redactHint.textContent =
     d === 'available'
@@ -187,12 +195,31 @@ function setBusy(btn: HTMLButtonElement, label: string | null, idleLabel: string
 }
 const REDACT_LABEL = 'Redact on this device';
 const SEND_LABEL = 'Send redacted text';
+const RUN_LABEL = 'Run on this device';
 
 // ---------- step 1: redact ----------
 
-function currentTask(): string {
+interface CurrentTask {
+  prompt: string;
+  model: 'writer' | 'quick';
+}
+function currentTask(): CurrentTask {
   const id = els.task.value as TaskId;
-  return id === 'custom' ? els.customTask.value.trim() : TASKS[id];
+  if (id === 'custom') return { prompt: els.customTask.value.trim(), model: 'writer' };
+  return { prompt: TASKS[id].prompt, model: TASKS[id].model };
+}
+
+/** True when the chosen task will run on Gemini Nano without trying the cloud first. */
+function runsLocally(t = currentTask()): boolean {
+  const mode = t.model === 'quick' ? currentSettings().quickMode : currentSettings().writerMode;
+  return state.onDevice === 'available' && (mode === 'prefer_on_device' || mode === 'only_on_device');
+}
+
+function renderMode() {
+  const t = currentTask();
+  const st = currentSettings();
+  const mode = t.model === 'quick' ? st.quickMode : st.writerMode;
+  els.modeHint.textContent = `${describeMode(mode)}. Set by ${st.source === 'remote' ? 'Firebase Remote Config' : 'the in-app defaults'}.`;
 }
 
 async function onRedact() {
@@ -368,14 +395,18 @@ function updateSendButton() {
   const needsConsent = !state.usedOnDevice && !els.consent.checked;
   const task = currentTask();
   let reason = '';
-  if (!cloudConfigured) reason = 'Cloud step is off: add your Firebase config to .env (see README).';
-  else if (!task) reason = 'Write a custom instruction first.';
+  const local = runsLocally(task);
+  if (!cloudConfigured && !local) reason = 'Cloud step is off: add your Firebase config to .env (see README).';
+  else if (!task.prompt) reason = 'Write a custom instruction first.';
   else if (needsConsent) reason = 'Confirm you checked the text.';
   els.btnSend.disabled = Boolean(reason);
+  els.btnSend.querySelector('.lbl')!.textContent = local ? RUN_LABEL : SEND_LABEL;
   const n = state.redaction?.placeholders.length ?? 0;
   els.sendHint.textContent =
     reason ||
-    `Sends ${state.redaction?.redacted.length ?? 0} characters of redacted text. ${n} ${n === 1 ? 'detail stays' : 'details stay'} on this device.`;
+    (local
+      ? `Runs on Gemini Nano, on this device. Nothing leaves.`
+      : `Sends ${state.redaction?.redacted.length ?? 0} characters of redacted text. ${n} ${n === 1 ? 'detail stays' : 'details stay'} on this device.`);
 }
 
 // ---------- step 2 + 3: send and restore ----------
@@ -383,21 +414,25 @@ function updateSendButton() {
 async function onSend() {
   if (!state.redaction) return;
   const task = currentTask();
+  const local = runsLocally(task);
   els.btnSend.disabled = true;
-  setBusy(els.btnSend, 'Waiting for the cloud model…', SEND_LABEL);
+  setBusy(els.btnSend, local ? 'Gemini Nano is working…' : 'Waiting for the cloud model…', SEND_LABEL);
   hideError();
   try {
-    const { writer } = getModels();
-    const out = await write(task, state.redaction, writer);
+    const m = getModels();
+    const blockedBefore = blockedRequests();
+    const out = await write(task.prompt, state.redaction, task.model === 'quick' ? m.quick : m.writer);
     state.cloudText = out.cloudText;
     state.restored = out.restored;
+    // The SDK tried the cloud first and the outage switch stopped it: show that attempt, then the fallback.
+    if (blockedRequests() > blockedBefore) addLog(out.prompt, undefined, 'blocked');
     addLog(out.prompt, out.inferenceSource);
-    renderResult(out.inferenceSource);
+    renderResult(out.inferenceSource, task.model);
   } catch (e) {
     const err = e as Error;
-    // A refusal happens before anything is sent; any other error means the request went out.
+    // A refusal happens before anything is sent; a blocked or failed request is logged as failed.
     if (!/^Refusing to send/.test(err.message)) {
-      addLog(writerPrompt(task, state.redaction.redacted), undefined, 'failed');
+      addLog(writerPrompt(task.prompt, state.redaction.redacted), undefined, isOutage() ? 'blocked' : 'failed');
     }
     const { title, detail } = friendlyError(err);
     showError(title, detail);
@@ -411,21 +446,25 @@ function friendlyError(e: Error): { title: string; detail: string } {
   const full = e.message || String(e);
   const detail = full.length > 240 ? `${full.slice(0, 240)}…` : full;
   if (/^Refusing to send/.test(full))
-    return { title: 'Airlock stopped the request: a hidden detail is still in the text. Nothing was sent.', detail };
+    return { title: 'Sulit stopped the request: a hidden detail is still in the text. Nothing was sent.', detail };
   if (/api[- ]?key/i.test(full)) return { title: 'The cloud rejected the Firebase API key. Check the config in .env.', detail };
   if (/app.?check/i.test(full)) return { title: 'App Check blocked the request. Register a debug token (see README).', detail };
   if (/failed to fetch|network/i.test(full))
-    return { title: 'Could not reach the cloud, and no on-device fallback was available.', detail };
+    return { title: 'Could not reach the cloud, and Gemini Nano is not available here for the fallback. Nothing was sent.', detail };
   return { title: 'The cloud request failed.', detail };
 }
 
-function renderResult(source?: string) {
+function renderResult(source?: string, model: 'writer' | 'quick' = 'writer') {
   els.outEmpty.classList.add('hidden');
   els.outBody.classList.remove('hidden', 'reveal');
   void els.outBody.offsetWidth;
   els.outBody.classList.add('reveal');
+  const st = currentSettings();
+  const cloudFirst = (model === 'quick' ? st.quickMode : st.writerMode) === 'prefer_in_cloud';
   els.sourceBadge.textContent =
-    source === 'on_device' ? 'Written on-device (cloud unreachable)' : `Written in the cloud · ${CLOUD_MODEL}`;
+    source === 'on_device'
+      ? `Written on this device · Gemini Nano${cloudFirst ? ' (cloud unreachable)' : ''}`
+      : `Written in the cloud · ${st.cloudModel}`;
   els.sourceBadge.className = `badge ${source === 'on_device' ? 'b-device' : 'b-cloud'}`;
   renderResultText(true);
 }
@@ -490,9 +529,10 @@ function bump(el: HTMLElement, value: number) {
   el.classList.add('tick');
 }
 
-function addLog(payload: string, source?: string, outcome: 'answered' | 'failed' = 'answered') {
+function addLog(payload: string, source?: string, outcome: 'answered' | 'failed' | 'blocked' = 'answered') {
   state.logCount++;
-  const local = source === 'on_device';
+  // Blocked by the outage switch: the request never left this tab, so it is not counted as sent.
+  const local = source === 'on_device' || outcome === 'blocked';
   const leaks = findLeaks(payload, state.redaction?.placeholders ?? []).length;
   if (!local) {
     state.sentCount++;
@@ -503,9 +543,9 @@ function addLog(payload: string, source?: string, outcome: 'answered' | 'failed'
   els.logEmpty.classList.add('hidden');
 
   const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  const dest = local ? 'Gemini Nano, on this device' : `${CLOUD_MODEL}`;
-  const label = local ? 'stayed on device' : outcome === 'failed' ? 'request failed' : 'answered';
-  const cls = local ? 'local' : outcome === 'failed' ? 'failed' : '';
+  const dest = outcome === 'blocked' ? `${currentSettings().cloudModel} (blocked: simulated outage)` : local ? 'Gemini Nano, on this device' : currentSettings().cloudModel;
+  const label = outcome === 'blocked' ? 'never left' : local ? 'stayed on device' : outcome === 'failed' ? 'request failed' : 'answered';
+  const cls = outcome === 'blocked' ? 'failed' : local ? 'local' : outcome === 'failed' ? 'failed' : '';
   const body = esc(payload).replace(TOKEN_RE, (m, t: string) => tokHtml(m, t));
   const li = document.createElement('li');
   li.className = 'fresh';
@@ -546,11 +586,14 @@ els.samples.addEventListener('click', (ev) => {
   els.input.value = s.text;
   els.task.value = s.task;
   els.customTask.classList.add('hidden');
+  renderMode();
+  updateSendButton();
   markSample(s.id);
 });
 els.input.addEventListener('input', () => markSample(null));
 
 els.task.addEventListener('change', () => {
+  renderMode();
   els.customTask.classList.toggle('hidden', els.task.value !== 'custom');
   if (els.task.value === 'custom') els.customTask.focus();
   updateSendButton();
@@ -584,7 +627,7 @@ els.addForm.addEventListener('submit', (ev) => {
   const v = els.addText.value.trim();
   if (!v) return;
   const type = els.addType.value as Entity['type'];
-  const merged = mergeEntities(state.source, state.entities, [{ text: v, type, source: 'manual' }]);
+  const merged = expandNames(state.source, mergeEntities(state.source, state.entities, [{ text: v, type, source: 'manual' }]));
   if (merged.length === state.entities.length) {
     els.addText.setCustomValidity('That exact text is not in the message (or is already hidden).');
     els.addText.reportValidity();
@@ -597,8 +640,22 @@ els.addForm.addEventListener('submit', (ev) => {
 });
 els.addText.addEventListener('input', () => els.addText.setCustomValidity(''));
 
+els.outage.addEventListener('change', () => {
+  setOutage(els.outage.checked);
+  renderStatus();
+  updateSendButton();
+});
+
+installOutageSwitch();
+els.task.innerHTML = [
+  ...Object.entries(TASKS).map(([id, t]) => `<option value="${id}">${esc(t.label)}</option>`),
+  '<option value="custom">Custom instruction…</option>',
+].join('');
+renderStatus();
 (async () => {
   state.onDevice = await checkOnDevice();
   renderStatus();
+  await loadSettings();
+  renderStatus();
+  updateSendButton();
 })();
-renderStatus();

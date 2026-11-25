@@ -1,4 +1,4 @@
-// Records the raw footage for the launch video: the real app in Google Chrome with Gemini Nano,
+// Records the raw footage for the demo video: the real app in Google Chrome with Gemini Nano,
 // captured with the CDP screencast at 2x device scale (1600x900 viewport -> 3200x1800 frames).
 // Nothing is drawn into the page. The run log (frame times, marks, mouse moves, clicks and element
 // rectangles) goes to assets/raw-launch/run.json; scripts/demo/edit.mjs turns it into the video.
@@ -58,6 +58,13 @@ const RECTS = {
   addForm: '#add-form',
   rawToggleBox: '.toggle',
   lockBody: '#lock-body',
+  task: '#task',
+  modeHint: '#mode-hint',
+  sendHint: '#send-hint',
+  outage: 'label.outage',
+  logRow2: '#log > li:nth-child(2)',
+  logOutcome: '#log > li:first-child .log-outcome',
+  logOutcome2: '#log > li:nth-child(2) .log-outcome',
 };
 // groups of small elements, clipped to the visible part of their scroll container
 const GROUPS = {
@@ -67,6 +74,7 @@ const GROUPS = {
   restoredMarks: ['#result mark.restored', '#result', null],
   resultToks: ['#result .tok', '#result', null],
   redactedToks: ['#redacted .tok', '#redacted', null],
+  lit: ['#redacted .strike', '#redacted', null],
 };
 async function rects() {
   return page.evaluate(([sel, groups]) => {
@@ -139,9 +147,12 @@ const ready = () =>
 await ready().catch(() => {});
 const chip = ((await page.textContent('#chip-device')) ?? '').replace(/\s+/g, ' ').trim();
 if (!/ready/i.test(chip)) throw new Error(`Gemini Nano is not ready in this Chrome profile: "${chip}"`);
-await page.click('button[data-sample="support"]');
+await page.click('button[data-sample="insurance"]');
 await page.click('#btn-redact');
 await page.waitForFunction(() => !document.querySelector('#lock-body')?.classList.contains('hidden') && !document.querySelector('#btn-redact')?.disabled, null, { timeout: 120000 });
+await page.selectOption('#task', 'triage');
+await page.click('#btn-send');
+await page.waitForSelector('#out-body:not(.hidden), #out-error:not(.hidden)', { timeout: 120000 });
 await page.reload();
 await page.evaluate(() => document.fonts.ready);
 await ready();
@@ -149,6 +160,12 @@ await page.waitForFunction(() => !/checking/i.test(document.querySelector('#chip
 // Recording-only styles: hide the page scrollbar and leave room below the egress log so it can be
 // scrolled to the top of the viewport with its payload open.
 await page.addStyleTag({ content: 'html{scrollbar-width:none}body{padding-bottom:300px !important}' });
+run.cloudChip = ((await page.textContent('#chip-cloud')) ?? '').replace(/\s+/g, ' ').trim();
+// every request to a Gemini endpoint, with whether the hidden values were in it
+const net = [];
+page.on('request', (r) => {
+  if (/generateContent/.test(r.url())) net.push({ t: Date.now() / 1000, url: r.url(), body: r.postData() ?? '' });
+});
 // Log each placeholder as it lands in the redacted text, and each real value as it is restored in
 // the answer, with its position, so the editor can put a callout on it at that moment.
 await page.evaluate(() => {
@@ -173,6 +190,12 @@ await page.evaluate(() => {
         }
     }).observe(document.querySelector(root), { childList: true, subtree: true });
   watch('#redacted', '.tok', 'placeholder');
+  // the moment every detected value is lit up, before the first strike: the hook frame
+  new MutationObserver(() => {
+    const lit = [...document.querySelectorAll('#redacted .strike.lit')];
+    if (!lit.length || window.__lit) return;
+    window.__lit = { t: Date.now() / 1000, rects: lit.flatMap((n) => [...n.getClientRects()].map((r) => ({ x: r.left, y: r.top, w: r.width, h: r.height }))), n: new Set(lit.map((n) => n.dataset.tok)).size };
+  }).observe(document.querySelector('#redacted'), { subtree: true, attributes: true, attributeFilter: ['class'] });
   watch('#result', 'mark.restored', 'restored');
 });
 await page.mouse.move(mouse.x, mouse.y);
@@ -200,19 +223,19 @@ await page.evaluate(() =>
 await mark('start');
 await wait(3000);
 
-// problem: load the clinic sample
+// the patient's message
 await glideTo('button[data-sample="clinic"]', 1000);
 await wait(250);
 await mark('sampleClick');
 await click();
 await wait(600);
 await mark('sample');
-await wait(5000);
+await wait(5500);
 
 // status chips
 await glideTo('#chip-device', 1100, -10, 0);
 await mark('chips');
-await wait(5500);
+await wait(5000);
 
 // step 1: redaction on the device
 await glideTo('#btn-redact', 1100);
@@ -228,34 +251,47 @@ await wait(1500);
 // review: what the cloud will see
 await glideTo('#entities > li:nth-child(1) .src', 1100);
 await mark('entities');
-await wait(6000);
+await wait(5000);
 const entities = await page.$$eval('#entities li', (els) =>
   els.map((e) => ({ tok: e.querySelector('.tok')?.textContent?.trim(), val: e.querySelector('.val')?.textContent?.trim(), src: e.querySelector('.src')?.textContent?.trim() })),
 );
 
-// step 2: send, step 3: restore
-await glideTo('#btn-send', 1000);
-await wait(300);
-await mark('sendClick');
+// quick task on the device (PREFER_ON_DEVICE): triage
+await glideTo('#task', 900);
+await wait(200);
+await page.selectOption('#task', 'triage');
+await wait(500);
+await mark('triageTask');
+await wait(3500);
+await glideTo('#btn-send', 900);
+await wait(250);
+await mark('triageClick');
 await click();
 await page.waitForSelector('#out-body:not(.hidden), #out-error:not(.hidden)', { timeout: 90000 });
+await wait(900);
+await mark('triageDone');
+if (!(await page.isVisible('#out-body'))) throw new Error(`triage failed: ${await page.textContent('#out-error')}`);
+const triage = { badge: (await page.textContent('#source-badge'))?.trim(), text: (await page.textContent('#result'))?.trim() };
+await wait(4500);
+
+// draft a reply in Bahasa Melayu (PREFER_IN_CLOUD)
+await glideTo('#task', 900);
+await wait(200);
+await page.selectOption('#task', 'reply_ms');
+await wait(500);
+await mark('replyTask');
+await wait(2500);
+await glideTo('#btn-send', 900);
+await wait(250);
+await mark('sendClick');
+await click();
+await page.waitForFunction(() => /cloud/i.test(document.querySelector('#source-badge')?.textContent ?? '') || !document.querySelector('#out-error')?.classList.contains('hidden'), null, { timeout: 90000 });
 await mark('answer');
 if (!(await page.isVisible('#out-body'))) throw new Error(`cloud step failed: ${await page.textContent('#out-error')}`);
 await wait(2500);
 await mark('restored');
+const reply = { badge: (await page.textContent('#source-badge'))?.trim(), text: (await page.textContent('#result'))?.trim() };
 await wait(4500);
-
-// what the cloud really wrote
-await glideTo('#show-raw', 900);
-await wait(250);
-await mark('rawClick');
-await click();
-await wait(400);
-await mark('rawOn');
-await wait(4500);
-await mark('rawOffClick');
-await click();
-await wait(1500);
 
 // egress log
 await mark('scroll');
@@ -269,22 +305,72 @@ await mark('logClick');
 await click();
 await wait(700);
 await mark('logOpen');
-await wait(6500);
+await wait(6000);
+const log1 = await page.$$eval('#log > li', (els) => els.map((e) => e.querySelector('summary')?.textContent?.replace(/\s+/g, ' ').trim()));
+const tally1 = { req: (await page.textContent('#tally-req'))?.trim(), leak: (await page.textContent('#tally-leak'))?.trim() };
+await click(); // close the payload again
+await wait(400);
+
+// cloud outage: the writer falls back to Gemini Nano
+await mark('scrollUp');
+await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+await wait(1400);
+run.scrolls.push({ t: now(), y: await page.evaluate(() => scrollY) });
+await glideTo('label.outage', 1000, -60, 0);
+await wait(250);
+await mark('outageClick');
+await click();
+await wait(700);
+await mark('outageOn');
+await wait(3500);
+await glideTo('#task', 900);
+await wait(200);
+await page.selectOption('#task', 'reply');
+await wait(500);
+await mark('fallbackTask');
+await wait(1500);
+await glideTo('#btn-send', 900);
+await wait(250);
+await mark('fallbackClick');
+await click();
+await page.waitForFunction(() => /device/i.test(document.querySelector('#source-badge')?.textContent ?? '') || !document.querySelector('#out-error')?.classList.contains('hidden'), null, { timeout: 120000 });
+await wait(900);
+await mark('fallbackDone');
+if (!(await page.isVisible('#out-body'))) throw new Error(`fallback failed: ${await page.textContent('#out-error')}`);
+const fallback = { badge: (await page.textContent('#source-badge'))?.trim(), text: (await page.textContent('#result'))?.trim() };
+await wait(5000);
+await mark('scroll2');
+await page.evaluate(() => document.querySelector('section.log')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+await wait(1400);
+run.scrolls.push({ t: now(), y: await page.evaluate(() => scrollY) });
+await mark('logFallback');
+await wait(7000);
+const log2 = await page.$$eval('#log > li', (els) => els.map((e) => e.querySelector('summary')?.textContent?.replace(/\s+/g, ' ').trim()));
 await mark('end');
 
 await cdp.send('Page.stopScreencast');
 await wait(300);
 run.landed = await page.evaluate(() => window.__landed);
+run.lit = await page.evaluate(() => window.__lit);
 run.summary = {
   chip,
-  cloudChip: ((await page.textContent('#chip-cloud')) ?? '').replace(/\s+/g, ' ').trim(),
+  cloudChip: run.cloudChip,
   entities,
-  badge: (await page.textContent('#source-badge'))?.trim(),
+  triage,
+  reply,
+  fallback,
+  log1,
+  tally1,
+  log2,
   tallyReq: (await page.textContent('#tally-req'))?.trim(),
   tallyLeak: (await page.textContent('#tally-leak'))?.trim(),
   redact_s: +(run.marks.lockShown.t - run.marks.redactClick.t).toFixed(2),
+  triage_s: +(run.marks.triageDone.t - run.marks.triageClick.t - 0.9).toFixed(2),
   cloud_s: +(run.marks.answer.t - run.marks.sendClick.t).toFixed(2),
+  fallback_s: +(run.marks.fallbackDone.t - run.marks.fallbackClick.t - 0.9).toFixed(2),
 };
+const hidden = entities.map((e) => e.val).filter(Boolean);
+run.summary.cloudRequests = net.map((n) => ({ url: n.url.replace(/\?.*/, ''), leaked: hidden.filter((v) => n.body.toLowerCase().includes(v.toLowerCase())) }));
 await context.close();
 writeFileSync(join(rawDir, 'run.json'), JSON.stringify(run));
 console.log(JSON.stringify(run.summary, null, 2));

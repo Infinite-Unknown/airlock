@@ -1,0 +1,19 @@
+{
+  "parameters": {
+    "cloud_model": {
+      "defaultValue": { "value": "gemini-3.5-flash-lite" },
+      "description": "Cloud Gemini model for the writer and the quick task (they only ever see redacted text).",
+      "valueType": "STRING"
+    },
+    "writer_mode": {
+      "defaultValue": { "value": "prefer_in_cloud" },
+      "description": "Inference mode for drafting replies, summaries and action items: prefer_in_cloud | only_in_cloud | prefer_on_device | only_on_device.",
+      "valueType": "STRING"
+    },
+    "quick_mode": {
+      "defaultValue": { "value": "prefer_on_device" },
+      "description": "Inference mode for the quick triage task: prefer_on_device | only_on_device | prefer_in_cloud | only_in_cloud.",
+      "valueType": "STRING"
+    }
+  }
+}

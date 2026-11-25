@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Airlock redacts personal data on your device with Gemini Nano, lets a cloud model do the writing on the redacted text, then puts the real details back locally." />
+    <meta name="description" content="Sulit keeps patient details at the clinic counter: Gemini Nano redacts them on the PC, Gemini in the cloud writes the reply on placeholders, and the real details are put back locally." />
     <meta name="theme-color" content="#f4f2ec" />
-    <title>Airlock</title>
+    <title>Sulit · patient details stay at the counter</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -23,13 +23,14 @@
       <div class="brand">
         <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg>
         <div>
-          <h1>Airlock</h1>
-          <p class="tag">Redact on your device. Let the cloud write. Put the real details back locally.</p>
+          <h1>Sulit</h1>
+          <p class="tag">Patient details stay at the counter. The cloud only sees placeholders.</p>
         </div>
       </div>
       <div class="status" aria-live="polite">
         <span id="chip-device" class="chip"><span class="chip-k">On-device</span> <span class="chip-v">checking…</span></span>
         <span id="chip-cloud" class="chip"><span class="chip-k">Cloud</span> <span class="chip-v">checking…</span></span>
+        <label class="outage" title="Blocks this tab's requests to the Gemini endpoints, like a dropped connection, to show the on-device fallback."><input type="checkbox" id="outage" /> Simulate a cloud outage</label>
       </div>
     </header>
 
@@ -45,14 +46,12 @@
           <label class="sr" for="input">Message with personal details</label>
           <textarea id="input" spellcheck="false" placeholder="Paste a message that contains names, phone numbers, IC numbers, addresses…"></textarea>
           <div class="row">
-            <label for="task">Task for the cloud model</label>
+            <label for="task">Task</label>
             <select id="task">
-              <option value="reply">Draft a reply</option>
-              <option value="summary">Summarise for a colleague</option>
-              <option value="actions">Extract action items</option>
-              <option value="custom">Custom instruction…</option>
+              <option value="reply">Draft a reply (English)</option>
             </select>
           </div>
+          <p class="hint mode" id="mode-hint"></p>
           <label class="sr" for="custom-task">Custom instruction</label>
           <input id="custom-task" class="hidden" type="text" placeholder="e.g. Translate this into Bahasa Melayu" />
           <button id="btn-redact" class="primary"><span class="spin" aria-hidden="true"></span><span class="lbl">Redact on this device</span></button>
@@ -63,7 +62,7 @@
       <section class="panel lock" aria-labelledby="h-lock">
         <div class="zone out"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg>Leaves this device</div>
         <div class="panel-body">
-          <h2 id="h-lock"><span class="step">2</span> What the cloud will see</h2>
+          <h2 id="h-lock"><span class="step">2</span> What leaves this PC</h2>
           <div id="lock-empty" class="empty">
             <svg class="empty-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 6v20" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.2" fill="currentColor"/></svg>
             <p>The redacted text appears here.<br />Nothing is sent until you press send.</p>
@@ -106,7 +105,7 @@
           <div id="out-body" class="hidden">
             <div class="row tight">
               <span id="source-badge" class="badge"></span>
-              <label class="toggle"><input type="checkbox" id="show-raw" /> Show what the cloud wrote</label>
+              <label class="toggle"><input type="checkbox" id="show-raw" /> Show it with placeholders</label>
             </div>
             <pre id="result" class="text"></pre>
             <button id="btn-copy" class="ghost">Copy result</button>
@@ -127,7 +126,7 @@
         </div>
         <dl class="tally">
           <div><dt>Requests sent</dt><dd id="tally-req">0</dd></div>
-          <div class="tally-safe"><dt>Hidden details in payloads</dt><dd id="tally-leak">0</dd></div>
+          <div class="tally-safe"><dt>Hidden details sent</dt><dd id="tally-leak">0</dd></div>
         </dl>
       </div>
       <ol id="log" class="log-list"></ol>
@@ -138,7 +137,7 @@
     </section>
 
     <footer class="foot enter">
-      Built with Firebase AI Logic hybrid inference: Gemini Nano on-device for redaction, Gemini in the cloud for writing.
+      Sulit (Malay): confidential. Built with Firebase AI Logic hybrid inference: Gemini Nano on this device redacts (ONLY_ON_DEVICE) and triages (PREFER_ON_DEVICE); Gemini in the cloud writes (PREFER_IN_CLOUD). Model and modes from Firebase Remote Config. All sample data is made up.
     </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>

@@ -52,6 +52,33 @@ export function mergeEntities(source: string, ...lists: Entity[][]): Entity[] {
   return out;
 }
 
+// Words inside a name that are not names on their own (Malay patronymics, Indian a/l a/p, titles).
+const NAME_STOP = new Set(
+  'bin binti bte bt a/l a/p s/o d/o anak de da dos van von al el dr encik puan cik mr mrs ms madam haji hajah datuk dato datin tan sri mohd muhammad md nur nurul siti abdul syed sharifah wan tengku nik che raja'.split(' '),
+);
+
+/**
+ * When a full name is hidden ("Hope Tingang"), also hide its parts where they are used on their own
+ * elsewhere in the message ("I hope the doctor can see Hope today"). Only capitalised parts that
+ * really occur on their own are added. Pattern-rule matches are never expanded.
+ */
+export function expandNames(source: string, entities: Entity[]): Entity[] {
+  const extra: Entity[] = [];
+  const countOf = (needle: string) =>
+    [...source.matchAll(new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(needle)}(?![\\p{L}\\p{N}])`, 'gu'))].length;
+  for (const e of entities) {
+    if (e.type !== 'PERSON' || e.source === 'rule') continue;
+    const parts = e.text.split(/\s+/);
+    if (parts.length < 2) continue;
+    const whole = countOf(e.text);
+    for (const p of parts) {
+      if (p.length < 3 || NAME_STOP.has(p.toLowerCase()) || !/^\p{Lu}/u.test(p)) continue;
+      if (countOf(p) > whole) extra.push({ text: p, type: 'PERSON', source: e.source });
+    }
+  }
+  return extra.length ? mergeEntities(source, entities, extra) : entities;
+}
+
 /**
  * Replace every occurrence of every entity with a stable placeholder.
  * Longer values are replaced first so "Aisyah binti Rahman" is not split by "Aisyah".
@@ -88,6 +115,11 @@ export function restore(text: string, placeholders: Placeholder[]): string {
     out = out.replace(new RegExp(`\\[?\\b${inner}\\b\\]?`, 'gi'), p.value);
   }
   return out;
+}
+
+/** Where `value` occurs in `source`, matched the same way redact() replaces it. Returns [start, end) pairs. */
+export function occurrences(source: string, value: string): [number, number][] {
+  return [...source.matchAll(valueRe(value, 'gi'))].map((m) => [m.index ?? 0, (m.index ?? 0) + m[0].length]);
 }
 
 /** Values that would still leave the device in `payload`. Must be empty before any cloud call. */

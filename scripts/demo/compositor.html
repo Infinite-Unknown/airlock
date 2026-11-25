@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Airlock video compositor</title>
+<title>Sulit video compositor</title>
 <style>
   @font-face { font-family: 'Plex Sans'; font-weight: 400; src: url('/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Plex Sans'; font-weight: 500; src: url('/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Plex Sans'; font-weight: 600; src: url('/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Plex Mono'; font-weight: 400; src: url('/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Plex Mono'; font-weight: 500; src: url('/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2') format('woff2'); }
-  /* Airlock tokens (DESIGN.md) */
+  /* Sulit tokens (DESIGN.md) */
   :root {
     --bg: #f4f2ec; --surface: #fffdf8; --ink: #1d1f1c; --muted: #5f625a; --line: #dcd8cc;
     --device: #0f5132; --device-soft: #e3efe7; --cloud: #8a4b08; --cloud-soft: #f8ecdc;
@@ -75,6 +75,41 @@
   .end .brand h1 { font-size: 96px; }
   .end .lede { font-size: 46px; margin-top: 44px; }
   .f { will-change: transform, opacity; }
+  .sub { margin-top: 18px; font: 500 30px/1.3 'Plex Sans'; color: var(--muted); }
+  .sub i { font-style: normal; font-family: 'Plex Mono'; color: var(--ink); }
+  .kicker { font: 600 26px/1.2 'Plex Sans'; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .h2 { margin-top: 18px; font: 600 64px/1.08 'Plex Sans'; letter-spacing: -.025em; max-width: 1360px; }
+  .cols { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .col { border: 1px solid var(--line); background: var(--surface); border-radius: 20px; padding: 34px 38px 36px; transition: none; }
+  .col h3 { font: 600 30px/1.2 'Plex Sans'; display: flex; align-items: center; gap: 14px; }
+  .col h3 i { width: 14px; height: 14px; border-radius: 50%; background: var(--muted); }
+  .col.nano { border-color: #c9ddd0; background: #f3f8f4; }
+  .col.nano h3 i { background: var(--device); }
+  .big { margin-top: 22px; font: 600 112px/1 'Plex Sans'; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+  .col.nano .big { color: var(--device); }
+  .big small { font-size: 40px; letter-spacing: -.01em; margin-left: 6px; }
+  .cap2 { margin-top: 8px; font: 500 26px/1.3 'Plex Sans'; color: var(--muted); }
+  .leak { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); font: 500 28px/1.3 'Plex Sans'; }
+  .leak b { font: 600 44px 'Plex Sans'; font-variant-numeric: tabular-nums; margin-right: 10px; }
+  .col.rules .leak b { color: var(--cloud); }
+  .col.nano .leak b { color: var(--device); }
+  .foot2 { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; font-size: 25px; color: var(--muted); }
+  .foot2 span { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 10px 22px; }
+  .foot2 b { color: var(--ink); font-weight: 600; }
+  [data-k] { position: relative; border-radius: 14px; }
+  [data-k]::after { content: ''; position: absolute; inset: -10px; border-radius: 18px; border: 4.5px solid #23955c; box-shadow: 0 0 0 4px rgba(255,253,248,.85);
+    opacity: 0; transform: scale(.97); }
+  [data-k].out::after { border-color: #d27a1c; }
+  [data-k].hl::after { opacity: var(--hl, 1); transform: scale(calc(.97 + .03 * var(--hl, 1))); }
+  .code { margin-top: 40px; font: 500 30px/1.5 'Plex Mono'; background: #1d1f1c; color: #f4f2ec; border-radius: 18px; padding: 28px 34px; }
+  .code .k { color: #e9a54a; }
+  .code .c { color: #9aa196; }
+  .term { margin-top: 26px; font: 400 25px/1.55 'Plex Mono'; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px 32px; white-space: pre; }
+  .term .bad { color: #a12a1f; font-weight: 500; }
+  .term .ok { color: var(--device); font-weight: 500; }
+  .guard { margin-top: 26px; font: 500 30px/1.4 'Plex Sans'; display: flex; gap: 16px; align-items: flex-start; }
+  .guard i { flex: none; margin-top: 12px; width: 14px; height: 14px; border-radius: 50%; background: var(--device); }
+  .guard code { font: 500 27px 'Plex Mono'; background: var(--device-soft); color: var(--device); padding: 2px 10px; border-radius: 8px; }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -89,16 +124,37 @@
   <div id="cap" class="hidden"><i></i><span></span></div>
 
   <div id="card-title" class="card hidden"><div class="in">
-    <div class="brand f"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg><h1>Airlock</h1></div>
-    <p class="lede f"><span class="dev">Redact on your device.</span> <span class="out">Let the cloud write.</span> <span class="dev">Put the real details back locally.</span></p>
-    <div class="rail f"><span class="d"><b>1</b> Gemini Nano redacts, on device</span><span class="o"><b>2</b> Gemini writes, in the cloud</span><span class="d"><b>3</b> Details restored, on device</span></div>
+    <div class="brand f"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg><h1>Sulit</h1></div>
+    <p class="sub f"><i>sulit</i> (Malay): confidential</p>
+    <p class="lede f"><span class="dev">Patient details stay at the counter.</span> <span class="out">The cloud only sees placeholders.</span></p>
+    <div class="rail f"><span class="d"><b>1</b> Gemini Nano redacts, on this PC</span><span class="o"><b>2</b> Gemini writes, in the cloud</span><span class="d"><b>3</b> Details restored, on this PC</span></div>
+  </div></div>
+
+  <div id="card-bench" class="card hidden"><div class="in">
+    <p class="kicker f" id="bench-kicker"></p>
+    <p class="h2 f">How many personal details would reach the cloud?</p>
+    <div class="cols f">
+      <div class="col rules" data-k="rules"><h3><i></i>Pattern rules only</h3><div class="big" id="b-rules"></div><p class="cap2">of personal details hidden</p><div class="leak" data-k="rulesLeak"><b id="b-rules-leak"></b>still reach the cloud</div></div>
+      <div class="col nano" data-k="nano"><h3><i></i>Rules + Gemini Nano, on device</h3><div class="big" id="b-nano"></div><p class="cap2">of personal details hidden</p><div class="leak" data-k="nanoLeak"><b id="b-nano-leak"></b>still reach the cloud</div></div>
+    </div>
+    <div class="foot2 f" id="bench-foot"></div>
+  </div></div>
+
+  <div id="card-sdk" class="card hidden"><div class="in">
+    <p class="kicker f">Found while building: Firebase JS SDK 13.4.0</p>
+    <p class="h2 f">ONLY_ON_DEVICE can still go to the cloud.</p>
+    <pre class="code f" data-k="call"><span class="c">// a browser with no LanguageModel API (Firefox, Safari, Chromium)</span>
+getGenerativeModel(ai, { mode: <span class="k">InferenceMode.ONLY_ON_DEVICE</span> })
+  .generateContent(<span class="k">"Aisyah binti Rahman, IC 900101-14-5678 …"</span>)</pre>
+    <pre class="term f out" data-k="out" id="sdk-term"></pre>
+    <p class="guard f" data-k="guard"><i></i><span>Sulit checks <code>LanguageModel.availability()</code> itself, never calls the redactor otherwise, and rejects any answer whose <code>inferenceSource</code> is not <code>on_device</code>.</span></p>
   </div></div>
 
   <div id="card-end" class="card end hidden"><div class="in">
-    <div class="brand f"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg><h1>Airlock</h1></div>
-    <p class="lede f"><span class="dev">The small model on your device guards the private details.</span> <span class="out">The big model in the cloud does the writing.</span></p>
-    <div class="meta f"><span>Firebase AI Logic hybrid inference</span><span>Gemini Nano in Chrome</span><span>Gemini in the cloud</span><span>Open source · Apache-2.0</span></div>
-    <p class="url f">github.com/Infinite-Unknown/airlock</p>
+    <div class="brand f"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 6v20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"/><circle cx="10" cy="16" r="2.6" fill="currentColor"/></svg><h1>Sulit</h1></div>
+    <p class="lede f"><span class="dev">Gemini Nano on the PC guards the patient details.</span> <span class="out">Gemini in the cloud does the writing.</span></p>
+    <div class="meta f"><span>ONLY_ON_DEVICE redaction</span><span>PREFER_ON_DEVICE triage</span><span>PREFER_IN_CLOUD writing</span><span>Remote Config</span><span>App Check</span><span>Apache-2.0</span></div>
+    <p class="url f">github.com/Infinite-Unknown/sulit</p>
   </div></div>
 </div>
 <script>
@@ -165,12 +221,18 @@
     } else r.classList.add('hidden');
     setBox($('cap'), s.caption, 10);
     setBox($('label'), s.label, 8);
-    for (const [id, st] of [['card-title', s.cards?.title], ['card-end', s.cards?.end]]) {
+    for (const [id, st] of [['card-title', s.cards?.title], ['card-bench', s.cards?.bench], ['card-sdk', s.cards?.sdk], ['card-end', s.cards?.end]]) {
       const el = $(id);
       if (!st || st.o <= 0.001) { el.classList.add('hidden'); continue; }
       el.classList.remove('hidden');
       el.style.opacity = st.o;
       stagger(el, st.p);
+      // callout on a card: the named block gets a ring drawn on (fades in 300 ms)
+      el.querySelectorAll('[data-k]').forEach((b) => {
+        const on = st.hl && b.dataset.k === st.hl.k;
+        b.classList.toggle('hl', !!on);
+        b.style.setProperty('--hl', on ? String(st.hl.u) : '0');
+      });
     }
     await new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(res)));
     return true;
@@ -289,6 +351,16 @@
     octx.restore();
   }
 
+  /** Fill the data-driven cards once before rendering (numbers from bench/results, real repro output). */
+  window.setCards = (d) => {
+    $('bench-kicker').textContent = d.bench.kicker;
+    $('b-rules').innerHTML = d.bench.rules;
+    $('b-nano').innerHTML = d.bench.nano;
+    $('b-rules-leak').textContent = d.bench.rulesLeak;
+    $('b-nano-leak').textContent = d.bench.nanoLeak;
+    $('bench-foot').innerHTML = d.bench.foot.map((x) => `<span>${x}</span>`).join('');
+    $('sdk-term').innerHTML = d.sdk.term;
+  };
   window.ready = document.fonts.ready.then(() => Promise.all([...document.fonts].map((f) => f.load()))).then(() => true);
 </script>
 </body>

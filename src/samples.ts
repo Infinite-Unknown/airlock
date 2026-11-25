@@ -1,29 +1,30 @@
-// Fictional sample messages for trying Airlock. Every name, number and address is made up.
+// Fictional messages that reach a family clinic's front desk in Malaysia. Every name, number and
+// address is made up; emails use example domains.
 
 export interface Sample {
   id: string;
   label: string;
-  task: 'reply' | 'summary' | 'actions';
+  task: 'reply' | 'reply_ms' | 'summary' | 'actions' | 'triage';
   text: string;
 }
 
 export const SAMPLES: Sample[] = [
   {
     id: 'clinic',
-    label: 'Clinic front desk',
+    label: 'WhatsApp: MC for school',
+    task: 'reply_ms',
+    text: `Salam, saya Aisyah binti Rahman (IC 900101-14-5678). Anak saya Daniel jumpa Dr. Lim hari Isnin sebab asma, tapi MC untuk sekolah dia, SK Taman Melati, belum dapat lagi. Boleh email ke aisyah.rahman@example.com atau WhatsApp +60 12-345 6789? Alamat untuk claim insurans: 12, Jalan Mawar 3, Taman Melati, 53100 Kuala Lumpur. Terima kasih.`,
+  },
+  {
+    id: 'insurance',
+    label: 'Email: insurance claim',
     task: 'reply',
-    text: `Hello, this is Aisyah binti Rahman (IC 900101-14-5678). My son Daniel was seen by Dr. Lim on Monday for his asthma and I still have not received the medical certificate for his school, SK Taman Melati. Please email it to aisyah.rahman@example.com or WhatsApp me at +60 12-345 6789. Our address for the insurance claim is 12, Jalan Mawar 3, Taman Melati, 53100 Kuala Lumpur. Thank you.`,
+    text: `Dear clinic, I am writing for my father, Mr Tan Ah Kow (MyKad 520303-07-5117, born 3 March 1952). His insurer needs the discharge summary and the bill from his visit last week. Please email them to tan.meiling@example.net or call me, Tan Mei Ling, at 016-789 0123. Thank you.`,
   },
   {
-    id: 'hr',
-    label: 'HR leave request',
-    task: 'actions',
-    text: `Hi HR team, I'm Marcus Tan from the Penang warehouse (employee no. AB1234567). My wife Priya is due on 14 December so I'd like to apply for paternity leave from 12 Dec to 18 Dec. Please credit the leave allowance to my Maybank account 5123 4567 8901 2346. You can reach me on 016-789 0123 or marcus.tan@example.org. My manager, Siti Nur, has already approved it verbally.`,
-  },
-  {
-    id: 'support',
-    label: 'Bank complaint',
-    task: 'summary',
-    text: `To whom it may concern, my name is Jonathan Reyes, date of birth 03/07/1985. On 2 November my card 4111 1111 1111 1111 was charged twice for RM 489.00 at an online store. I called your hotline from (03) 2345 6789 and spoke to an agent called Farah, who promised a refund within 7 days. It has now been 3 weeks. Please resolve this by Friday or I will escalate to the regulator. Reply to j.reyes@example.net.`,
+    id: 'appointment',
+    label: 'Message: urgent appointment',
+    task: 'triage',
+    text: `Assalamualaikum. Saya Muthu a/l Rajendran, IC 780412-10-5531. Saya nak buat temujanji untuk ibu saya, Letchumy a/p Sinnasamy, tarikh lahir 9 Ogos 1949. Dia pening dan tekanan darah tinggi sejak semalam. Boleh call saya di 019-445 2210. Alamat: Lot 1123, Kampung Seri Aman, 40460 Shah Alam.`,
   },
 ];

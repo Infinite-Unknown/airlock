@@ -1,0 +1,8270 @@
+{
+ "name": "Malaysian front-desk messages (synthetic)",
+ "note": "Every name, number, address and email in this file is made up by bench/make-dataset.mjs. Postcodes and town names are real places; house numbers and streets are random. Emails use example domains.",
+ "seed": 20261125,
+ "templates": 46,
+ "messages": [
+  {
+   "id": "clinic-00-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hello, this is Aisyah Humaira binti Hassan (IC 741214 06 9438). My son Faizal was seen by Dr. Lim May Ling on Friday for his asthma and I still have not received the medical certificate for his school, SMK Convent Bukit Nanas. Please email it to aisyah.humaira@example.org or WhatsApp me at +60137700523. Our address for the insurance claim is Unit 17-7, Blok C, Jalan Pinang 4, Kampung Padang Jawa, 05150 Alor Setar, Kedah. Thank you.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Aisyah Humaira binti Hassan",
+     "spans": [
+      [
+       15,
+       42
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "741214 06 9438",
+     "spans": [
+      [
+       47,
+       61
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Faizal",
+     "spans": [
+      [
+       71,
+       77
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lim May Ling",
+     "spans": [
+      [
+       94,
+       106
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "aisyah.humaira@example.org",
+     "spans": [
+      [
+       246,
+       272
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60137700523",
+     "spans": [
+      [
+       291,
+       303
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 17-7, Blok C, Jalan Pinang 4, Kampung Padang Jawa, 05150 Alor Setar, Kedah",
+     "spans": [
+      [
+       344,
+       423
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "SMK Convent Bukit Nanas",
+     "spans": [
+      [
+       202,
+       225
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-01-0",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Assalamualaikum doktor. Saya Siti Khadijah binti Hassan, no. IC 610425 11 9616. Saya nak buat temujanji untuk ibu saya, Aisyah Humaira binti Ghazali, tarikh lahir 1959-07-03. Dia ada darah tinggi dan kencing manis. Boleh hubungi saya di (07) 875 0265. Alamat rumah: Unit 20-9, Blok D, Jalan Cempaka 12, Seksyen 7, 25200 Kuantan. Terima kasih.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Siti Khadijah binti Hassan",
+     "spans": [
+      [
+       29,
+       55
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "610425 11 9616",
+     "spans": [
+      [
+       64,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Aisyah Humaira binti Ghazali",
+     "spans": [
+      [
+       120,
+       148
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "1959-07-03",
+     "spans": [
+      [
+       163,
+       173
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(07) 875 0265",
+     "spans": [
+      [
+       237,
+       250
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 20-9, Blok D, Jalan Cempaka 12, Seksyen 7, 25200 Kuantan",
+     "spans": [
+      [
+       266,
+       327
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-02-0",
+   "domain": "clinic",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi klinik, saya Lee Mei Ling nak tanya pasal result blood test semalam. My IC 620826-06-1364, phone (04) 708 0088. Doctor Raja cakap kena datang balik Isnin tapi I kerja, boleh tukar? Email lee_ling@example.org.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lee Mei Ling",
+     "spans": [
+      [
+       16,
+       28
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "620826-06-1364",
+     "spans": [
+      [
+       78,
+       92
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(04) 708 0088",
+     "spans": [
+      [
+       100,
+       113
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Raja",
+     "spans": [
+      [
+       122,
+       126
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "lee_ling@example.org",
+     "spans": [
+      [
+       190,
+       210
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-03-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear clinic, I am writing on behalf of my father, Wan Ahmad Syukri bin Ghazali (MyKad 620207-08-7645, born 1962-02-07). His insurer Great Eastern needs the discharge summary and the bill of RM 3657.90. The policy holder is me, Iskandar Zulkarnain bin Rosli, contact 07-951 2120 / iskandar.zulkarnain@example.org.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Wan Ahmad Syukri bin Ghazali",
+     "spans": [
+      [
+       50,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "620207-08-7645",
+     "spans": [
+      [
+       86,
+       100
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "1962-02-07",
+     "spans": [
+      [
+       107,
+       117
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Iskandar Zulkarnain bin Rosli",
+     "spans": [
+      [
+       227,
+       256
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "07-951 2120",
+     "spans": [
+      [
+       266,
+       277
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "iskandar.zulkarnain@example.org",
+     "spans": [
+      [
+       280,
+       311
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Great Eastern",
+     "spans": [
+      [
+       132,
+       145
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-04-0",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Salam, nama saya Lim Xin Yi. Anak saya Lee Jun Kai (MyKid 200913096469) demam tiga hari. Boleh saya bawa dia jam 2 petang? Kalau ada slot, call +60130119631. Kami tinggal di Unit 14-7, Blok C, Jalan Teratai 2/1, Taman Desa Jaya, 53100 Kuala Lumpur.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lim Xin Yi",
+     "spans": [
+      [
+       17,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lee Jun Kai",
+     "spans": [
+      [
+       39,
+       50
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "200913096469",
+     "spans": [
+      [
+       58,
+       70
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60130119631",
+     "spans": [
+      [
+       144,
+       156
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 14-7, Blok C, Jalan Teratai 2/1, Taman Desa Jaya, 53100 Kuala Lumpur",
+     "spans": [
+      [
+       174,
+       247
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-05-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Referral for Daniel Lansing, 51-year-old, IC 740914083575, address 48, Jalan Pinang 4, Taman Melati, 53100 Kuala Lumpur. Next of kin: Bayu Santoso ((082) 13 6497). Please send the report to Dr. Ooi Kah Wai at Hospital Sultanah Aminah.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Daniel Lansing",
+     "spans": [
+      [
+       13,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "740914083575",
+     "spans": [
+      [
+       45,
+       57
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "48, Jalan Pinang 4, Taman Melati, 53100 Kuala Lumpur",
+     "spans": [
+      [
+       67,
+       119
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Bayu Santoso",
+     "spans": [
+      [
+       134,
+       146
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(082) 13 6497",
+     "spans": [
+      [
+       148,
+       161
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ooi Kah Wai",
+     "spans": [
+      [
+       194,
+       205
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hospital Sultanah Aminah",
+     "spans": [
+      [
+       209,
+       233
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-06-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "spelled-digits",
+   "text": "Hi, my name is Amirul Hakim bin Mat Isa. My phone is zero one eight, four five seven, eight seven five three. Please call after 5pm about my daughter Aina. My IC is 690607-04-0563.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Amirul Hakim bin Mat Isa",
+     "spans": [
+      [
+       15,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "zero one eight, four five seven, eight seven five three",
+     "spans": [
+      [
+       53,
+       108
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Aina",
+     "spans": [
+      [
+       150,
+       154
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "690607-04-0563",
+     "spans": [
+      [
+       165,
+       179
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-07-0",
+   "domain": "clinic",
+   "lang": "mixed",
+   "adversarial": "split-number",
+   "text": "Hello, Thida Win here. My new number is 014-417 ... sorry terhantar, the rest is 4663. IC saya 710720-08 - 6344. Nak confirm appointment Rabu.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Thida Win",
+     "spans": [
+      [
+       7,
+       16
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "014-417 4663",
+     "spans": [
+      [
+       40,
+       47
+      ],
+      [
+       81,
+       85
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "710720-08 6344",
+     "spans": [
+      [
+       95,
+       104
+      ],
+      [
+       107,
+       111
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-08-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Hi, this is Hope Jitin's mum, Nora Jitin. I hope the doctor can see Hope today, her cough is worse. Call me at (05) 797 8457.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Hope Jitin",
+     "spans": [
+      [
+       12,
+       22
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nora Jitin",
+     "spans": [
+      [
+       30,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope",
+     "spans": [
+      [
+       68,
+       72
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(05) 797 8457",
+     "spans": [
+      [
+       111,
+       124
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-09-0",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": "word-name",
+   "text": "Saya nak buat appointment untuk mak saya. Nama dia Mak Shu Fen, IC 601123 06 6426. Mak saya pening sejak semalam. Boleh hubungi Yap Li Ying di 011-5613 9716.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mak Shu Fen",
+     "spans": [
+      [
+       51,
+       62
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "601123 06 6426",
+     "spans": [
+      [
+       67,
+       81
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Yap Li Ying",
+     "spans": [
+      [
+       128,
+       139
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "011-5613 9716",
+     "spans": [
+      [
+       143,
+       156
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-10-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "obfuscated-email",
+   "text": "can u email the mc to kumaran_arumugam at example dot org . name kumaran arumugam , ic 720823 11 1113 . tq",
+   "labels": [
+    {
+     "category": "EMAIL",
+     "value": "kumaran_arumugam at example dot org",
+     "spans": [
+      [
+       22,
+       57
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "kumaran arumugam",
+     "spans": [
+      [
+       65,
+       81
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "720823 11 1113",
+     "spans": [
+      [
+       87,
+       101
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-11-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "letter-o-for-zero",
+   "text": "Please call me back on O18-089 6346, I am Mak Li Ying. My son Tan Wei Ming needs his vaccination record for SJK(C) Chung Hwa.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "O18-089 6346",
+     "spans": [
+      [
+       23,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Mak Li Ying",
+     "spans": [
+      [
+       42,
+       53
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tan Wei Ming",
+     "spans": [
+      [
+       62,
+       74
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "SJK(C) Chung Hwa",
+     "spans": [
+      [
+       108,
+       124
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-12-0",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hi HR team, I'm Muthu Krishnan from the Johor Bahru branch (employee no. AB906988). My wife Malar is due on 28 March so I'd like to apply for paternity leave. Please credit the allowance to my Maybank account 5-0272712-00. Reach me on 013-871 4512 or muthukrishnan@mail.example.com. My manager, Nora Jitin, has approved it verbally.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Muthu Krishnan",
+     "spans": [
+      [
+       16,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "AB906988",
+     "spans": [
+      [
+       73,
+       81
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Malar",
+     "spans": [
+      [
+       92,
+       97
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "5-0272712-00",
+     "spans": [
+      [
+       209,
+       221
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "013-871 4512",
+     "spans": [
+      [
+       235,
+       247
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "muthukrishnan@mail.example.com",
+     "spans": [
+      [
+       251,
+       281
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nora Jitin",
+     "spans": [
+      [
+       295,
+       305
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Maybank",
+     "spans": [
+      [
+       193,
+       200
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-13-0",
+   "domain": "hr",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Kepada HR, saya Wong Li Ying, no. pekerja K31970, ingin memohon cuti sakit dari 11 Mac hingga 13 haribulan. Sijil MC dari Klinik Famili Sri Muda dilampirkan. No. IC saya 730926 15 4460. Sebarang pertanyaan boleh hubungi (03) 0083 4075.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Wong Li Ying",
+     "spans": [
+      [
+       16,
+       28
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "K31970",
+     "spans": [
+      [
+       42,
+       48
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "730926 15 4460",
+     "spans": [
+      [
+       170,
+       184
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(03) 0083 4075",
+     "spans": [
+      [
+       220,
+       234
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Klinik Famili Sri Muda",
+     "spans": [
+      [
+       122,
+       144
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-14-0",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "HR, pls update my address dalam sistem. New address: Lot 896, Jalan Pinang 4, Kampung Padang Jawa, 15200 Kota Bharu. Also my new phone 019-327 6187. TQ. - Chong Zhi Hao",
+   "labels": [
+    {
+     "category": "ADDRESS",
+     "value": "Lot 896, Jalan Pinang 4, Kampung Padang Jawa, 15200 Kota Bharu",
+     "spans": [
+      [
+       53,
+       115
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "019-327 6187",
+     "spans": [
+      [
+       135,
+       147
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Chong Zhi Hao",
+     "spans": [
+      [
+       155,
+       168
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-15-0",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear Payroll, my EPF number is 47363242 and my IC is 921118 01 4984. Last month's deduction was wrong. My bank account is 48706933385396 (Public Bank). Regards, Cahaya Nurin binti Kamarudin",
+   "labels": [
+    {
+     "category": "ID_NUMBER",
+     "value": "47363242",
+     "spans": [
+      [
+       31,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "921118 01 4984",
+     "spans": [
+      [
+       53,
+       67
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "48706933385396",
+     "spans": [
+      [
+       122,
+       136
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Cahaya Nurin binti Kamarudin",
+     "spans": [
+      [
+       161,
+       189
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Public Bank",
+     "spans": [
+      [
+       138,
+       149
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-16-0",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear HR, worker Rahim Uddin (passport BB0479419) has a permit that expires on 17 January. His agent Malar a/p Nair can be reached at 0149052406. Please renew before then.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Rahim Uddin",
+     "spans": [
+      [
+       16,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "BB0479419",
+     "spans": [
+      [
+       38,
+       47
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Malar a/p Nair",
+     "spans": [
+      [
+       100,
+       114
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0149052406",
+     "spans": [
+      [
+       133,
+       143
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-17-0",
+   "domain": "hr",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya nak tukar waris: nama Wong Siew Lan, hubungan isteri, no. tel 082-56 4084, IC 790825-08-2934, alamat Lot 1686, Jalan Bunga Raya, Taman Melati, 15200 Kota Bharu, Kelantan.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Wong Siew Lan",
+     "spans": [
+      [
+       27,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "082-56 4084",
+     "spans": [
+      [
+       67,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "790825-08-2934",
+     "spans": [
+      [
+       83,
+       97
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Lot 1686, Jalan Bunga Raya, Taman Melati, 15200 Kota Bharu, Kelantan",
+     "spans": [
+      [
+       106,
+       174
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-18-0",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hi, I'm calling about Kavitha a/p Nair, born 14/06/1999, who applied for the clerk role. She listed you, Rahim Uddin, as a referee. Could you call me back on 0133252035? - Deepa, Gemilang Logistics Sdn Bhd",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Kavitha a/p Nair",
+     "spans": [
+      [
+       22,
+       38
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "14/06/1999",
+     "spans": [
+      [
+       45,
+       55
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rahim Uddin",
+     "spans": [
+      [
+       105,
+       116
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0133252035",
+     "spans": [
+      [
+       158,
+       168
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Deepa",
+     "spans": [
+      [
+       172,
+       177
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Gemilang Logistics Sdn Bhd",
+     "spans": [
+      [
+       179,
+       205
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-19-0",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Boss, Lee Hui Min dari accounts asyik WhatsApp I at 011 4188 5898 lepas midnight. I don't want to make it big but pls advise. - Kumaran (staff ID S85916)",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lee Hui Min",
+     "spans": [
+      [
+       6,
+       17
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "011 4188 5898",
+     "spans": [
+      [
+       52,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Kumaran",
+     "spans": [
+      [
+       128,
+       135
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "S85916",
+     "spans": [
+      [
+       146,
+       152
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-20-0",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": "spelled-digits",
+   "text": "For the insurance form: my IC number is nine two zero six two zero, zero three, seven three one two and my name is Goh Xin Yi. Mobile 0132469675.",
+   "labels": [
+    {
+     "category": "ID_NUMBER",
+     "value": "nine two zero six two zero, zero three, seven three one two",
+     "spans": [
+      [
+       40,
+       99
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Goh Xin Yi",
+     "spans": [
+      [
+       115,
+       125
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0132469675",
+     "spans": [
+      [
+       134,
+       144
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-21-0",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": "split-number",
+   "text": "Bank account for the claim: 643602 and then 511701 (sorry, my phone cut it). Name on the account: Chin Boon Hock, BSN.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "643602 511701",
+     "spans": [
+      [
+       28,
+       34
+      ],
+      [
+       44,
+       50
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Chin Boon Hock",
+     "spans": [
+      [
+       98,
+       112
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "BSN",
+     "spans": [
+      [
+       114,
+       117
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank-22-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "To whom it may concern, my name is Khairul Anuar bin Ghazali, date of birth 25 October 2001. On 24 July my card 5826 4655 4799 2509 was charged twice for RM 739.50 at an online store. I called your hotline from (03) 5948 3456 and spoke to an agent called Haziq, who promised a refund within 7 days. Please resolve this by Friday. Reply to khairulanuarghazali@example.org.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Khairul Anuar bin Ghazali",
+     "spans": [
+      [
+       35,
+       60
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "25 October 2001",
+     "spans": [
+      [
+       76,
+       91
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "5826 4655 4799 2509",
+     "spans": [
+      [
+       112,
+       131
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(03) 5948 3456",
+     "spans": [
+      [
+       211,
+       225
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Haziq",
+     "spans": [
+      [
+       255,
+       260
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "khairulanuarghazali@example.org",
+     "spans": [
+      [
+       339,
+       370
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-23-0",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Tuan/Puan, saya Priya Krishnan (No. KP: 681217-05-3630) ingin membuat aduan. Akaun simpanan saya 48753055169120 telah didebit RM 670.00 tanpa kebenaran pada 24 Disember. Sila hubungi saya di 01152076303.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Priya Krishnan",
+     "spans": [
+      [
+       16,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "681217-05-3630",
+     "spans": [
+      [
+       40,
+       54
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "48753055169120",
+     "spans": [
+      [
+       97,
+       111
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "01152076303",
+     "spans": [
+      [
+       191,
+       202
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-24-0",
+   "domain": "bank",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi, I nak block card 4027954201192696 sebab hilang semalam kat pasar malam. Nama Ong Pei Shan, IC 520615-07-0170. Pls call 017-971 6947 asap.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4027954201192696",
+     "spans": [
+      [
+       21,
+       37
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ong Pei Shan",
+     "spans": [
+      [
+       81,
+       93
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "520615-07-0170",
+     "spans": [
+      [
+       98,
+       112
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "017-971 6947",
+     "spans": [
+      [
+       123,
+       135
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-25-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Please update the mailing address on account 824119676985 to Unit 20-2, Blok C, Jalan Cempaka 12, Taman Universiti, 47301 Petaling Jaya. Account holder: Thida Win, MyKad 961218-05-9292.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "824119676985",
+     "spans": [
+      [
+       45,
+       57
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 20-2, Blok C, Jalan Cempaka 12, Taman Universiti, 47301 Petaling Jaya",
+     "spans": [
+      [
+       61,
+       135
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Thida Win",
+     "spans": [
+      [
+       153,
+       162
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "961218-05-9292",
+     "spans": [
+      [
+       170,
+       184
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-26-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "I transferred RM 1125.90 to Ooi Kah Wai (account 883817391454) by mistake instead of my brother Aloysius Gomez. My account is 1849 7583 5396. Can you recall the transfer? Phone 014-638 2148.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ooi Kah Wai",
+     "spans": [
+      [
+       28,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "883817391454",
+     "spans": [
+      [
+       49,
+       61
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Aloysius Gomez",
+     "spans": [
+      [
+       96,
+       110
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "1849 7583 5396",
+     "spans": [
+      [
+       126,
+       140
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "014-638 2148",
+     "spans": [
+      [
+       177,
+       189
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-27-0",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya Nor Azura binti Zainal, peminjam bersama dengan suami Wan Ahmad Syukri bin Zainal (IC 730506-02-9731). Kami nak tangguh bayaran pinjaman rumah di 40, Lorong Seri Kuantan 9, Taman Tasik Utama, 47301 Petaling Jaya, Selangor. Emel: nor.azura@example.com.my.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Nor Azura binti Zainal",
+     "spans": [
+      [
+       5,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wan Ahmad Syukri bin Zainal",
+     "spans": [
+      [
+       59,
+       86
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "730506-02-9731",
+     "spans": [
+      [
+       91,
+       105
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "40, Lorong Seri Kuantan 9, Taman Tasik Utama, 47301 Petaling Jaya, Selangor",
+     "spans": [
+      [
+       151,
+       226
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "nor.azura@example.com.my",
+     "spans": [
+      [
+       234,
+       258
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-28-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Someone called me from 012-225 8319 pretending to be from the bank and asked for my TAC. I gave them my card number 5518 7827 9143 8267 before I realised. My name is Siti Khadijah binti Ghazali, IC 620119-10-6512, and my real number is 016-593 0151.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "012-225 8319",
+     "spans": [
+      [
+       23,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "5518 7827 9143 8267",
+     "spans": [
+      [
+       116,
+       135
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Siti Khadijah binti Ghazali",
+     "spans": [
+      [
+       166,
+       193
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "620119-10-6512",
+     "spans": [
+      [
+       198,
+       212
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "016-593 0151",
+     "spans": [
+      [
+       236,
+       248
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-29-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": "letter-o-for-zero",
+   "text": "Call me at O12-382 2067 or 0102365971. Account no 4134 3185 8807. - Ganesh Pillai",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "O12-382 2067",
+     "spans": [
+      [
+       11,
+       23
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0102365971",
+     "spans": [
+      [
+       27,
+       37
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4134 3185 8807",
+     "spans": [
+      [
+       50,
+       64
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ganesh Pillai",
+     "spans": [
+      [
+       68,
+       81
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-30-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": "obfuscated-email",
+   "text": "Statement please send to khairul89 at example dot com dot my, name Khairul Anuar bin Rosli, a/c 2411470349.",
+   "labels": [
+    {
+     "category": "EMAIL",
+     "value": "khairul89 at example dot com dot my",
+     "spans": [
+      [
+       25,
+       60
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Khairul Anuar bin Rosli",
+     "spans": [
+      [
+       67,
+       90
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "2411470349",
+     "spans": [
+      [
+       96,
+       106
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-31-0",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "I am Ooi Jun Kai, holding power of attorney for my aunt Tengku Nur Zahira binti Kamarudin (IC 430423-11-3354, DOB 23 April 1943) who lives at 2, Jalan Teratai 2/1, Seksyen 7, 93350 Kuching. Please call me at +60 12-413 1547.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ooi Jun Kai",
+     "spans": [
+      [
+       5,
+       16
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tengku Nur Zahira binti Kamarudin",
+     "spans": [
+      [
+       56,
+       89
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "430423-11-3354",
+     "spans": [
+      [
+       94,
+       108
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "23 April 1943",
+     "spans": [
+      [
+       114,
+       127
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "2, Jalan Teratai 2/1, Seksyen 7, 93350 Kuching",
+     "spans": [
+      [
+       142,
+       188
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 12-413 1547",
+     "spans": [
+      [
+       208,
+       223
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-32-0",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Cikgu Mei Ling, saya Nur Iman binti Zainal, ibu kepada Rosnah binti Rosli dari kelas 2 Dahlia. Anak saya tak dapat hadir esok sebab demam. Surat MC dari Dr. Ng Hui Min akan saya hantar. No. tel saya 018-904 5948.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mei Ling",
+     "spans": [
+      [
+       6,
+       14
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nur Iman binti Zainal",
+     "spans": [
+      [
+       21,
+       42
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rosnah binti Rosli",
+     "spans": [
+      [
+       55,
+       73
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ng Hui Min",
+     "spans": [
+      [
+       157,
+       167
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-904 5948",
+     "spans": [
+      [
+       199,
+       211
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-33-0",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear Teacher Aisyah, my daughter Lee Shu Fen (student ID M2250275, MyKid 160620-01-4274) will be picked up by her uncle Chong Boon Hock today. His number is 09-428 7563. - Yap Zhi Hao",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Aisyah",
+     "spans": [
+      [
+       13,
+       19
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lee Shu Fen",
+     "spans": [
+      [
+       33,
+       44
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "M2250275",
+     "spans": [
+      [
+       57,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "160620-01-4274",
+     "spans": [
+      [
+       73,
+       87
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Chong Boon Hock",
+     "spans": [
+      [
+       120,
+       135
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "09-428 7563",
+     "spans": [
+      [
+       157,
+       168
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Yap Zhi Hao",
+     "spans": [
+      [
+       172,
+       183
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-34-0",
+   "domain": "school",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi cikgu, saya Lee Xin Yi. Mei Ling kena buli dengan Khairul Anuar bin Ismail dalam bas sekolah. Pls call me (088) 69 5262, I takut nak tulis panjang kat sini.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lee Xin Yi",
+     "spans": [
+      [
+       15,
+       25
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Mei Ling",
+     "spans": [
+      [
+       27,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Khairul Anuar bin Ismail",
+     "spans": [
+      [
+       53,
+       77
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(088) 69 5262",
+     "spans": [
+      [
+       109,
+       122
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-35-0",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hello, I'd like to pay the PIBG fee for Intan Suraya binti Ismail and Tengku Nur Zahira binti Mat Isa by bank transfer from my account 08506715943700 at Hong Leong Bank. Receipt to nurul95@example.com. The address on record should be Unit 8-5, Blok A, Jalan SS 2/24, Taman Desa Jaya, 31400 Ipoh.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Intan Suraya binti Ismail",
+     "spans": [
+      [
+       40,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tengku Nur Zahira binti Mat Isa",
+     "spans": [
+      [
+       70,
+       101
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "08506715943700",
+     "spans": [
+      [
+       135,
+       149
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "nurul95@example.com",
+     "spans": [
+      [
+       181,
+       200
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 8-5, Blok A, Jalan SS 2/24, Taman Desa Jaya, 31400 Ipoh",
+     "spans": [
+      [
+       234,
+       294
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hong Leong Bank",
+     "spans": [
+      [
+       153,
+       168
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "school-36-0",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Kami berpindah ke 8, Jalan Merbau 8, Kampung Padang Jawa, 14000 Bukit Mertajam, Pulau Pinang. Mohon pindahkan rekod Iskandar Zulkarnain bin Kamarudin (no. sijil lahir B595420) ke sekolah baru. Hubungi bapa, Syafiq Aiman bin Ismail, di (05) 099 4847 atau syafiq.aiman@example.com.",
+   "labels": [
+    {
+     "category": "ADDRESS",
+     "value": "8, Jalan Merbau 8, Kampung Padang Jawa, 14000 Bukit Mertajam, Pulau Pinang",
+     "spans": [
+      [
+       18,
+       92
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Iskandar Zulkarnain bin Kamarudin",
+     "spans": [
+      [
+       116,
+       149
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "B595420",
+     "spans": [
+      [
+       167,
+       174
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Syafiq Aiman bin Ismail",
+     "spans": [
+      [
+       207,
+       230
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(05) 099 4847",
+     "spans": [
+      [
+       235,
+       248
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "syafiq.aiman@example.com",
+     "spans": [
+      [
+       254,
+       278
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-37-0",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Please note Ng Hui Min (born 07/01/2018) has a peanut allergy. Her EpiPen is in her bag. In an emergency call me, Tan Kah Wai, at 018-303 4198, or her grandmother Teh Li Ying at 013 778 4948.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ng Hui Min",
+     "spans": [
+      [
+       12,
+       22
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "07/01/2018",
+     "spans": [
+      [
+       29,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tan Kah Wai",
+     "spans": [
+      [
+       114,
+       125
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-303 4198",
+     "spans": [
+      [
+       130,
+       142
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Li Ying",
+     "spans": [
+      [
+       163,
+       174
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "013 778 4948",
+     "spans": [
+      [
+       178,
+       190
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-38-0",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Faith Majanggim won't be in today. Faith is unwell; with God's grace she'll be back on Monday. I hope that's okay. - Rosalind Majanggim (013 014 9883)",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Faith Majanggim",
+     "spans": [
+      [
+       0,
+       15
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Faith",
+     "spans": [
+      [
+       35,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rosalind Majanggim",
+     "spans": [
+      [
+       117,
+       135
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "013 014 9883",
+     "spans": [
+      [
+       137,
+       149
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-39-0",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": "lowercase-name",
+   "text": "salam cikgu, ni mak haziq danial. dia tertinggal buku latihan kat rumah. boleh call 0185101008? - farah nadia",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "haziq danial",
+     "spans": [
+      [
+       20,
+       32
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0185101008",
+     "spans": [
+      [
+       84,
+       94
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "farah nadia",
+     "spans": [
+      [
+       98,
+       109
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-40-0",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": "spelled-digits",
+   "text": "Nombor telefon saya kosong satu enam, tiga lapan satu, sembilan lima sembilan lapan. Nama saya Raja Arumugam, bapa kepada Kumaran Arumugam.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "kosong satu enam, tiga lapan satu, sembilan lima sembilan lapan",
+     "spans": [
+      [
+       20,
+       83
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Raja Arumugam",
+     "spans": [
+      [
+       95,
+       108
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Kumaran Arumugam",
+     "spans": [
+      [
+       122,
+       138
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-41-0",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Hi Ms Yap, Chin May Ling will miss school in May for her surgery at Hospital Pulau Pinang. You can reach me at ooi.chee@example.com.my. - Ooi Chee Keong",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Yap",
+     "spans": [
+      [
+       6,
+       9
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Chin May Ling",
+     "spans": [
+      [
+       11,
+       24
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ooi.chee@example.com.my",
+     "spans": [
+      [
+       111,
+       134
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ooi Chee Keong",
+     "spans": [
+      [
+       138,
+       152
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hospital Pulau Pinang",
+     "spans": [
+      [
+       68,
+       89
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-42-0",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Booking for a family check-up on Thursday: Haziq Danial bin Mat Isa (IC 550209 09 0819), Nurul Aina binti Ghazali (IC 870713-14-0230) and our daughter Tengku Nur Zahira binti Mat Isa, born 15/11/2019. Contact 0143388095, haziq75@example.com. Home: Lot 2942, Jalan Merbau 8, Taman Universiti, 47301 Petaling Jaya.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Haziq Danial bin Mat Isa",
+     "spans": [
+      [
+       43,
+       67
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "550209 09 0819",
+     "spans": [
+      [
+       72,
+       86
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nurul Aina binti Ghazali",
+     "spans": [
+      [
+       89,
+       113
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "870713-14-0230",
+     "spans": [
+      [
+       118,
+       132
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tengku Nur Zahira binti Mat Isa",
+     "spans": [
+      [
+       151,
+       182
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "15/11/2019",
+     "spans": [
+      [
+       189,
+       199
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0143388095",
+     "spans": [
+      [
+       209,
+       219
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "haziq75@example.com",
+     "spans": [
+      [
+       221,
+       240
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Lot 2942, Jalan Merbau 8, Taman Universiti, 47301 Petaling Jaya",
+     "spans": [
+      [
+       248,
+       311
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-43-0",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi payroll, gaji bulan ni please masuk ke akaun baru 88696462266077 (Bank Islam). Nama Ho Pei Shan, IC 770521-07-0798, staff no TF71078. Kalau ada masalah call 03-7041 9373.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "88696462266077",
+     "spans": [
+      [
+       53,
+       67
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ho Pei Shan",
+     "spans": [
+      [
+       87,
+       98
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "770521-07-0798",
+     "spans": [
+      [
+       103,
+       117
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "TF71078",
+     "spans": [
+      [
+       128,
+       135
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "03-7041 9373",
+     "spans": [
+      [
+       160,
+       172
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Bank Islam",
+     "spans": [
+      [
+       69,
+       79
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank-44-0",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya Cahaya Nurin binti Rosli, tarikh lahir 1990-09-23, pemegang kad 3755 9463 9615 9860. Ada transaksi RM 1724.50 yang saya tak buat. Tolong hubungi saya di 010-273 0783 atau emel cahayanurinrosli@example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Cahaya Nurin binti Rosli",
+     "spans": [
+      [
+       5,
+       29
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "1990-09-23",
+     "spans": [
+      [
+       44,
+       54
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3755 9463 9615 9860",
+     "spans": [
+      [
+       69,
+       88
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "010-273 0783",
+     "spans": [
+      [
+       158,
+       170
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "cahayanurinrosli@example.com",
+     "spans": [
+      [
+       181,
+       209
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-45-0",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Emergency contact update for Ahmad Firdaus bin Yusof (5 Bestari): mother Nur Iman binti Ghazali, +60 10-379 7855; father Syafiq Aiman bin Zainal, 0126388842; email nur.iman@example.net; address B-30-10, Jalan Bunga Raya, Bandar Perda, 31400 Ipoh.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ahmad Firdaus bin Yusof",
+     "spans": [
+      [
+       29,
+       52
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nur Iman binti Ghazali",
+     "spans": [
+      [
+       73,
+       95
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 10-379 7855",
+     "spans": [
+      [
+       97,
+       112
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Syafiq Aiman bin Zainal",
+     "spans": [
+      [
+       121,
+       144
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0126388842",
+     "spans": [
+      [
+       146,
+       156
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "nur.iman@example.net",
+     "spans": [
+      [
+       164,
+       184
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "B-30-10, Jalan Bunga Raya, Bandar Perda, 31400 Ipoh",
+     "spans": [
+      [
+       194,
+       245
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-00-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hello, this is Nor Azura binti Omar (IC 550722-14-6156). My son Amirul was seen by Dr. Intan Suraya binti Ismail on Tuesday for his asthma and I still have not received the medical certificate for his school, SK Taman Melati. Please email it to nor86@mail.example.com or WhatsApp me at 016-847 2047. Our address for the insurance claim is Unit 6-2, Blok B, Jalan Pinang 4, Taman Sri Muda, 53100 Kuala Lumpur. Thank you.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Nor Azura binti Omar",
+     "spans": [
+      [
+       15,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "550722-14-6156",
+     "spans": [
+      [
+       40,
+       54
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Amirul",
+     "spans": [
+      [
+       64,
+       70
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Intan Suraya binti Ismail",
+     "spans": [
+      [
+       87,
+       112
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "nor86@mail.example.com",
+     "spans": [
+      [
+       245,
+       267
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "016-847 2047",
+     "spans": [
+      [
+       286,
+       298
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 6-2, Blok B, Jalan Pinang 4, Taman Sri Muda, 53100 Kuala Lumpur",
+     "spans": [
+      [
+       339,
+       407
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "SK Taman Melati",
+     "spans": [
+      [
+       209,
+       224
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-01-1",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Assalamualaikum doktor. Saya Iskandar Zulkarnain bin Ghazali, no. IC 821221-13-8771. Saya nak buat temujanji untuk ibu saya, Siti Khadijah binti Rosli, tarikh lahir 1948-01-12. Dia ada darah tinggi dan kencing manis. Boleh hubungi saya di 018-271 3504. Alamat rumah: Lot 1620, Jalan Teratai 2/1, Taman Tasik Utama, 40460 Shah Alam. Terima kasih.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Iskandar Zulkarnain bin Ghazali",
+     "spans": [
+      [
+       29,
+       60
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "821221-13-8771",
+     "spans": [
+      [
+       69,
+       83
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Siti Khadijah binti Rosli",
+     "spans": [
+      [
+       125,
+       150
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "1948-01-12",
+     "spans": [
+      [
+       165,
+       175
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-271 3504",
+     "spans": [
+      [
+       239,
+       251
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Lot 1620, Jalan Teratai 2/1, Taman Tasik Utama, 40460 Shah Alam",
+     "spans": [
+      [
+       267,
+       330
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-02-1",
+   "domain": "clinic",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi klinik, saya Mak Shu Fen nak tanya pasal result blood test semalam. My IC 820721 05 6442, phone 018-514 6691. Doctor Mei Ling cakap kena datang balik Khamis tapi I kerja, boleh tukar? Email makshufen@example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mak Shu Fen",
+     "spans": [
+      [
+       16,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "820721 05 6442",
+     "spans": [
+      [
+       77,
+       91
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-514 6691",
+     "spans": [
+      [
+       99,
+       111
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Mei Ling",
+     "spans": [
+      [
+       120,
+       128
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "makshufen@example.com",
+     "spans": [
+      [
+       193,
+       214
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-03-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear clinic, I am writing on behalf of my father, Aloysius Gomez (MyKad 440814 04 2105, born 14/08/1944). His insurer AIA needs the discharge summary and the bill of RM 2096.90. The policy holder is me, Marcus de Souza, contact 07-186 9323 / marcus80@mail.example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Aloysius Gomez",
+     "spans": [
+      [
+       50,
+       64
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "440814 04 2105",
+     "spans": [
+      [
+       72,
+       86
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "14/08/1944",
+     "spans": [
+      [
+       93,
+       103
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Marcus de Souza",
+     "spans": [
+      [
+       203,
+       218
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "07-186 9323",
+     "spans": [
+      [
+       228,
+       239
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "marcus80@mail.example.com",
+     "spans": [
+      [
+       242,
+       267
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "AIA",
+     "spans": [
+      [
+       118,
+       121
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-04-1",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Salam, nama saya Malar a/p Subramaniam. Anak saya Raja a/l Rajendran (MyKid 141128-07-7443) demam tiga hari. Boleh saya bawa dia jam 2 petang? Kalau ada slot, call +60173639124. Kami tinggal di 105, Jalan Kenari 7, Taman Desa Jaya, 31400 Ipoh.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Malar a/p Subramaniam",
+     "spans": [
+      [
+       17,
+       38
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Raja a/l Rajendran",
+     "spans": [
+      [
+       50,
+       68
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "141128-07-7443",
+     "spans": [
+      [
+       76,
+       90
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60173639124",
+     "spans": [
+      [
+       164,
+       176
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "105, Jalan Kenari 7, Taman Desa Jaya, 31400 Ipoh",
+     "spans": [
+      [
+       194,
+       242
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-05-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Referral for Ooi Chee Keong, 33-year-old, IC 910421 12 7405, address 21, Jalan Merbau 8, Taman Sri Muda, 88300 Kota Kinabalu. Next of kin: Teh Pei Shan (0190413811). Please send the report to Dr. Aloysius Gomez at Hospital Kuala Lumpur.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ooi Chee Keong",
+     "spans": [
+      [
+       13,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "910421 12 7405",
+     "spans": [
+      [
+       45,
+       59
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "21, Jalan Merbau 8, Taman Sri Muda, 88300 Kota Kinabalu",
+     "spans": [
+      [
+       69,
+       124
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Pei Shan",
+     "spans": [
+      [
+       139,
+       151
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0190413811",
+     "spans": [
+      [
+       153,
+       163
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Aloysius Gomez",
+     "spans": [
+      [
+       196,
+       210
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hospital Kuala Lumpur",
+     "spans": [
+      [
+       214,
+       235
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-06-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "spelled-digits",
+   "text": "Hi, my name is Mak Zhi Hao. My phone is zero one two, six eight four, five seven three zero. Please call after 5pm about my daughter May Ling. My IC is 780111-14-6051.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mak Zhi Hao",
+     "spans": [
+      [
+       15,
+       26
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "zero one two, six eight four, five seven three zero",
+     "spans": [
+      [
+       40,
+       91
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "May Ling",
+     "spans": [
+      [
+       133,
+       141
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "780111-14-6051",
+     "spans": [
+      [
+       152,
+       166
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-07-1",
+   "domain": "clinic",
+   "lang": "mixed",
+   "adversarial": "split-number",
+   "text": "Hello, Chin May Ling here. My new number is 013-948 ... sorry terhantar, the rest is 1208. IC saya 830809-03 - 3238. Nak confirm appointment Isnin.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Chin May Ling",
+     "spans": [
+      [
+       7,
+       20
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "013-948 1208",
+     "spans": [
+      [
+       44,
+       51
+      ],
+      [
+       85,
+       89
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "830809-03 3238",
+     "spans": [
+      [
+       99,
+       108
+      ],
+      [
+       111,
+       115
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-08-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Hi, this is Rose Win's mum, Thida Win. I hope the doctor can see Rose today, her cough is worse. Call me at +60175098411.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Rose Win",
+     "spans": [
+      [
+       12,
+       20
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Thida Win",
+     "spans": [
+      [
+       28,
+       37
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rose",
+     "spans": [
+      [
+       65,
+       69
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60175098411",
+     "spans": [
+      [
+       108,
+       120
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-09-1",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": "word-name",
+   "text": "Saya nak buat appointment untuk mak saya. Nama dia Mak Xin Yi, IC 480916031698. Mak saya pening sejak semalam. Boleh hubungi Ng Chee Keong di (082) 10 9411.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mak Xin Yi",
+     "spans": [
+      [
+       51,
+       61
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "480916031698",
+     "spans": [
+      [
+       66,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ng Chee Keong",
+     "spans": [
+      [
+       125,
+       138
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(082) 10 9411",
+     "spans": [
+      [
+       142,
+       155
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-10-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "obfuscated-email",
+   "text": "can u email the mc to ooi_lan at example dot com . name ooi siew lan , ic 631205-08-3944 . tq",
+   "labels": [
+    {
+     "category": "EMAIL",
+     "value": "ooi_lan at example dot com",
+     "spans": [
+      [
+       22,
+       48
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "ooi siew lan",
+     "spans": [
+      [
+       56,
+       68
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "631205-08-3944",
+     "spans": [
+      [
+       74,
+       88
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-11-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "letter-o-for-zero",
+   "text": "Please call me back on O18-393 9093, I am Thilaga Devi Krishnan. My son Muthu Arumugam needs his vaccination record for SJK(T) Ladang Edinburgh.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "O18-393 9093",
+     "spans": [
+      [
+       23,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Thilaga Devi Krishnan",
+     "spans": [
+      [
+       42,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Muthu Arumugam",
+     "spans": [
+      [
+       72,
+       86
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "SJK(T) Ladang Edinburgh",
+     "spans": [
+      [
+       120,
+       143
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-12-1",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hi HR team, I'm Marcus de Souza from the Klang branch (employee no. MJ7096849). My wife Jenny is due on 20 March so I'd like to apply for paternity leave. Please credit the allowance to my Public Bank account 90525619369479. Reach me on +60147692537 or marcus_souza@mail.example.com. My manager, Farah Nadia binti Kamarudin, has approved it verbally.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Marcus de Souza",
+     "spans": [
+      [
+       16,
+       31
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "MJ7096849",
+     "spans": [
+      [
+       68,
+       77
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Jenny",
+     "spans": [
+      [
+       88,
+       93
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "90525619369479",
+     "spans": [
+      [
+       209,
+       223
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60147692537",
+     "spans": [
+      [
+       237,
+       249
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "marcus_souza@mail.example.com",
+     "spans": [
+      [
+       253,
+       282
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Farah Nadia binti Kamarudin",
+     "spans": [
+      [
+       296,
+       323
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Public Bank",
+     "spans": [
+      [
+       189,
+       200
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-13-1",
+   "domain": "hr",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Kepada HR, saya Teh Wei Ming, no. pekerja K42739, ingin memohon cuti sakit dari 18 April hingga 20 haribulan. Sijil MC dari Klinik Kesihatan Seksyen 7 dilampirkan. No. IC saya 010714-11-9587. Sebarang pertanyaan boleh hubungi +60107667024.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Teh Wei Ming",
+     "spans": [
+      [
+       16,
+       28
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "K42739",
+     "spans": [
+      [
+       42,
+       48
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "010714-11-9587",
+     "spans": [
+      [
+       176,
+       190
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60107667024",
+     "spans": [
+      [
+       226,
+       238
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Klinik Kesihatan Seksyen 7",
+     "spans": [
+      [
+       124,
+       150
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-14-1",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "HR, pls update my address dalam sistem. New address: Lot 1586, Jalan Merbau 8, Taman Sri Muda, 05150 Alor Setar. Also my new phone 088-00 6264. TQ. - Wong May Ling",
+   "labels": [
+    {
+     "category": "ADDRESS",
+     "value": "Lot 1586, Jalan Merbau 8, Taman Sri Muda, 05150 Alor Setar",
+     "spans": [
+      [
+       53,
+       111
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "088-00 6264",
+     "spans": [
+      [
+       131,
+       142
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wong May Ling",
+     "spans": [
+      [
+       150,
+       163
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-15-1",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear Payroll, my EPF number is 03095657 and my IC is 960804-16-5575. Last month's deduction was wrong. My bank account is 4809 2171 4204 (RHB). Regards, Daniel Lansing",
+   "labels": [
+    {
+     "category": "ID_NUMBER",
+     "value": "03095657",
+     "spans": [
+      [
+       31,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "960804-16-5575",
+     "spans": [
+      [
+       53,
+       67
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4809 2171 4204",
+     "spans": [
+      [
+       122,
+       136
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Daniel Lansing",
+     "spans": [
+      [
+       153,
+       167
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "RHB",
+     "spans": [
+      [
+       138,
+       141
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-16-1",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear HR, worker Min Thu Aung (passport B6358317) has a permit that expires on 21 September. His agent Jenny Lojingki can be reached at 010 808 1230. Please renew before then.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Min Thu Aung",
+     "spans": [
+      [
+       16,
+       28
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "B6358317",
+     "spans": [
+      [
+       39,
+       47
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Jenny Lojingki",
+     "spans": [
+      [
+       102,
+       116
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "010 808 1230",
+     "spans": [
+      [
+       135,
+       147
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-17-1",
+   "domain": "hr",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya nak tukar waris: nama Raja Nur Aisyah binti Kamarudin, hubungan isteri, no. tel 012-140 1096, IC 860315 03 2854, alamat Lot 4026, Lorong Seri Kuantan 9, Taman Tasik Utama, 25200 Kuantan.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Raja Nur Aisyah binti Kamarudin",
+     "spans": [
+      [
+       27,
+       58
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "012-140 1096",
+     "spans": [
+      [
+       85,
+       97
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "860315 03 2854",
+     "spans": [
+      [
+       102,
+       116
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Lot 4026, Lorong Seri Kuantan 9, Taman Tasik Utama, 25200 Kuantan",
+     "spans": [
+      [
+       125,
+       190
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-18-1",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hi, I'm calling about Hope Tingang, born 11/08/2000, who applied for the clerk role. She listed you, Tan May Ling, as a referee. Could you call me back on 017 386 9594? - Khairul, Gemilang Logistics Sdn Bhd",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Hope Tingang",
+     "spans": [
+      [
+       22,
+       34
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "11/08/2000",
+     "spans": [
+      [
+       41,
+       51
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tan May Ling",
+     "spans": [
+      [
+       101,
+       113
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "017 386 9594",
+     "spans": [
+      [
+       155,
+       167
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Khairul",
+     "spans": [
+      [
+       171,
+       178
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Gemilang Logistics Sdn Bhd",
+     "spans": [
+      [
+       180,
+       206
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-19-1",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Boss, Aloysius Gomez dari accounts asyik WhatsApp I at 0107876816 lepas midnight. I don't want to make it big but pls advise. - Boon Hock (staff ID S38579)",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Aloysius Gomez",
+     "spans": [
+      [
+       6,
+       20
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0107876816",
+     "spans": [
+      [
+       55,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Boon Hock",
+     "spans": [
+      [
+       128,
+       137
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "S38579",
+     "spans": [
+      [
+       148,
+       154
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-20-1",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": "spelled-digits",
+   "text": "For the insurance form: my IC number is seven two zero one one eight, zero five, six six one six and my name is Deepa a/p Muniandy. Mobile 03-0939 7711.",
+   "labels": [
+    {
+     "category": "ID_NUMBER",
+     "value": "seven two zero one one eight, zero five, six six one six",
+     "spans": [
+      [
+       40,
+       96
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Deepa a/p Muniandy",
+     "spans": [
+      [
+       112,
+       130
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "03-0939 7711",
+     "spans": [
+      [
+       139,
+       151
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-21-1",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": "split-number",
+   "text": "Bank account for the claim: 741269 and then 948606 (sorry, my phone cut it). Name on the account: Goh Kar Hoe, Hong Leong Bank.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "741269 948606",
+     "spans": [
+      [
+       28,
+       34
+      ],
+      [
+       44,
+       50
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Goh Kar Hoe",
+     "spans": [
+      [
+       98,
+       109
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hong Leong Bank",
+     "spans": [
+      [
+       111,
+       126
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank-22-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "To whom it may concern, my name is Siti Khadijah binti Omar, date of birth 23 July 1990. On 10 March my card 5939586312167375 was charged twice for RM 1349.50 at an online store. I called your hotline from (09) 675 6360 and spoke to an agent called Wei Ming, who promised a refund within 7 days. Please resolve this by Friday. Reply to siti_omar@mail.example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Siti Khadijah binti Omar",
+     "spans": [
+      [
+       35,
+       59
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "23 July 1990",
+     "spans": [
+      [
+       75,
+       87
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "5939586312167375",
+     "spans": [
+      [
+       109,
+       125
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(09) 675 6360",
+     "spans": [
+      [
+       206,
+       219
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wei Ming",
+     "spans": [
+      [
+       249,
+       257
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "siti_omar@mail.example.com",
+     "spans": [
+      [
+       336,
+       362
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-23-1",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Tuan/Puan, saya Nora Jitin (No. KP: 621018-10-1072) ingin membuat aduan. Akaun simpanan saya 676744303124 telah didebit RM 1545.90 tanpa kebenaran pada 8 Disember. Sila hubungi saya di 0146794356.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Nora Jitin",
+     "spans": [
+      [
+       16,
+       26
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "621018-10-1072",
+     "spans": [
+      [
+       36,
+       50
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "676744303124",
+     "spans": [
+      [
+       93,
+       105
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0146794356",
+     "spans": [
+      [
+       185,
+       195
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-24-1",
+   "domain": "bank",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi, I nak block card 3796 9730 5091 3086 sebab hilang semalam kat pasar malam. Nama Yap Wei Ming, IC 991126-10-3647. Pls call (03) 1935 0720 asap.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3796 9730 5091 3086",
+     "spans": [
+      [
+       21,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Yap Wei Ming",
+     "spans": [
+      [
+       84,
+       96
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "991126-10-3647",
+     "spans": [
+      [
+       101,
+       115
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(03) 1935 0720",
+     "spans": [
+      [
+       126,
+       140
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-25-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Please update the mailing address on account 2-5348815-43 to 31, Jalan Setia Murni U13/42, Taman Bukit Indah, 47301 Petaling Jaya. Account holder: Syafiq Aiman bin Ismail, MyKad 900401-13-6507.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "2-5348815-43",
+     "spans": [
+      [
+       45,
+       57
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "31, Jalan Setia Murni U13/42, Taman Bukit Indah, 47301 Petaling Jaya",
+     "spans": [
+      [
+       61,
+       129
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Syafiq Aiman bin Ismail",
+     "spans": [
+      [
+       147,
+       170
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "900401-13-6507",
+     "spans": [
+      [
+       178,
+       192
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-26-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "I transferred RM 1794.90 to Khairul Anuar bin Zainal (account 500486745195) by mistake instead of my brother Ho Kar Hoe. My account is 4024156390. Can you recall the transfer? Phone (04) 594 5584.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Khairul Anuar bin Zainal",
+     "spans": [
+      [
+       28,
+       52
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "500486745195",
+     "spans": [
+      [
+       62,
+       74
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ho Kar Hoe",
+     "spans": [
+      [
+       109,
+       119
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4024156390",
+     "spans": [
+      [
+       135,
+       145
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(04) 594 5584",
+     "spans": [
+      [
+       182,
+       195
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-27-1",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya Chin Li Ying, peminjam bersama dengan suami Chong Kah Wai (IC 800418053293). Kami nak tangguh bayaran pinjaman rumah di B-22-7, Jalan SS 2/24, Taman Tasik Utama, 25200 Kuantan. Emel: chin.li@example.com.my.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Chin Li Ying",
+     "spans": [
+      [
+       5,
+       17
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Chong Kah Wai",
+     "spans": [
+      [
+       49,
+       62
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "800418053293",
+     "spans": [
+      [
+       67,
+       79
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "B-22-7, Jalan SS 2/24, Taman Tasik Utama, 25200 Kuantan",
+     "spans": [
+      [
+       125,
+       180
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "chin.li@example.com.my",
+     "spans": [
+      [
+       188,
+       210
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-28-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Someone called me from +60 12-223 4559 pretending to be from the bank and asked for my TAC. I gave them my card number 3710 5341 7301 0623 before I realised. My name is Priya Nair, IC 670501-16-3850, and my real number is 05-779 5878.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "+60 12-223 4559",
+     "spans": [
+      [
+       23,
+       38
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3710 5341 7301 0623",
+     "spans": [
+      [
+       119,
+       138
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Priya Nair",
+     "spans": [
+      [
+       169,
+       179
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "670501-16-3850",
+     "spans": [
+      [
+       184,
+       198
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "05-779 5878",
+     "spans": [
+      [
+       222,
+       233
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-29-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": "letter-o-for-zero",
+   "text": "Call me at O19-126 3648 or 01173927071. Account no 1-0586588-89. - Muhammad Hafiz bin Rosli",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "O19-126 3648",
+     "spans": [
+      [
+       11,
+       23
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "01173927071",
+     "spans": [
+      [
+       27,
+       38
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "1-0586588-89",
+     "spans": [
+      [
+       51,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Muhammad Hafiz bin Rosli",
+     "spans": [
+      [
+       67,
+       91
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-30-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": "obfuscated-email",
+   "text": "Statement please send to chin dot zhi at example dot com dot my, name Chin Zhi Hao, a/c 47330841612372.",
+   "labels": [
+    {
+     "category": "EMAIL",
+     "value": "chin dot zhi at example dot com dot my",
+     "spans": [
+      [
+       25,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Chin Zhi Hao",
+     "spans": [
+      [
+       70,
+       82
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "47330841612372",
+     "spans": [
+      [
+       88,
+       102
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-31-1",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "I am Aisyah Humaira binti Kamarudin, holding power of attorney for my aunt Grace anak Jimbun (IC 391023104480, DOB 23/10/1939) who lives at Unit 4-2, Blok C, Lorong Perda Utama 5, Taman Sri Muda, 88300 Kota Kinabalu. Please call me at 016-913 8966.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Aisyah Humaira binti Kamarudin",
+     "spans": [
+      [
+       5,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Grace anak Jimbun",
+     "spans": [
+      [
+       75,
+       92
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "391023104480",
+     "spans": [
+      [
+       97,
+       109
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "23/10/1939",
+     "spans": [
+      [
+       115,
+       125
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 4-2, Blok C, Lorong Perda Utama 5, Taman Sri Muda, 88300 Kota Kinabalu",
+     "spans": [
+      [
+       140,
+       215
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "016-913 8966",
+     "spans": [
+      [
+       235,
+       247
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-32-1",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Cikgu Farah, saya Thilaga Devi a/p Krishnan, ibu kepada Ganesh a/l Krishnan dari kelas 3 Cemerlang. Anak saya tak dapat hadir esok sebab demam. Surat MC dari Dr. Kavitha Pillai akan saya hantar. No. tel saya 04-303 6940.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Farah",
+     "spans": [
+      [
+       6,
+       11
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Thilaga Devi a/p Krishnan",
+     "spans": [
+      [
+       18,
+       43
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ganesh a/l Krishnan",
+     "spans": [
+      [
+       56,
+       75
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Kavitha Pillai",
+     "spans": [
+      [
+       162,
+       176
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "04-303 6940",
+     "spans": [
+      [
+       208,
+       219
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-33-1",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear Teacher Rizal, my daughter Raja Nur Aisyah binti Abdullah (student ID P0801297, MyKid 100516138050) will be picked up by her uncle Mohd Faizal bin Yusof today. His number is +60 17-926 3773. - Farah Nadia binti Yusof",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Rizal",
+     "spans": [
+      [
+       13,
+       18
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Raja Nur Aisyah binti Abdullah",
+     "spans": [
+      [
+       32,
+       62
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "P0801297",
+     "spans": [
+      [
+       75,
+       83
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "100516138050",
+     "spans": [
+      [
+       91,
+       103
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Mohd Faizal bin Yusof",
+     "spans": [
+      [
+       136,
+       157
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 17-926 3773",
+     "spans": [
+      [
+       179,
+       194
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Farah Nadia binti Yusof",
+     "spans": [
+      [
+       198,
+       221
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-34-1",
+   "domain": "school",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi cikgu, saya Aloysius Gomez. Clarence kena buli dengan Kumaran a/l Muniandy dalam bas sekolah. Pls call me (088) 91 5107, I takut nak tulis panjang kat sini.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Aloysius Gomez",
+     "spans": [
+      [
+       15,
+       29
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Clarence",
+     "spans": [
+      [
+       31,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Kumaran a/l Muniandy",
+     "spans": [
+      [
+       57,
+       77
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(088) 91 5107",
+     "spans": [
+      [
+       109,
+       122
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-35-1",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hello, I'd like to pay the PIBG fee for Goh Zhi Hao and Lim Siew Lan by bank transfer from my account 4420584809 at Public Bank. Receipt to ng99@example.net. The address on record should be 50, Lorong Seri Kuantan 9, Taman Melati, 43650 Bandar Baru Bangi, Selangor.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Goh Zhi Hao",
+     "spans": [
+      [
+       40,
+       51
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lim Siew Lan",
+     "spans": [
+      [
+       56,
+       68
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4420584809",
+     "spans": [
+      [
+       102,
+       112
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ng99@example.net",
+     "spans": [
+      [
+       140,
+       156
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "50, Lorong Seri Kuantan 9, Taman Melati, 43650 Bandar Baru Bangi, Selangor",
+     "spans": [
+      [
+       190,
+       264
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Public Bank",
+     "spans": [
+      [
+       116,
+       127
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "school-36-1",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Kami berpindah ke Lot 4946, Jalan Setia Murni U13/42, Taman Tasik Utama, 25200 Kuantan, Pahang. Mohon pindahkan rekod Lim Pei Shan (no. sijil lahir B165145) ke sekolah baru. Hubungi bapa, Teh Jun Kai, di +60 16-547 5459 atau teh_kai@example.com.",
+   "labels": [
+    {
+     "category": "ADDRESS",
+     "value": "Lot 4946, Jalan Setia Murni U13/42, Taman Tasik Utama, 25200 Kuantan, Pahang",
+     "spans": [
+      [
+       18,
+       94
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lim Pei Shan",
+     "spans": [
+      [
+       118,
+       130
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "B165145",
+     "spans": [
+      [
+       148,
+       155
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Jun Kai",
+     "spans": [
+      [
+       188,
+       199
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 16-547 5459",
+     "spans": [
+      [
+       204,
+       219
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "teh_kai@example.com",
+     "spans": [
+      [
+       225,
+       244
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-37-1",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Please note Tan Hui Min (born 17/07/2017) has a peanut allergy. Her EpiPen is in her bag. In an emergency call me, Lee Li Ying, at +60 12-712 7518, or her grandmother Teh Li Ying at 011 6909 2589.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Tan Hui Min",
+     "spans": [
+      [
+       12,
+       23
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "17/07/2017",
+     "spans": [
+      [
+       30,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lee Li Ying",
+     "spans": [
+      [
+       115,
+       126
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 12-712 7518",
+     "spans": [
+      [
+       131,
+       146
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Li Ying",
+     "spans": [
+      [
+       167,
+       178
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "011 6909 2589",
+     "spans": [
+      [
+       182,
+       195
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-38-1",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Joy Win won't be in today. Joy is unwell; with God's grace she'll be back on Monday. I hope that's okay. - Thida Win (018 419 9323)",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Joy Win",
+     "spans": [
+      [
+       0,
+       7
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Joy",
+     "spans": [
+      [
+       27,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Thida Win",
+     "spans": [
+      [
+       107,
+       116
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018 419 9323",
+     "spans": [
+      [
+       118,
+       130
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-39-1",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": "lowercase-name",
+   "text": "salam cikgu, ni mak aisyah humaira. dia tertinggal buku latihan kat rumah. boleh call 0197147486? - nur iman",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "aisyah humaira",
+     "spans": [
+      [
+       20,
+       34
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0197147486",
+     "spans": [
+      [
+       86,
+       96
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "nur iman",
+     "spans": [
+      [
+       100,
+       108
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-40-1",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": "spelled-digits",
+   "text": "Nombor telefon saya kosong satu tujuh, tujuh tiga lima, satu dua enam enam. Nama saya Ho Chee Keong, bapa kepada Lim Xin Yi.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "kosong satu tujuh, tujuh tiga lima, satu dua enam enam",
+     "spans": [
+      [
+       20,
+       74
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ho Chee Keong",
+     "spans": [
+      [
+       86,
+       99
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lim Xin Yi",
+     "spans": [
+      [
+       113,
+       123
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-41-1",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Hi Ms Ng, Wong May Ling will miss school in May for her surgery at Hospital Pulau Pinang. You can reach me at wongboonhock@example.com. - Wong Boon Hock",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ng",
+     "spans": [
+      [
+       6,
+       8
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wong May Ling",
+     "spans": [
+      [
+       10,
+       23
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "wongboonhock@example.com",
+     "spans": [
+      [
+       110,
+       134
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wong Boon Hock",
+     "spans": [
+      [
+       138,
+       152
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hospital Pulau Pinang",
+     "spans": [
+      [
+       67,
+       88
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-42-1",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Booking for a family check-up on Tuesday: Daniel Lansing (IC 510719068599), Rosalind Majanggim (IC 610607-08-9072) and our daughter Nora Jitin, born 2019-07-15. Contact 014-326 9233, daniel.lansing@example.com. Home: Lot 2869, Jalan Kenari 7, Taman Tasik Utama, 93350 Kuching.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Daniel Lansing",
+     "spans": [
+      [
+       42,
+       56
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "510719068599",
+     "spans": [
+      [
+       61,
+       73
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rosalind Majanggim",
+     "spans": [
+      [
+       76,
+       94
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "610607-08-9072",
+     "spans": [
+      [
+       99,
+       113
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nora Jitin",
+     "spans": [
+      [
+       132,
+       142
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "2019-07-15",
+     "spans": [
+      [
+       149,
+       159
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "014-326 9233",
+     "spans": [
+      [
+       169,
+       181
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "daniel.lansing@example.com",
+     "spans": [
+      [
+       183,
+       209
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Lot 2869, Jalan Kenari 7, Taman Tasik Utama, 93350 Kuching",
+     "spans": [
+      [
+       217,
+       275
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-43-1",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi payroll, gaji bulan ni please masuk ke akaun baru 3-2149796-40 (Bank Islam). Nama Suresh Rajendran, IC 881121-09-2999, staff no TF22047. Kalau ada masalah call 011 5298 8051.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3-2149796-40",
+     "spans": [
+      [
+       53,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Suresh Rajendran",
+     "spans": [
+      [
+       85,
+       101
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "881121-09-2999",
+     "spans": [
+      [
+       106,
+       120
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "TF22047",
+     "spans": [
+      [
+       131,
+       138
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "011 5298 8051",
+     "spans": [
+      [
+       163,
+       176
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Bank Islam",
+     "spans": [
+      [
+       67,
+       77
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank-44-1",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya Chong Xin Yi, tarikh lahir 3 Mei 1984, pemegang kad 3726 2661 5266 4144. Ada transaksi RM 4245.90 yang saya tak buat. Tolong hubungi saya di 014-372 9607 atau emel chong.xin@example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Chong Xin Yi",
+     "spans": [
+      [
+       5,
+       17
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "3 Mei 1984",
+     "spans": [
+      [
+       32,
+       42
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3726 2661 5266 4144",
+     "spans": [
+      [
+       57,
+       76
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "014-372 9607",
+     "spans": [
+      [
+       146,
+       158
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "chong.xin@example.com",
+     "spans": [
+      [
+       169,
+       190
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-45-1",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Emergency contact update for Yap Li Ying (3 Cemerlang): mother Lim Xin Yi, +60178934358; father Teh Kah Wai, (04) 457 3684; email lim93@example.org; address 91, Jalan Pinang 4, Kampung Padang Jawa, 43650 Bandar Baru Bangi.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Yap Li Ying",
+     "spans": [
+      [
+       29,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lim Xin Yi",
+     "spans": [
+      [
+       63,
+       73
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60178934358",
+     "spans": [
+      [
+       75,
+       87
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Kah Wai",
+     "spans": [
+      [
+       96,
+       107
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(04) 457 3684",
+     "spans": [
+      [
+       109,
+       122
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "lim93@example.org",
+     "spans": [
+      [
+       130,
+       147
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "91, Jalan Pinang 4, Kampung Padang Jawa, 43650 Bandar Baru Bangi",
+     "spans": [
+      [
+       157,
+       221
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-00-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hello, this is Ooi Mei Ling (IC 560104159730). My son Boon Hock was seen by Dr. Aloysius on Tuesday for his asthma and I still have not received the medical certificate for his school, SJK(C) Chung Hwa. Please email it to ooimeiling@example.com or WhatsApp me at 018-675 7713. Our address for the insurance claim is B-26-8, Jalan Pinang 4, Taman Universiti, 93350 Kuching. Thank you.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ooi Mei Ling",
+     "spans": [
+      [
+       15,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "560104159730",
+     "spans": [
+      [
+       32,
+       44
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Boon Hock",
+     "spans": [
+      [
+       54,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Aloysius",
+     "spans": [
+      [
+       80,
+       88
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ooimeiling@example.com",
+     "spans": [
+      [
+       222,
+       244
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-675 7713",
+     "spans": [
+      [
+       263,
+       275
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "B-26-8, Jalan Pinang 4, Taman Universiti, 93350 Kuching",
+     "spans": [
+      [
+       316,
+       371
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "SJK(C) Chung Hwa",
+     "spans": [
+      [
+       185,
+       201
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-01-2",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Assalamualaikum doktor. Saya Mohd Rizal bin Kamarudin, no. IC 821012-11-4847. Saya nak buat temujanji untuk ibu saya, Tengku Nur Zahira binti Ismail, tarikh lahir 15/04/1954. Dia ada darah tinggi dan kencing manis. Boleh hubungi saya di (082) 20 8398. Alamat rumah: B-1-5, Jalan Cempaka 12, Seksyen 7, 81200 Johor Bahru. Terima kasih.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mohd Rizal bin Kamarudin",
+     "spans": [
+      [
+       29,
+       53
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "821012-11-4847",
+     "spans": [
+      [
+       62,
+       76
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tengku Nur Zahira binti Ismail",
+     "spans": [
+      [
+       118,
+       148
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "15/04/1954",
+     "spans": [
+      [
+       163,
+       173
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(082) 20 8398",
+     "spans": [
+      [
+       237,
+       250
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "B-1-5, Jalan Cempaka 12, Seksyen 7, 81200 Johor Bahru",
+     "spans": [
+      [
+       266,
+       319
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-02-2",
+   "domain": "clinic",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi klinik, saya Ong Kah Wai nak tanya pasal result blood test semalam. My IC 951009 12 7089, phone 05-356 2418. Doctor Hope cakap kena datang balik Rabu tapi I kerja, boleh tukar? Email ongkahwai@example.com.my.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ong Kah Wai",
+     "spans": [
+      [
+       16,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "951009 12 7089",
+     "spans": [
+      [
+       77,
+       91
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "05-356 2418",
+     "spans": [
+      [
+       99,
+       110
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope",
+     "spans": [
+      [
+       119,
+       123
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ongkahwai@example.com.my",
+     "spans": [
+      [
+       186,
+       210
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-03-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear clinic, I am writing on behalf of my father, Ganesh Subramaniam (MyKad 470206-16-6123, born 06/02/1947). His insurer Great Eastern needs the discharge summary and the bill of RM 2318.50. The policy holder is me, Arjun a/l Nair, contact 011 0607 6153 / arjun70@example.com.my.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ganesh Subramaniam",
+     "spans": [
+      [
+       50,
+       68
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "470206-16-6123",
+     "spans": [
+      [
+       76,
+       90
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "06/02/1947",
+     "spans": [
+      [
+       97,
+       107
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Arjun a/l Nair",
+     "spans": [
+      [
+       217,
+       231
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "011 0607 6153",
+     "spans": [
+      [
+       241,
+       254
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "arjun70@example.com.my",
+     "spans": [
+      [
+       257,
+       279
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Great Eastern",
+     "spans": [
+      [
+       122,
+       135
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-04-2",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Salam, nama saya Lim Hui Min. Anak saya Wong Boon Hock (MyKid 150125147413) demam tiga hari. Boleh saya bawa dia jam 10 pagi? Kalau ada slot, call (09) 904 9419. Kami tinggal di 119, Jalan Merbau 8, Taman Bukit Indah, 25200 Kuantan, Pahang.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lim Hui Min",
+     "spans": [
+      [
+       17,
+       28
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wong Boon Hock",
+     "spans": [
+      [
+       40,
+       54
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "150125147413",
+     "spans": [
+      [
+       62,
+       74
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(09) 904 9419",
+     "spans": [
+      [
+       147,
+       160
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "119, Jalan Merbau 8, Taman Bukit Indah, 25200 Kuantan, Pahang",
+     "spans": [
+      [
+       178,
+       239
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-05-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Referral for Cahaya Nurin binti Yusof, 51-year-old, IC 500111-08-7874, address 10, Jalan Kenari 7, Taman Sri Muda, 47301 Petaling Jaya, Selangor. Next of kin: Ahmad Firdaus bin Ghazali (019-783 9166). Please send the report to Dr. Ong Zhi Hao at Hospital Pulau Pinang.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Cahaya Nurin binti Yusof",
+     "spans": [
+      [
+       13,
+       37
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "500111-08-7874",
+     "spans": [
+      [
+       55,
+       69
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "10, Jalan Kenari 7, Taman Sri Muda, 47301 Petaling Jaya, Selangor",
+     "spans": [
+      [
+       79,
+       144
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ahmad Firdaus bin Ghazali",
+     "spans": [
+      [
+       159,
+       184
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "019-783 9166",
+     "spans": [
+      [
+       186,
+       198
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ong Zhi Hao",
+     "spans": [
+      [
+       231,
+       242
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hospital Pulau Pinang",
+     "spans": [
+      [
+       246,
+       267
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-06-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "spelled-digits",
+   "text": "Hi, my name is Lee Li Ying. My phone is zero one nine, five zero five, six four two five. Please call after 5pm about my daughter Xin Yi. My IC is 710802095870.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lee Li Ying",
+     "spans": [
+      [
+       15,
+       26
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "zero one nine, five zero five, six four two five",
+     "spans": [
+      [
+       40,
+       88
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Xin Yi",
+     "spans": [
+      [
+       130,
+       136
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "710802095870",
+     "spans": [
+      [
+       147,
+       159
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-07-2",
+   "domain": "clinic",
+   "lang": "mixed",
+   "adversarial": "split-number",
+   "text": "Hello, Lee May Ling here. My new number is 016-949 ... sorry terhantar, the rest is 3138. IC saya 830911-15 - 7334. Nak confirm appointment Jumaat.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lee May Ling",
+     "spans": [
+      [
+       7,
+       19
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "016-949 3138",
+     "spans": [
+      [
+       43,
+       50
+      ],
+      [
+       84,
+       88
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "830911-15 7334",
+     "spans": [
+      [
+       98,
+       107
+      ],
+      [
+       110,
+       114
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-08-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Hi, this is Hope Tingang's mum, Hope Tingang. I hope the doctor can see Hope today, her cough is worse. Call me at +60174739579.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Hope Tingang",
+     "spans": [
+      [
+       12,
+       24
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope Tingang",
+     "spans": [
+      [
+       32,
+       44
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope",
+     "spans": [
+      [
+       72,
+       76
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60174739579",
+     "spans": [
+      [
+       115,
+       127
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-09-2",
+   "domain": "clinic",
+   "lang": "ms",
+   "adversarial": "word-name",
+   "text": "Saya nak buat appointment untuk mak saya. Nama dia Mak Mei Ling, IC 600823-16-5904. Mak saya pening sejak semalam. Boleh hubungi Ho Chee Keong di +60 13-678 6224.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Mak Mei Ling",
+     "spans": [
+      [
+       51,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "600823-16-5904",
+     "spans": [
+      [
+       68,
+       82
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ho Chee Keong",
+     "spans": [
+      [
+       129,
+       142
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 13-678 6224",
+     "spans": [
+      [
+       146,
+       161
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-10-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "obfuscated-email",
+   "text": "can u email the mc to arjunrajendran at example dot net . name arjun rajendran , ic 610621-15-5067 . tq",
+   "labels": [
+    {
+     "category": "EMAIL",
+     "value": "arjunrajendran at example dot net",
+     "spans": [
+      [
+       22,
+       55
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "arjun rajendran",
+     "spans": [
+      [
+       63,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "610621-15-5067",
+     "spans": [
+      [
+       84,
+       98
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "clinic-11-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": "letter-o-for-zero",
+   "text": "Please call me back on O16-730 5965, I am Nor Azura binti Ghazali. My son Muhammad Hafiz bin Rosli needs his vaccination record for SMK Convent Bukit Nanas.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "O16-730 5965",
+     "spans": [
+      [
+       23,
+       35
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Nor Azura binti Ghazali",
+     "spans": [
+      [
+       42,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Muhammad Hafiz bin Rosli",
+     "spans": [
+      [
+       74,
+       98
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "SMK Convent Bukit Nanas",
+     "spans": [
+      [
+       132,
+       155
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-12-2",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hi HR team, I'm Clarence Ujang from the Penang branch (employee no. AB9365352). My wife Hope is due on 7 December so I'd like to apply for paternity leave. Please credit the allowance to my Public Bank account 3403567888. Reach me on +60148899741 or clarence_ujang@example.org. My manager, Iskandar Zulkarnain bin Yusof, has approved it verbally.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Clarence Ujang",
+     "spans": [
+      [
+       16,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "AB9365352",
+     "spans": [
+      [
+       68,
+       77
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope",
+     "spans": [
+      [
+       88,
+       92
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3403567888",
+     "spans": [
+      [
+       210,
+       220
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60148899741",
+     "spans": [
+      [
+       234,
+       246
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "clarence_ujang@example.org",
+     "spans": [
+      [
+       250,
+       276
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Iskandar Zulkarnain bin Yusof",
+     "spans": [
+      [
+       290,
+       319
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Public Bank",
+     "spans": [
+      [
+       190,
+       201
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-13-2",
+   "domain": "hr",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Kepada HR, saya Marcus de Souza, no. pekerja K56850, ingin memohon cuti sakit dari 5 Oktober hingga 7 haribulan. Sijil MC dari Poliklinik Damai dilampirkan. No. IC saya 880816-13-4375. Sebarang pertanyaan boleh hubungi 017-508 0570.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Marcus de Souza",
+     "spans": [
+      [
+       16,
+       31
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "K56850",
+     "spans": [
+      [
+       45,
+       51
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "880816-13-4375",
+     "spans": [
+      [
+       169,
+       183
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "017-508 0570",
+     "spans": [
+      [
+       219,
+       231
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Poliklinik Damai",
+     "spans": [
+      [
+       127,
+       143
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-14-2",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "HR, pls update my address dalam sistem. New address: 39, Jalan Setia Murni U13/42, Taman Universiti, 81200 Johor Bahru. Also my new phone 088-69 0914. TQ. - Siti Khadijah binti Mat Isa",
+   "labels": [
+    {
+     "category": "ADDRESS",
+     "value": "39, Jalan Setia Murni U13/42, Taman Universiti, 81200 Johor Bahru",
+     "spans": [
+      [
+       53,
+       118
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "088-69 0914",
+     "spans": [
+      [
+       138,
+       149
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Siti Khadijah binti Mat Isa",
+     "spans": [
+      [
+       157,
+       184
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-15-2",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear Payroll, my EPF number is 33840667 and my IC is 000308-08-2435. Last month's deduction was wrong. My bank account is 9065148657 (CIMB). Regards, Marcus de Souza",
+   "labels": [
+    {
+     "category": "ID_NUMBER",
+     "value": "33840667",
+     "spans": [
+      [
+       31,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "000308-08-2435",
+     "spans": [
+      [
+       53,
+       67
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "9065148657",
+     "spans": [
+      [
+       122,
+       132
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Marcus de Souza",
+     "spans": [
+      [
+       150,
+       165
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "CIMB",
+     "spans": [
+      [
+       134,
+       138
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-16-2",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear HR, worker Rahim Uddin (passport PA0624432) has a permit that expires on 10 October. His agent Goh Wei Ming can be reached at 0197009103. Please renew before then.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Rahim Uddin",
+     "spans": [
+      [
+       16,
+       27
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "PA0624432",
+     "spans": [
+      [
+       38,
+       47
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Goh Wei Ming",
+     "spans": [
+      [
+       100,
+       112
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0197009103",
+     "spans": [
+      [
+       131,
+       141
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-17-2",
+   "domain": "hr",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya nak tukar waris: nama Teh Li Ying, hubungan isteri, no. tel +60139611097, IC 910413-13-7416, alamat Unit 8-4, Blok C, Jalan Pinang 4, Taman Desa Jaya, 43650 Bandar Baru Bangi, Selangor.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Teh Li Ying",
+     "spans": [
+      [
+       27,
+       38
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60139611097",
+     "spans": [
+      [
+       65,
+       77
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "910413-13-7416",
+     "spans": [
+      [
+       82,
+       96
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 8-4, Blok C, Jalan Pinang 4, Taman Desa Jaya, 43650 Bandar Baru Bangi, Selangor",
+     "spans": [
+      [
+       105,
+       189
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-18-2",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hi, I'm calling about Tan Shu Fen, born 1999-03-03, who applied for the clerk role. She listed you, Devi Ramasamy, as a referee. Could you call me back on 0147409068? - Wei Ming, Syarikat Maju Jaya Sdn Bhd",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Tan Shu Fen",
+     "spans": [
+      [
+       22,
+       33
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "1999-03-03",
+     "spans": [
+      [
+       40,
+       50
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Devi Ramasamy",
+     "spans": [
+      [
+       100,
+       113
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0147409068",
+     "spans": [
+      [
+       155,
+       165
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wei Ming",
+     "spans": [
+      [
+       169,
+       177
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Syarikat Maju Jaya Sdn Bhd",
+     "spans": [
+      [
+       179,
+       205
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr-19-2",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Boss, Amirul Hakim bin Ghazali dari accounts asyik WhatsApp I at 088-40 1742 lepas midnight. I don't want to make it big but pls advise. - Jenny (staff ID S76825)",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Amirul Hakim bin Ghazali",
+     "spans": [
+      [
+       6,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "088-40 1742",
+     "spans": [
+      [
+       65,
+       76
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Jenny",
+     "spans": [
+      [
+       139,
+       144
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "S76825",
+     "spans": [
+      [
+       155,
+       161
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-20-2",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": "spelled-digits",
+   "text": "For the insurance form: my IC number is seven zero zero four one five, one six, eight six four nine and my name is Kumaran Ramasamy. Mobile (05) 616 5434.",
+   "labels": [
+    {
+     "category": "ID_NUMBER",
+     "value": "seven zero zero four one five, one six, eight six four nine",
+     "spans": [
+      [
+       40,
+       99
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Kumaran Ramasamy",
+     "spans": [
+      [
+       115,
+       131
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(05) 616 5434",
+     "spans": [
+      [
+       140,
+       153
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-21-2",
+   "domain": "hr",
+   "lang": "en",
+   "adversarial": "split-number",
+   "text": "Bank account for the claim: 173950 and then 394906 (sorry, my phone cut it). Name on the account: Teh Li Ying, Bank Islam.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "173950 394906",
+     "spans": [
+      [
+       28,
+       34
+      ],
+      [
+       44,
+       50
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Li Ying",
+     "spans": [
+      [
+       98,
+       109
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Bank Islam",
+     "spans": [
+      [
+       111,
+       121
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank-22-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "To whom it may concern, my name is Ong May Ling, date of birth 11 May 1953. On 14 May my card 5904 1321 4749 2406 was charged twice for RM 4523.90 at an online store. I called your hotline from (03) 6525 8140 and spoke to an agent called Rizal, who promised a refund within 7 days. Please resolve this by Friday. Reply to ong.may@example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ong May Ling",
+     "spans": [
+      [
+       35,
+       47
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "11 May 1953",
+     "spans": [
+      [
+       63,
+       74
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "5904 1321 4749 2406",
+     "spans": [
+      [
+       94,
+       113
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(03) 6525 8140",
+     "spans": [
+      [
+       194,
+       208
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rizal",
+     "spans": [
+      [
+       238,
+       243
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ong.may@example.com",
+     "spans": [
+      [
+       322,
+       341
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-23-2",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Tuan/Puan, saya Kavitha a/p Arumugam (No. KP: 990127-03-8048) ingin membuat aduan. Akaun simpanan saya 712395579046 telah didebit RM 3793.00 tanpa kebenaran pada 1 November. Sila hubungi saya di 0184441212.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Kavitha a/p Arumugam",
+     "spans": [
+      [
+       16,
+       36
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "990127-03-8048",
+     "spans": [
+      [
+       46,
+       60
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "712395579046",
+     "spans": [
+      [
+       103,
+       115
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0184441212",
+     "spans": [
+      [
+       195,
+       205
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-24-2",
+   "domain": "bank",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi, I nak block card 4748 2007 4583 0617 sebab hilang semalam kat LRT Kelana Jaya. Nama Tan May Ling, IC 830908151614. Pls call 0104134585 asap.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4748 2007 4583 0617",
+     "spans": [
+      [
+       21,
+       40
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tan May Ling",
+     "spans": [
+      [
+       88,
+       100
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "830908151614",
+     "spans": [
+      [
+       105,
+       117
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0104134585",
+     "spans": [
+      [
+       128,
+       138
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-25-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Please update the mailing address on account 40410070891860 to 34, Jalan Teratai 2/1, Kampung Padang Jawa, 05150 Alor Setar, Kedah. Account holder: Hope Tingang, MyKad 660910106952.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "40410070891860",
+     "spans": [
+      [
+       45,
+       59
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "34, Jalan Teratai 2/1, Kampung Padang Jawa, 05150 Alor Setar, Kedah",
+     "spans": [
+      [
+       63,
+       130
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope Tingang",
+     "spans": [
+      [
+       148,
+       160
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "660910106952",
+     "spans": [
+      [
+       168,
+       180
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-26-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "I transferred RM 2423.90 to Lee Kah Wai (account 39425940309722) by mistake instead of my brother Iskandar Zulkarnain bin Hassan. My account is 3086569079. Can you recall the transfer? Phone 011-2446 6110.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Lee Kah Wai",
+     "spans": [
+      [
+       28,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "39425940309722",
+     "spans": [
+      [
+       49,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Iskandar Zulkarnain bin Hassan",
+     "spans": [
+      [
+       98,
+       128
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "3086569079",
+     "spans": [
+      [
+       144,
+       154
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "011-2446 6110",
+     "spans": [
+      [
+       191,
+       204
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-27-2",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya Ng Pei Shan, peminjam bersama dengan suami Wong Chee Keong (IC 550907-06-2025). Kami nak tangguh bayaran pinjaman rumah di 46, Jalan Kenari 7, Taman Tasik Utama, 53100 Kuala Lumpur. Emel: ng.pei@example.com.my.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ng Pei Shan",
+     "spans": [
+      [
+       5,
+       16
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wong Chee Keong",
+     "spans": [
+      [
+       48,
+       63
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "550907-06-2025",
+     "spans": [
+      [
+       68,
+       82
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "46, Jalan Kenari 7, Taman Tasik Utama, 53100 Kuala Lumpur",
+     "spans": [
+      [
+       128,
+       185
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ng.pei@example.com.my",
+     "spans": [
+      [
+       193,
+       214
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-28-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Someone called me from (04) 024 9666 pretending to be from the bank and asked for my TAC. I gave them my card number 5694 2718 5824 7924 before I realised. My name is Amirul Hakim bin Ghazali, IC 671108-15-8207, and my real number is (082) 24 8221.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "(04) 024 9666",
+     "spans": [
+      [
+       23,
+       36
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "5694 2718 5824 7924",
+     "spans": [
+      [
+       117,
+       136
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Amirul Hakim bin Ghazali",
+     "spans": [
+      [
+       167,
+       191
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "671108-15-8207",
+     "spans": [
+      [
+       196,
+       210
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(082) 24 8221",
+     "spans": [
+      [
+       234,
+       247
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-29-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": "letter-o-for-zero",
+   "text": "Call me at O16-022 2803 or 0140453529. Account no 23396701827991. - Raja Nur Aisyah binti Abdullah",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "O16-022 2803",
+     "spans": [
+      [
+       11,
+       23
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0140453529",
+     "spans": [
+      [
+       27,
+       37
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "23396701827991",
+     "spans": [
+      [
+       50,
+       64
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Raja Nur Aisyah binti Abdullah",
+     "spans": [
+      [
+       68,
+       98
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-30-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": "obfuscated-email",
+   "text": "Statement please send to bayu98 at mail dot example dot com, name Bayu Santoso, a/c 14652014261076.",
+   "labels": [
+    {
+     "category": "EMAIL",
+     "value": "bayu98 at mail dot example dot com",
+     "spans": [
+      [
+       25,
+       59
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Bayu Santoso",
+     "spans": [
+      [
+       66,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "14652014261076",
+     "spans": [
+      [
+       84,
+       98
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "bank-31-2",
+   "domain": "bank",
+   "lang": "en",
+   "adversarial": null,
+   "text": "I am Nurul Aina binti Abdullah, holding power of attorney for my aunt Tengku Nur Zahira binti Rosli (IC 501217 12 5758, DOB 17 December 1950) who lives at Unit 14-5, Blok D, Lorong Seri Kuantan 9, Seksyen 7, 81200 Johor Bahru. Please call me at 0173537919.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Nurul Aina binti Abdullah",
+     "spans": [
+      [
+       5,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tengku Nur Zahira binti Rosli",
+     "spans": [
+      [
+       70,
+       99
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "501217 12 5758",
+     "spans": [
+      [
+       104,
+       118
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "17 December 1950",
+     "spans": [
+      [
+       124,
+       140
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 14-5, Blok D, Lorong Seri Kuantan 9, Seksyen 7, 81200 Johor Bahru",
+     "spans": [
+      [
+       155,
+       225
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0173537919",
+     "spans": [
+      [
+       245,
+       255
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-32-2",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Cikgu May Ling, saya Intan Suraya binti Kamarudin, ibu kepada Haziq Danial bin Mat Isa dari kelas 5 Bestari. Anak saya tak dapat hadir esok sebab demam. Surat MC dari Dr. Jenny Lojingki akan saya hantar. No. tel saya +60167098358.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "May Ling",
+     "spans": [
+      [
+       6,
+       14
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Intan Suraya binti Kamarudin",
+     "spans": [
+      [
+       21,
+       49
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Haziq Danial bin Mat Isa",
+     "spans": [
+      [
+       62,
+       86
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Jenny Lojingki",
+     "spans": [
+      [
+       171,
+       185
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60167098358",
+     "spans": [
+      [
+       217,
+       229
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-33-2",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Dear Teacher Faizal, my daughter Goh Hui Min (student ID M5343612, MyKid 141119-03-4162) will be picked up by her uncle Teh Jun Kai today. His number is 09-397 9792. - Goh Kar Hoe",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Faizal",
+     "spans": [
+      [
+       13,
+       19
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Goh Hui Min",
+     "spans": [
+      [
+       33,
+       44
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "M5343612",
+     "spans": [
+      [
+       57,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "141119-03-4162",
+     "spans": [
+      [
+       73,
+       87
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Jun Kai",
+     "spans": [
+      [
+       120,
+       131
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "09-397 9792",
+     "spans": [
+      [
+       153,
+       164
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Goh Kar Hoe",
+     "spans": [
+      [
+       168,
+       179
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-34-2",
+   "domain": "school",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi cikgu, saya Vikneswaran a/l Ramasamy. Muthu kena buli dengan Daniel Lansing dalam bas sekolah. Pls call me 0177697322, I takut nak tulis panjang kat sini.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Vikneswaran a/l Ramasamy",
+     "spans": [
+      [
+       15,
+       39
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Muthu",
+     "spans": [
+      [
+       41,
+       46
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Daniel Lansing",
+     "spans": [
+      [
+       64,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0177697322",
+     "spans": [
+      [
+       110,
+       120
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-35-2",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Hello, I'd like to pay the PIBG fee for Yap Wei Ming and Ooi Shu Fen by bank transfer from my account 974985396205 at Hong Leong Bank. Receipt to tan73@example.org. The address on record should be 119, Lorong Seri Kuantan 9, Kampung Padang Jawa, 25200 Kuantan.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Yap Wei Ming",
+     "spans": [
+      [
+       40,
+       52
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ooi Shu Fen",
+     "spans": [
+      [
+       57,
+       68
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "974985396205",
+     "spans": [
+      [
+       102,
+       114
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "tan73@example.org",
+     "spans": [
+      [
+       146,
+       163
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "119, Lorong Seri Kuantan 9, Kampung Padang Jawa, 25200 Kuantan",
+     "spans": [
+      [
+       197,
+       259
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hong Leong Bank",
+     "spans": [
+      [
+       118,
+       133
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "school-36-2",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Kami berpindah ke 15, Jalan Teratai 2/1, Kampung Padang Jawa, 25200 Kuantan, Pahang. Mohon pindahkan rekod Teh May Ling (no. sijil lahir AB711623) ke sekolah baru. Hubungi bapa, Teh Wei Ming, di 0189572283 atau teh_ming@example.com.",
+   "labels": [
+    {
+     "category": "ADDRESS",
+     "value": "15, Jalan Teratai 2/1, Kampung Padang Jawa, 25200 Kuantan, Pahang",
+     "spans": [
+      [
+       18,
+       83
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh May Ling",
+     "spans": [
+      [
+       107,
+       119
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "AB711623",
+     "spans": [
+      [
+       137,
+       145
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Teh Wei Ming",
+     "spans": [
+      [
+       178,
+       190
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0189572283",
+     "spans": [
+      [
+       195,
+       205
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "teh_ming@example.com",
+     "spans": [
+      [
+       211,
+       231
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-37-2",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Please note Priya a/p Arumugam (born 8 May 2014) has a peanut allergy. Her EpiPen is in her bag. In an emergency call me, Ganesh a/l Muniandy, at +60147026241, or her grandmother Kavitha Subramaniam at 019 366 2972.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Priya a/p Arumugam",
+     "spans": [
+      [
+       12,
+       30
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "8 May 2014",
+     "spans": [
+      [
+       37,
+       47
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ganesh a/l Muniandy",
+     "spans": [
+      [
+       122,
+       141
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60147026241",
+     "spans": [
+      [
+       146,
+       158
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Kavitha Subramaniam",
+     "spans": [
+      [
+       179,
+       198
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "019 366 2972",
+     "spans": [
+      [
+       202,
+       214
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-38-2",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Joy Tingang won't be in today. Joy is unwell; with God's grace she'll be back on Monday. I hope that's okay. - Hope Tingang (018-847 4966)",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Joy Tingang",
+     "spans": [
+      [
+       0,
+       11
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Joy",
+     "spans": [
+      [
+       31,
+       34
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope Tingang",
+     "spans": [
+      [
+       111,
+       123
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-847 4966",
+     "spans": [
+      [
+       125,
+       137
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-39-2",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": "lowercase-name",
+   "text": "salam cikgu, ni mak syafiq aiman. dia tertinggal buku latihan kat rumah. boleh call 0177992655? - nurul aina",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "syafiq aiman",
+     "spans": [
+      [
+       20,
+       32
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "0177992655",
+     "spans": [
+      [
+       84,
+       94
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "nurul aina",
+     "spans": [
+      [
+       98,
+       108
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-40-2",
+   "domain": "school",
+   "lang": "ms",
+   "adversarial": "spelled-digits",
+   "text": "Nombor telefon saya kosong satu empat, dua tujuh tiga, satu empat empat enam. Nama saya Lee Kah Wai, bapa kepada Wong Kar Hoe.",
+   "labels": [
+    {
+     "category": "PHONE",
+     "value": "kosong satu empat, dua tujuh tiga, satu empat empat enam",
+     "spans": [
+      [
+       20,
+       76
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lee Kah Wai",
+     "spans": [
+      [
+       88,
+       99
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Wong Kar Hoe",
+     "spans": [
+      [
+       113,
+       125
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-41-2",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": "word-name",
+   "text": "Hi Ms Ng, Lee May Ling will miss school in May for her surgery at Hospital Pulau Pinang. You can reach me at ooi_hao@example.net. - Ooi Zhi Hao",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Ng",
+     "spans": [
+      [
+       6,
+       8
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Lee May Ling",
+     "spans": [
+      [
+       10,
+       22
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "ooi_hao@example.net",
+     "spans": [
+      [
+       109,
+       128
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ooi Zhi Hao",
+     "spans": [
+      [
+       132,
+       143
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Hospital Pulau Pinang",
+     "spans": [
+      [
+       66,
+       87
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clinic-42-2",
+   "domain": "clinic",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Booking for a family check-up on Wednesday: Rahim Uddin (IC 050325 04 8727), Hope Tingang (IC 821217-02-4088) and our daughter Rosalind Majanggim, born 20 April 2015. Contact 012-833 0176, rahim.uddin@mail.example.com. Home: 77, Lorong Seri Kuantan 9, Taman Bukit Indah, 88300 Kota Kinabalu.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Rahim Uddin",
+     "spans": [
+      [
+       44,
+       55
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "050325 04 8727",
+     "spans": [
+      [
+       60,
+       74
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Hope Tingang",
+     "spans": [
+      [
+       77,
+       89
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "821217-02-4088",
+     "spans": [
+      [
+       94,
+       108
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Rosalind Majanggim",
+     "spans": [
+      [
+       127,
+       145
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "20 April 2015",
+     "spans": [
+      [
+       152,
+       165
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "012-833 0176",
+     "spans": [
+      [
+       175,
+       187
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "rahim.uddin@mail.example.com",
+     "spans": [
+      [
+       189,
+       217
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "77, Lorong Seri Kuantan 9, Taman Bukit Indah, 88300 Kota Kinabalu",
+     "spans": [
+      [
+       225,
+       290
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "hr-43-2",
+   "domain": "hr",
+   "lang": "mixed",
+   "adversarial": null,
+   "text": "Hi payroll, gaji bulan ni please masuk ke akaun baru 221781879584 (Maybank). Nama Tan Boon Hock, IC 651225-16-7801, staff no EMP08560. Kalau ada masalah call +60 18-599 3889.",
+   "labels": [
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "221781879584",
+     "spans": [
+      [
+       53,
+       65
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Tan Boon Hock",
+     "spans": [
+      [
+       82,
+       95
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "651225-16-7801",
+     "spans": [
+      [
+       100,
+       114
+      ]
+     ]
+    },
+    {
+     "category": "ID_NUMBER",
+     "value": "EMP08560",
+     "spans": [
+      [
+       125,
+       133
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60 18-599 3889",
+     "spans": [
+      [
+       158,
+       173
+      ]
+     ]
+    }
+   ],
+   "optional": [
+    {
+     "category": "ORGANIZATION",
+     "value": "Maybank",
+     "spans": [
+      [
+       67,
+       74
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank-44-2",
+   "domain": "bank",
+   "lang": "ms",
+   "adversarial": null,
+   "text": "Saya Yap Kar Hoe, tarikh lahir 26 Julai 2000, pemegang kad 4821 1594 4889 7242. Ada transaksi RM 4760.50 yang saya tak buat. Tolong hubungi saya di 018-102 5246 atau emel yapkarhoe@example.com.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Yap Kar Hoe",
+     "spans": [
+      [
+       5,
+       16
+      ]
+     ]
+    },
+    {
+     "category": "DATE_OF_BIRTH",
+     "value": "26 Julai 2000",
+     "spans": [
+      [
+       31,
+       44
+      ]
+     ]
+    },
+    {
+     "category": "ACCOUNT_NUMBER",
+     "value": "4821 1594 4889 7242",
+     "spans": [
+      [
+       59,
+       78
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "018-102 5246",
+     "spans": [
+      [
+       148,
+       160
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "yapkarhoe@example.com",
+     "spans": [
+      [
+       171,
+       192
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  },
+  {
+   "id": "school-45-2",
+   "domain": "school",
+   "lang": "en",
+   "adversarial": null,
+   "text": "Emergency contact update for Suresh Muniandy (4 Amanah): mother Malar Pillai, (04) 905 6865; father Ganesh Muniandy, +60165219728; email malar86@example.com; address Unit 1-8, Blok A, Jalan Mawar 3, Taman Sri Muda, 53100 Kuala Lumpur.",
+   "labels": [
+    {
+     "category": "PERSON",
+     "value": "Suresh Muniandy",
+     "spans": [
+      [
+       29,
+       44
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Malar Pillai",
+     "spans": [
+      [
+       64,
+       76
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "(04) 905 6865",
+     "spans": [
+      [
+       78,
+       91
+      ]
+     ]
+    },
+    {
+     "category": "PERSON",
+     "value": "Ganesh Muniandy",
+     "spans": [
+      [
+       100,
+       115
+      ]
+     ]
+    },
+    {
+     "category": "PHONE",
+     "value": "+60165219728",
+     "spans": [
+      [
+       117,
+       129
+      ]
+     ]
+    },
+    {
+     "category": "EMAIL",
+     "value": "malar86@example.com",
+     "spans": [
+      [
+       137,
+       156
+      ]
+     ]
+    },
+    {
+     "category": "ADDRESS",
+     "value": "Unit 1-8, Blok A, Jalan Mawar 3, Taman Sri Muda, 53100 Kuala Lumpur",
+     "spans": [
+      [
+       166,
+       233
+      ]
+     ]
+    }
+   ],
+   "optional": []
+  }
+ ]
+}

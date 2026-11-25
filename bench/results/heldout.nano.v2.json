@@ -1,0 +1,2950 @@
+{
+ "set": "heldout",
+ "kind": "nano",
+ "tag": "v2",
+ "date": "2026-11-25T09:11:49.815Z",
+ "messages": 30,
+ "labels": 115,
+ "chrome": "Chromium 158, Not.A/Brand 24, Google Chrome 158",
+ "latency": {
+  "cold": 6797.399999976158,
+  "warm": {
+   "n": 29,
+   "median": 1854.5,
+   "p95": 3691.399999976158,
+   "min": 1027.300000011921,
+   "max": 4216.100000023842
+  }
+ },
+ "errors": 0,
+ "inferenceSources": {
+  "on_device": 30
+ },
+ "network": {
+  "external": 1,
+  "hosts": [
+   "content-firebaseappcheck.googleapis.com"
+  ],
+  "generateContentCalls": 0
+ },
+ "mismatches": 0,
+ "summary": {
+  "messages": 30,
+  "cleanMessages": 25,
+  "overall": {
+   "n": 115,
+   "hidden": 110,
+   "partial": 4,
+   "exposed": 1,
+   "tp": 125,
+   "fp": 8,
+   "ignored": 1,
+   "recall": 95.65217391304348,
+   "precision": 93.98496240601504,
+   "reachedCloud": 5
+  },
+  "byCategory": {
+   "PERSON": {
+    "n": 52,
+    "hidden": 51,
+    "partial": 0,
+    "exposed": 1,
+    "tp": 58,
+    "fp": 1,
+    "recall": 98.07692307692308,
+    "precision": 98.30508474576271,
+    "reachedCloud": 1
+   },
+   "ID_NUMBER": {
+    "n": 21,
+    "hidden": 20,
+    "partial": 1,
+    "exposed": 0,
+    "tp": 21,
+    "fp": 0,
+    "recall": 95.23809523809524,
+    "precision": 100,
+    "reachedCloud": 1
+   },
+   "PHONE": {
+    "n": 17,
+    "hidden": 17,
+    "partial": 0,
+    "exposed": 0,
+    "tp": 18,
+    "fp": 0,
+    "recall": 100,
+    "precision": 100,
+    "reachedCloud": 0
+   },
+   "EMAIL": {
+    "n": 6,
+    "hidden": 6,
+    "partial": 0,
+    "exposed": 0,
+    "tp": 6,
+    "fp": 0,
+    "recall": 100,
+    "precision": 100,
+    "reachedCloud": 0
+   },
+   "ADDRESS": {
+    "n": 8,
+    "hidden": 6,
+    "partial": 2,
+    "exposed": 0,
+    "tp": 11,
+    "fp": 0,
+    "recall": 75,
+    "precision": 100,
+    "reachedCloud": 2
+   },
+   "ACCOUNT_NUMBER": {
+    "n": 8,
+    "hidden": 7,
+    "partial": 1,
+    "exposed": 0,
+    "tp": 8,
+    "fp": 1,
+    "recall": 87.5,
+    "precision": 88.88888888888889,
+    "reachedCloud": 1
+   },
+   "DATE_OF_BIRTH": {
+    "n": 3,
+    "hidden": 3,
+    "partial": 0,
+    "exposed": 0,
+    "tp": 3,
+    "fp": 0,
+    "recall": 100,
+    "precision": 100,
+    "reachedCloud": 0
+   }
+  },
+  "groups": {
+   "lang:en": {
+    "n": 76,
+    "hidden": 72,
+    "recall": 94.73684210526316
+   },
+   "domain:clinic": {
+    "n": 36,
+    "hidden": 34,
+    "recall": 94.44444444444444
+   },
+   "adversarial:none": {
+    "n": 86,
+    "hidden": 82,
+    "recall": 95.34883720930233
+   },
+   "lang:ms": {
+    "n": 22,
+    "hidden": 21,
+    "recall": 95.45454545454545
+   },
+   "lang:mixed": {
+    "n": 17,
+    "hidden": 17,
+    "recall": 100
+   },
+   "adversarial:typo": {
+    "n": 4,
+    "hidden": 4,
+    "recall": 100
+   },
+   "adversarial:spelled-digits": {
+    "n": 6,
+    "hidden": 6,
+    "recall": 100
+   },
+   "adversarial:word-name": {
+    "n": 9,
+    "hidden": 9,
+    "recall": 100
+   },
+   "domain:hr": {
+    "n": 25,
+    "hidden": 24,
+    "recall": 96
+   },
+   "adversarial:split-number": {
+    "n": 2,
+    "hidden": 2,
+    "recall": 100
+   },
+   "adversarial:lowercase-name": {
+    "n": 3,
+    "hidden": 3,
+    "recall": 100
+   },
+   "domain:bank": {
+    "n": 26,
+    "hidden": 24,
+    "recall": 92.3076923076923
+   },
+   "adversarial:obfuscated-email": {
+    "n": 3,
+    "hidden": 2,
+    "recall": 66.66666666666667
+   },
+   "adversarial:letter-o-for-zero": {
+    "n": 2,
+    "hidden": 2,
+    "recall": 100
+   },
+   "domain:school": {
+    "n": 28,
+    "hidden": 28,
+    "recall": 100
+   }
+  },
+  "misses": [
+   {
+    "id": "heldout-04",
+    "category": "ADDRESS",
+    "value": "No 5, Lorong Ara Kiri 2, Lucky Garden, 59100 Bangsar",
+    "state": "partial"
+   },
+   {
+    "id": "heldout-07",
+    "category": "ID_NUMBER",
+    "value": "PL-7781-2204",
+    "state": "partial"
+   },
+   {
+    "id": "heldout-12",
+    "category": "ADDRESS",
+    "value": "Blok C-2-14, Asrama Pekerja, Jalan Industri 3, 70450 Seremban",
+    "state": "partial"
+   },
+   {
+    "id": "heldout-17",
+    "category": "PERSON",
+    "value": "Anand Gopal",
+    "state": "exposed"
+   },
+   {
+    "id": "heldout-19",
+    "category": "ACCOUNT_NUMBER",
+    "value": "0123-0045-889-1",
+    "state": "partial"
+   }
+  ],
+  "wrong": [
+   {
+    "id": "heldout-01",
+    "text": "Kak Long",
+    "type": "PERSON",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-07",
+    "text": "Maybank",
+    "type": "ORGANIZATION",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-08",
+    "text": "payroll",
+    "type": "ORGANIZATION",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-09",
+    "text": "Bank Rakyat",
+    "type": "ORGANIZATION",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-11",
+    "text": "kak HR",
+    "type": "OTHER",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-15",
+    "text": "XXXX-4417",
+    "type": "ACCOUNT_NUMBER",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-22",
+    "text": "Cikgu",
+    "type": "OTHER",
+    "source": "on-device"
+   },
+   {
+    "id": "heldout-26",
+    "text": "RM 2,400",
+    "type": "OTHER",
+    "source": "on-device"
+   }
+  ]
+ },
+ "perMessage": [
+  {
+   "id": "heldout-00",
+   "ms": 6797.399999976158,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Rizal Hamdan\",\"type\":\"PERSON\"},{\"text\":\"Hospital Serdang\",\"type\":\"ORGANIZATION\"},{\"text\":\"780412-10-5531\",\"type\":\"ID_NUMBER\"},{\"text\":\"Zarina\",\"type\":\"PERSON\"},{\"text\":\"019 445 2210\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "780412-10-5531",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "019 445 2210",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Rizal Hamdan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Hospital Serdang",
+     "type": "ORGANIZATION",
+     "source": "on-device"
+    },
+    {
+     "text": "Zarina",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Rizal Hamdan",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "780412-10-5531",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Zarina",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "019 445 2210",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "780412-10-5531",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "019 445 2210",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Rizal Hamdan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Hospital Serdang",
+      "type": "ORGANIZATION",
+      "source": "on-device",
+      "verdict": "ignored",
+      "category": "ORGANIZATION"
+     },
+     {
+      "text": "Zarina",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Fwd from WhatsApp: \"Pls tell the doctor my husband [PERSON_1] cannot come for his dialysis on Thursday, he is in [ORGANIZATION_1]. His IC [ID_NUMBER_1]. I am his wife [PERSON_2], [PHONE_1] is my number\"",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-01",
+   "ms": 1940.6000000238419,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Kak Long\",\"type\":\"PERSON\"},{\"text\":\"Shahrul Nizam\",\"type\":\"PERSON\"},{\"text\":\"Shahrul Nizam bin Mohd Yatim\",\"type\":\"PERSON\"},{\"text\":\"9 Ogos 1991\",\"type\":\"DATE_OF_BIRTH\"},{\"text\":\"+6019-2201 884\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "9 Ogos 1991",
+     "type": "DATE_OF_BIRTH",
+     "source": "rule"
+    },
+    {
+     "text": "+6019-2201 884",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Kak Long",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Shahrul Nizam",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Shahrul Nizam bin Mohd Yatim",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Shahrul",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Nizam",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Shahrul Nizam",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Shahrul Nizam bin Mohd Yatim",
+      "state": "hidden"
+     },
+     {
+      "category": "DATE_OF_BIRTH",
+      "value": "9 Ogos 1991",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "+6019-2201 884",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "9 Ogos 1991",
+      "type": "DATE_OF_BIRTH",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "DATE_OF_BIRTH"
+     },
+     {
+      "text": "+6019-2201 884",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Kak Long",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "PERSON"
+     },
+     {
+      "text": "Shahrul Nizam",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Shahrul Nizam bin Mohd Yatim",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Shahrul",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Nizam",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Doktor, ini [PERSON_1], kakak kepada [PERSON_2]. Dia alah penisilin. Rekod dia di bawah nama penuh [PERSON_5], lahir [DATE_OF_BIRTH_1]. Nombor saya [PHONE_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-02",
+   "ms": 3691.399999976158,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Lee Ah Kow\",\"type\":\"PERSON\"},{\"text\":\"520303-07-5117\",\"type\":\"ID_NUMBER\"},{\"text\":\"04-229 1188\",\"type\":\"PHONE\"},{\"text\":\"Muthamma a/p Govindasamy\",\"type\":\"PERSON\"},{\"text\":\"490918-08-6224\",\"type\":\"ID_NUMBER\"},{\"text\":\"05-254 7731\",\"type\":\"PHONE\"},{\"text\":\"Fatimah Zahra\",\"type\":\"PERSON\"},{\"text\":\"880101-01-0042\",\"type\":\"ID_NUMBER\"},{\"text\":\"017-332 0909\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "520303-07-5117",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "04-229 1188",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "490918-08-6224",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "05-254 7731",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "880101-01-0042",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "017-332 0909",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Lee Ah Kow",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Muthamma a/p Govindasamy",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Fatimah Zahra",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Lee Ah Kow",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "520303-07-5117",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "04-229 1188",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Muthamma a/p Govindasamy",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "490918-08-6224",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "05-254 7731",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Fatimah Zahra",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "880101-01-0042",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "017-332 0909",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "520303-07-5117",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "04-229 1188",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "490918-08-6224",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "05-254 7731",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "880101-01-0042",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "017-332 0909",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Lee Ah Kow",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Muthamma a/p Govindasamy",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Fatimah Zahra",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Patient list for tomorrow (please keep private):\n1. [PERSON_1], [ID_NUMBER_1], [PHONE_1]\n2. [PERSON_2], [ID_NUMBER_2], [PHONE_2]\n3. [PERSON_3], [ID_NUMBER_3], [PHONE_3]",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-03",
+   "ms": 1907.800000011921,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"vinod\",\"type\":\"PERSON\"},{\"text\":\"8505o7-14-6631\",\"type\":\"ID_NUMBER\"},{\"text\":\"850507-14-6631\",\"type\":\"ID_NUMBER\"},{\"text\":\"6012 778 3341\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "850507-14-6631",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "6012 778 3341",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "vinod",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "8505o7-14-6631",
+     "type": "ID_NUMBER",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "vinod",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "8505o7-14-6631",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "850507-14-6631",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "6012 778 3341",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "850507-14-6631",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "6012 778 3341",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "vinod",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "8505o7-14-6631",
+      "type": "ID_NUMBER",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     }
+    ]
+   },
+   "redacted": "hi doc this is [PERSON_1] , my ic is [ID_NUMBER_1] sory typo, its [ID_NUMBER_2]. can i get refill for my insulin. whatsapp [PHONE_1]",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-04",
+   "ms": 1950.1000000238419,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Madam Chan Siew Kuen\",\"type\":\"PERSON\"}, {\"text\":\"No 5, Lorong Ara Kiri 2, Lucky Garden, 59100 Bangsar\",\"type\":\"ADDRESS\"}, {\"text\":\"Daphne Chan\",\"type\":\"PERSON\"}, {\"text\":\"012-209 4471\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "5, Lorong Ara Kiri 2, Lucky Garden, 59100 Bangsar",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "012-209 4471",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Madam Chan Siew Kuen",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Daphne Chan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Chan",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Chan Siew Kuen",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "No 5, Lorong Ara Kiri 2, Lucky Garden, 59100 Bangsar",
+      "state": "partial"
+     },
+     {
+      "category": "PERSON",
+      "value": "Daphne Chan",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "012-209 4471",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "5, Lorong Ara Kiri 2, Lucky Garden, 59100 Bangsar",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "012-209 4471",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Madam Chan Siew Kuen",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Daphne Chan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Chan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Good morning. I would like to cancel the appointment for my mother, [PERSON_1], at 10am. She is staying with me now at No [ADDRESS_1]. You can reach me, [PERSON_3], on [PHONE_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-05",
+   "ms": 1418.5,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"satu tujuh kosong tiga dua satu satu empat kosong lapan lapan dua\",\"type\":\"ID_NUMBER\"}, {\"text\":\"Adam Rayyan\",\"type\":\"PERSON\"}, {\"text\":\"Puan Hasnah\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "satu tujuh kosong tiga dua satu, satu empat, kosong lapan lapan dua",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "Adam Rayyan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Puan Hasnah",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "ID_NUMBER",
+      "value": "satu tujuh kosong tiga dua satu, satu empat, kosong lapan lapan dua",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Adam Rayyan",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Hasnah",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "satu tujuh kosong tiga dua satu, satu empat, kosong lapan lapan dua",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "Adam Rayyan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Puan Hasnah",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Assalamualaikum. Nombor IC anak saya [ID_NUMBER_1]. Nama dia [PERSON_1]. Terima kasih, [PERSON_2].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-06",
+   "ms": 1283.6000000238419,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Dr Wong\",\"type\":\"PERSON\"}, {\"text\":\"Summer Lim\",\"type\":\"PERSON\"}, {\"text\":\"011-1092 3345\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "011-1092 3345",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Dr Wong",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Summer Lim",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Summer",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Wong",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Summer Lim",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Summer",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "011-1092 3345",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "011-1092 3345",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Dr Wong",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Summer Lim",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Summer",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Message for [PERSON_1]: [PERSON_2] called again about her rash. [PERSON_3] said it spread overnight. Her callback number is [PHONE_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-07",
+   "ms": 2887.800000011921,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Harjit Singh a/l Gurdev Singh\",\"type\":\"PERSON\"}, {\"text\":\"PL-7781-2204\",\"type\":\"OTHER\"}, {\"text\":\"690228-02-5013\",\"type\":\"ID_NUMBER\"}, {\"text\":\"3\",\"type\":\"DATE_OF_BIRTH\"}, {\"text\":\"5 November\",\"type\":\"DATE_OF_BIRTH\"}, {\"text\":\"5640 1122 8890\",\"type\":\"ACCOUNT_NUMBER\"}, {\"text\":\"Maybank\",\"type\":\"ORGANIZATION\"}]}",
+   "entities": [
+    {
+     "text": "PL-7781",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "690228-02-5013",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "Harjit Singh a/l Gurdev Singh",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "5640 1122 8890",
+     "type": "ACCOUNT_NUMBER",
+     "source": "on-device"
+    },
+    {
+     "text": "Maybank",
+     "type": "ORGANIZATION",
+     "source": "on-device"
+    },
+    {
+     "text": "Singh",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Harjit Singh a/l Gurdev Singh",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "PL-7781-2204",
+      "state": "partial"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "690228-02-5013",
+      "state": "hidden"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "5640 1122 8890",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "PL-7781",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "690228-02-5013",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "Harjit Singh a/l Gurdev Singh",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "5640 1122 8890",
+      "type": "ACCOUNT_NUMBER",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "Maybank",
+      "type": "ORGANIZATION",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "ORGANIZATION"
+     },
+     {
+      "text": "Singh",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Insurance claim: insured [PERSON_1], policy no. [ID_NUMBER_1]-2204, NRIC [ID_NUMBER_2], admitted 3 to 5 November. Bank in to [ACCOUNT_NUMBER_1] ([ORGANIZATION_1]).",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-08",
+   "ms": 4216.100000023842,
+   "source": "on_device",
+   "raw": "{\n  \"entities\": [\n    {\n      \"text\": \"azlan.hr@example.com\",\n      \"type\": \"EMAIL\"\n    },\n    {\n      \"text\": \"payroll\",\n      \"type\": \"ORGANIZATION\"\n    },\n    {\n      \"text\": \"Kelvin Liew Jun Hao\",\n      \"type\": \"PERSON\"\n    },\n    {\n      \"text\": \"TF0912\",\n      \"type\": \"OTHER\"\n    },\n    {\n      \"text\": \"21-3A, Jalan Puteri 2/4, Bandar Puteri, 47100 Puchong, Selangor\",\n      \"type\": \"ADDRESS\"\n    },\n    {\n      \"text\": \"kelvinliew.jh@example.net\",\n      \"type\": \"EMAIL\"\n    }\n  ]\n}",
+   "entities": [
+    {
+     "text": "azlan.hr@example.com",
+     "type": "EMAIL",
+     "source": "rule"
+    },
+    {
+     "text": "TF0912",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "21-3A, Jalan Puteri 2/4, Bandar Puteri, 47100 Puchong, Selangor",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "kelvinliew.jh@example.net",
+     "type": "EMAIL",
+     "source": "rule"
+    },
+    {
+     "text": "payroll",
+     "type": "ORGANIZATION",
+     "source": "on-device"
+    },
+    {
+     "text": "Kelvin Liew Jun Hao",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "EMAIL",
+      "value": "azlan.hr@example.com",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Kelvin Liew Jun Hao",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "TF0912",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "21-3A, Jalan Puteri 2/4, Bandar Puteri, 47100 Puchong, Selangor",
+      "state": "hidden"
+     },
+     {
+      "category": "EMAIL",
+      "value": "kelvinliew.jh@example.net",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "azlan.hr@example.com",
+      "type": "EMAIL",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "EMAIL"
+     },
+     {
+      "text": "TF0912",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "21-3A, Jalan Puteri 2/4, Bandar Puteri, 47100 Puchong, Selangor",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "kelvinliew.jh@example.net",
+      "type": "EMAIL",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "EMAIL"
+     },
+     {
+      "text": "payroll",
+      "type": "ORGANIZATION",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "ORGANIZATION"
+     },
+     {
+      "text": "Kelvin Liew Jun Hao",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "From: [EMAIL_1]\nTo: [ORGANIZATION_1]\nPlease process final pay for [PERSON_1] (staff [ID_NUMBER_1]). Forwarding address: [ADDRESS_1]. Personal email [EMAIL_2].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-09",
+   "ms": 1854.5,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Norhayati binti Che Mat\",\"type\":\"PERSON\"},{\"text\":\"1520 0045 6631 08\",\"type\":\"ACCOUNT_NUMBER\"},{\"text\":\"Bank Rakyat\",\"type\":\"ORGANIZATION\"},{\"text\":\"811115035522\",\"type\":\"ID_NUMBER\"}]}",
+   "entities": [
+    {
+     "text": "1520 0045 6631 08",
+     "type": "ACCOUNT_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "811115035522",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "Norhayati binti Che Mat",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Bank Rakyat",
+     "type": "ORGANIZATION",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Norhayati binti Che Mat",
+      "state": "hidden"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "1520 0045 6631 08",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "811115035522",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "1520 0045 6631 08",
+      "type": "ACCOUNT_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "811115035522",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "Norhayati binti Che Mat",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Bank Rakyat",
+      "type": "ORGANIZATION",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "ORGANIZATION"
+     }
+    ]
+   },
+   "redacted": "Tuan, saya [PERSON_1] ingin maklumkan perubahan akaun bank untuk caruman. Akaun baru: [ACCOUNT_NUMBER_1] [ORGANIZATION_1]. IC [ID_NUMBER_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-10",
+   "ms": 1185.3999999761581,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Sanjay\",\"type\":\"PERSON\"},{\"text\":\"016-28\",\"type\":\"PHONE\"},{\"text\":\"7 4410\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "Sanjay",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "016-28",
+     "type": "PHONE",
+     "source": "on-device"
+    },
+    {
+     "text": "7 4410",
+     "type": "PHONE",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Sanjay",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "016-28 7 4410",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "Sanjay",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "016-28",
+      "type": "PHONE",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "7 4410",
+      "type": "PHONE",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PHONE"
+     }
+    ]
+   },
+   "redacted": "My emergency contact is my brother [PERSON_1]. His number starts [PHONE_1] and ends [PHONE_2] (sorry the keyboard is acting up).",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-11",
+   "ms": 2043,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"kak HR\",\"type\":\"OTHER\"},{\"text\":\"Aryan Kumar\",\"type\":\"PERSON\"},{\"text\":\"4\",\"type\":\"DATE_OF_BIRTH\"},{\"text\":\"900612-10-7781\",\"type\":\"ID_NUMBER\"},{\"text\":\"0162019944\",\"type\":\"PHONE\"},{\"text\":\"Kumar\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "900612-10-7781",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "0162019944",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "kak HR",
+     "type": "OTHER",
+     "source": "on-device"
+    },
+    {
+     "text": "Aryan Kumar",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Kumar",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Aryan Kumar",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "900612-10-7781",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "0162019944",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Kumar",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "900612-10-7781",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "0162019944",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "kak HR",
+      "type": "OTHER",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "OTHER"
+     },
+     {
+      "text": "Aryan Kumar",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Kumar",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Hi [OTHER_1], nak confirm medical claim untuk anak I, [PERSON_1], umur 4. Receipt from Klinik Pakar Kanak-Kanak Ampang. My IC [ID_NUMBER_1], phone [PHONE_1]. Thanks, [PERSON_2]",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-12",
+   "ms": 2642.600000023842,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Mohammad Shahidul Islam\",\"type\":\"PERSON\"}, {\"text\":\"EF0473321\",\"type\":\"ID_NUMBER\"}, {\"text\":\"1994-02-17\",\"type\":\"DATE_OF_BIRTH\"}, {\"text\":\"Blok C-2-14\",\"type\":\"ADDRESS\"}, {\"text\":\"Asrama Pekerja\",\"type\":\"ADDRESS\"}, {\"text\":\"Jalan Industri 3\",\"type\":\"ADDRESS\"}, {\"text\":\"70450 Seremban\",\"type\":\"ADDRESS\"}]}",
+   "entities": [
+    {
+     "text": "EF0473321",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "1994-02-17",
+     "type": "DATE_OF_BIRTH",
+     "source": "rule"
+    },
+    {
+     "text": "Mohammad Shahidul Islam",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Blok C-2-14",
+     "type": "ADDRESS",
+     "source": "on-device"
+    },
+    {
+     "text": "Jalan Industri 3",
+     "type": "ADDRESS",
+     "source": "on-device"
+    },
+    {
+     "text": "70450 Seremban",
+     "type": "ADDRESS",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Mohammad Shahidul Islam",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "EF0473321",
+      "state": "hidden"
+     },
+     {
+      "category": "DATE_OF_BIRTH",
+      "value": "1994-02-17",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "Blok C-2-14, Asrama Pekerja, Jalan Industri 3, 70450 Seremban",
+      "state": "partial"
+     }
+    ],
+    "preds": [
+     {
+      "text": "EF0473321",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "1994-02-17",
+      "type": "DATE_OF_BIRTH",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "DATE_OF_BIRTH"
+     },
+     {
+      "text": "Mohammad Shahidul Islam",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Blok C-2-14",
+      "type": "ADDRESS",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "Jalan Industri 3",
+      "type": "ADDRESS",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "70450 Seremban",
+      "type": "ADDRESS",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     }
+    ]
+   },
+   "redacted": "Visa renewal: [PERSON_1], Bangladeshi passport [ID_NUMBER_1], DOB [DATE_OF_BIRTH_1], hostel address [ADDRESS_1], Asrama Pekerja, [ADDRESS_2], [ADDRESS_3].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-13",
+   "ms": 1244.300000011921,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"siti aminah\",\"type\":\"PERSON\"},{\"text\":\"zul\",\"type\":\"PERSON\"},{\"text\":\"013 900 2271\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "013 900 2271",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "siti aminah",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "zul",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "siti aminah",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "zul",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "013 900 2271",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "013 900 2271",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "siti aminah",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "zul",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "pls note [PERSON_1] from packing is on mc till friday. her husband [PERSON_2] called from [PHONE_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-14",
+   "ms": 1684.1000000238419,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Rohana binti Ahmad\",\"type\":\"PERSON\"},{\"text\":\"860707-11-5440\",\"type\":\"ID_NUMBER\"},{\"text\":\"Muhammad Irfan\",\"type\":\"PERSON\"},{\"text\":\"BQ 204417\",\"type\":\"OTHER\"}]}",
+   "entities": [
+    {
+     "text": "860707-11-5440",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "BQ 204417",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "Rohana binti Ahmad",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Muhammad Irfan",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Rohana binti Ahmad",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "860707-11-5440",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Muhammad Irfan",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "BQ 204417",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "860707-11-5440",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "BQ 204417",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "Rohana binti Ahmad",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Muhammad Irfan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Untuk tujuan insurans berkelompok: pasangan [PERSON_1], IC [ID_NUMBER_1]; anak [PERSON_2], sijil lahir [ID_NUMBER_2].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-15",
+   "ms": 2521.900000035763,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"XXXX-4417\",\"type\":\"ACCOUNT_NUMBER\"}, {\"text\":\"5412 7534 0112 4417\",\"type\":\"ACCOUNT_NUMBER\"}, {\"text\":\"Benjamin Ooi Teik Seng\",\"type\":\"PERSON\"}, {\"text\":\"12/12/1979\",\"type\":\"DATE_OF_BIRTH\"}, {\"text\":\"8, Jalan Gottlieb, 10350 George Town, Penang\",\"type\":\"ADDRESS\"}]}",
+   "entities": [
+    {
+     "text": "12/12/1979",
+     "type": "DATE_OF_BIRTH",
+     "source": "rule"
+    },
+    {
+     "text": "8, Jalan Gottlieb, 10350 George Town, Penang",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "XXXX-4417",
+     "type": "ACCOUNT_NUMBER",
+     "source": "on-device"
+    },
+    {
+     "text": "5412 7534 0112 4417",
+     "type": "ACCOUNT_NUMBER",
+     "source": "on-device"
+    },
+    {
+     "text": "Benjamin Ooi Teik Seng",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "5412 7534 0112 4417",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Benjamin Ooi Teik Seng",
+      "state": "hidden"
+     },
+     {
+      "category": "DATE_OF_BIRTH",
+      "value": "12/12/1979",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "8, Jalan Gottlieb, 10350 George Town, Penang",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "12/12/1979",
+      "type": "DATE_OF_BIRTH",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "DATE_OF_BIRTH"
+     },
+     {
+      "text": "8, Jalan Gottlieb, 10350 George Town, Penang",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "XXXX-4417",
+      "type": "ACCOUNT_NUMBER",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "5412 7534 0112 4417",
+      "type": "ACCOUNT_NUMBER",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "Benjamin Ooi Teik Seng",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Dear Sir/Madam, I am disputing a charge on my credit card ending [ACCOUNT_NUMBER_1]. Full card [ACCOUNT_NUMBER_2]. Cardholder [PERSON_1], born [DATE_OF_BIRTH_1]. Statement address [ADDRESS_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-16",
+   "ms": 2243.800000011921,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Puan Salmah binti Daud\",\"type\":\"PERSON\"},{\"text\":\"1640 2233 9081\",\"type\":\"ACCOUNT_NUMBER\"},{\"text\":\"Faridah Salleh\",\"type\":\"PERSON\"},{\"text\":\"720330-03-5098\",\"type\":\"ID_NUMBER\"},{\"text\":\"faridah.salleh@example.com.my\",\"type\":\"EMAIL\"}]}",
+   "entities": [
+    {
+     "text": "1640 2233 9081",
+     "type": "ACCOUNT_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "720330-03-5098",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "faridah.salleh@example.com.my",
+     "type": "EMAIL",
+     "source": "rule"
+    },
+    {
+     "text": "Puan Salmah binti Daud",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Faridah Salleh",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Salmah binti Daud",
+      "state": "hidden"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "1640 2233 9081",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Faridah Salleh",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "720330-03-5098",
+      "state": "hidden"
+     },
+     {
+      "category": "EMAIL",
+      "value": "faridah.salleh@example.com.my",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "1640 2233 9081",
+      "type": "ACCOUNT_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "720330-03-5098",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "faridah.salleh@example.com.my",
+      "type": "EMAIL",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "EMAIL"
+     },
+     {
+      "text": "Puan Salmah binti Daud",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Faridah Salleh",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Hello bank, my mother [PERSON_1] passed away last month. Her savings acc [ACCOUNT_NUMBER_1]. I am the executor, [PERSON_2], IC [ID_NUMBER_1]. Boleh email saya at [EMAIL_1]?",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-17",
+   "ms": 1296.5999999642372,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"g.anand\",\"type\":\"PERSON\"},{\"text\":\"anand\",\"type\":\"PERSON\"},{\"text\":\"8008 112 445\",\"type\":\"ACCOUNT_NUMBER\"}]}",
+   "entities": [
+    {
+     "text": "g.anand (at) example (dot) com",
+     "type": "EMAIL",
+     "source": "rule"
+    },
+    {
+     "text": "8008 112 445",
+     "type": "ACCOUNT_NUMBER",
+     "source": "rule"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "EMAIL",
+      "value": "g.anand (at) example (dot) com",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Anand Gopal",
+      "state": "exposed"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "8008 112 445",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "g.anand (at) example (dot) com",
+      "type": "EMAIL",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "EMAIL"
+     },
+     {
+      "text": "8008 112 445",
+      "type": "ACCOUNT_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     }
+    ]
+   },
+   "redacted": "Kindly resend the e-statement to [EMAIL_1]. Account holder Anand Gopal, a/c [ACCOUNT_NUMBER_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-18",
+   "ms": 1029.5,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"O17-882 O911\",\"type\":\"PHONE\"},{\"text\":\"Ivan Chua\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "O17-882 O911",
+     "type": "PHONE",
+     "source": "on-device"
+    },
+    {
+     "text": "Ivan Chua",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PHONE",
+      "value": "O17-882 O911",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Ivan Chua",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "O17-882 O911",
+      "type": "PHONE",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Ivan Chua",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "urgent!! someone used my debit card. call me at [PHONE_1]. my name [PERSON_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-19",
+   "ms": 1740.199999988079,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Jamilah Osman\",\"type\":\"PERSON\"},{\"text\":\"Lot 1123, Kampung Seri Aman, 21300 Kuala Terengganu\",\"type\":\"ADDRESS\"},{\"text\":\"0123-0045-889-1\",\"type\":\"ACCOUNT_NUMBER\"}]}",
+   "entities": [
+    {
+     "text": "Lot 1123, Kampung Seri Aman, 21300 Kuala Terengganu",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "0123-0045-889",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Jamilah Osman",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Jamilah Osman",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "Lot 1123, Kampung Seri Aman, 21300 Kuala Terengganu",
+      "state": "hidden"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "0123-0045-889-1",
+      "state": "partial"
+     }
+    ],
+    "preds": [
+     {
+      "text": "Lot 1123, Kampung Seri Aman, 21300 Kuala Terengganu",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "0123-0045-889",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "Jamilah Osman",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Saya [PERSON_1], ingin menukar alamat surat-menyurat kepada [ADDRESS_1]. No. akaun [PHONE_1]-1.",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-20",
+   "ms": 1661.199999988079,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Will Tan\",\"type\":\"PERSON\"},{\"text\":\"7123 4401 2290\",\"type\":\"ACCOUNT_NUMBER\"},{\"text\":\"Joy Fernandez\",\"type\":\"PERSON\"},{\"text\":\"03-7956 1200\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "7123 4401 2290",
+     "type": "ACCOUNT_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "03-7956 1200",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Will Tan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Joy Fernandez",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Will Tan",
+      "state": "hidden"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "7123 4401 2290",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Joy Fernandez",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "03-7956 1200",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "7123 4401 2290",
+      "type": "ACCOUNT_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     },
+     {
+      "text": "03-7956 1200",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Will Tan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Joy Fernandez",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Transfer of RM 2,000 to [PERSON_1] (acc [ACCOUNT_NUMBER_1]) was a mistake. I will call tomorrow. [PERSON_2], [PHONE_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-21",
+   "ms": 2170.400000035763,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Mr Arumugam Sinnathamby\",\"type\":\"PERSON\"},{\"text\":\"551010-05-5329\",\"type\":\"ID_NUMBER\"},{\"text\":\"Mrs Saraswathy Arumugam\",\"type\":\"PERSON\"},{\"text\":\"580214-05-5106\",\"type\":\"ID_NUMBER\"},{\"text\":\"Dinesh\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "551010-05-5329",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "580214-05-5106",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "Mr Arumugam Sinnathamby",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Mrs Saraswathy Arumugam",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Dinesh",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Arumugam",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Arumugam Sinnathamby",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "551010-05-5329",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Saraswathy Arumugam",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "580214-05-5106",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Dinesh",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "551010-05-5329",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "580214-05-5106",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "Mr Arumugam Sinnathamby",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Mrs Saraswathy Arumugam",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Dinesh",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Arumugam",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Joint account holders: [PERSON_1] ([ID_NUMBER_1]) and [PERSON_3] ([ID_NUMBER_2]). Please add our son [PERSON_4] as a nominee.",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-22",
+   "ms": 1939.800000011921,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Cikgu\",\"type\":\"OTHER\"},{\"text\":\"Mak Cik Rokiah\",\"type\":\"PERSON\"},{\"text\":\"Danish Haikal\",\"type\":\"PERSON\"},{\"text\":\"019-701 3322\",\"type\":\"PHONE\"},{\"text\":\"No. 14, Kampung Parit Jawa, 84150 Muar\",\"type\":\"ADDRESS\"}]}",
+   "entities": [
+    {
+     "text": "019-701 3322",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "14, Kampung Parit Jawa, 84150 Muar",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "Cikgu",
+     "type": "OTHER",
+     "source": "on-device"
+    },
+    {
+     "text": "Mak Cik Rokiah",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Danish Haikal",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Rokiah",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Danish Haikal",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "019-701 3322",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "14, Kampung Parit Jawa, 84150 Muar",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "019-701 3322",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "14, Kampung Parit Jawa, 84150 Muar",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "Cikgu",
+      "type": "OTHER",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "OTHER"
+     },
+     {
+      "text": "Mak Cik Rokiah",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Danish Haikal",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "[OTHER_1], saya [PERSON_1], nenek [PERSON_2] kelas 2 Mawar. Ibu bapanya bekerja di Singapura. Kalau apa-apa hubungi saya [PHONE_1] atau datang ke No. [ADDRESS_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-23",
+   "ms": 1411.699999988079,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Melissa\",\"type\":\"PERSON\"},{\"text\":\"Ethan\",\"type\":\"PERSON\"},{\"text\":\"Raymond Kok\",\"type\":\"PERSON\"},{\"text\":\"+60 11-5523 0198\",\"type\":\"PHONE\"}]}",
+   "entities": [
+    {
+     "text": "+60 11-5523 0198",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Melissa",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Ethan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Raymond Kok",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Melissa",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Ethan",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Raymond Kok",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "+60 11-5523 0198",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "+60 11-5523 0198",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Melissa",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Ethan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Raymond Kok",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Hi Teacher [PERSON_1], [PERSON_2]'s dad here ([PERSON_3]). [PERSON_2] has a dental appointment on Thursday at Klinik Pergigian Mutiara. I'll sign him out at 11. My number is [PHONE_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-24",
+   "ms": 2393.2000000476837,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Hairul Azmi\",\"type\":\"PERSON\"},{\"text\":\"830101 08 6619\",\"type\":\"ID_NUMBER\"},{\"text\":\"hairul_azmi83@example.org\",\"type\":\"EMAIL\"},{\"text\":\"33 Jalan Bunga Tanjung 8\",\"type\":\"ADDRESS\"},{\"text\":\"Taman Seri Bayu\",\"type\":\"ADDRESS\"},{\"text\":\"31650 Ipoh\",\"type\":\"ADDRESS\"},{\"text\":\"Perak\",\"type\":\"ADDRESS\"}]}",
+   "entities": [
+    {
+     "text": "830101 08 6619",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "hairul_azmi83@example.org",
+     "type": "EMAIL",
+     "source": "rule"
+    },
+    {
+     "text": "8, Taman Seri Bayu, 31650 Ipoh, Perak",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "Hairul Azmi",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "33 Jalan Bunga Tanjung 8",
+     "type": "ADDRESS",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Hairul Azmi",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "830101 08 6619",
+      "state": "hidden"
+     },
+     {
+      "category": "EMAIL",
+      "value": "hairul_azmi83@example.org",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "33 Jalan Bunga Tanjung 8, Taman Seri Bayu, 31650 Ipoh, Perak",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "830101 08 6619",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "hairul_azmi83@example.org",
+      "type": "EMAIL",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "EMAIL"
+     },
+     {
+      "text": "8, Taman Seri Bayu, 31650 Ipoh, Perak",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "Hairul Azmi",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "33 Jalan Bunga Tanjung 8",
+      "type": "ADDRESS",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     }
+    ]
+   },
+   "redacted": "Cikgu, borang PIBG: nama bapa [PERSON_1], IC [ID_NUMBER_1], emel [EMAIL_1], alamat 33 Jalan Bunga Tanjung [ADDRESS_2].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-25",
+   "ms": 1272.2999999523163,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"oh one two, five five five, zero one three two\",\"type\":\"PHONE\"}, {\"text\":\"Agnes Lojitin\",\"type\":\"PERSON\"}, {\"text\":\"Kayla\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "oh one two, five five five, zero one three two",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "Agnes Lojitin",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Kayla",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PHONE",
+      "value": "oh one two, five five five, zero one three two",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Agnes Lojitin",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Kayla",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "oh one two, five five five, zero one three two",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "Agnes Lojitin",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Kayla",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Sorry I can't type numbers on this phone. My number is [PHONE_1]. [PERSON_1] (mother of [PERSON_2]).",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-26",
+   "ms": 2404.199999988079,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Nur Alya Sofea binti Roslan\",\"type\":\"PERSON\"}, {\"text\":\"090624-14-0388\",\"type\":\"ID_NUMBER\"}, {\"text\":\"RM 2,400\",\"type\":\"OTHER\"}, {\"text\":\"Roslan bin Abu\",\"type\":\"PERSON\"}, {\"text\":\"011-2345 9087\",\"type\":\"PHONE\"}, {\"text\":\"roslanabu@example.com\",\"type\":\"EMAIL\"}]}",
+   "entities": [
+    {
+     "text": "090624-14-0388",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "011-2345 9087",
+     "type": "PHONE",
+     "source": "rule"
+    },
+    {
+     "text": "roslanabu@example.com",
+     "type": "EMAIL",
+     "source": "rule"
+    },
+    {
+     "text": "Nur Alya Sofea binti Roslan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "RM 2,400",
+     "type": "OTHER",
+     "source": "on-device"
+    },
+    {
+     "text": "Roslan bin Abu",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Nur Alya Sofea binti Roslan",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "090624-14-0388",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Roslan bin Abu",
+      "state": "hidden"
+     },
+     {
+      "category": "PHONE",
+      "value": "011-2345 9087",
+      "state": "hidden"
+     },
+     {
+      "category": "EMAIL",
+      "value": "roslanabu@example.com",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "090624-14-0388",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "011-2345 9087",
+      "type": "PHONE",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "PHONE"
+     },
+     {
+      "text": "roslanabu@example.com",
+      "type": "EMAIL",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "EMAIL"
+     },
+     {
+      "text": "Nur Alya Sofea binti Roslan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "RM 2,400",
+      "type": "OTHER",
+      "source": "on-device",
+      "verdict": "wrong",
+      "category": "OTHER"
+     },
+     {
+      "text": "Roslan bin Abu",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Scholarship application: student [PERSON_1], MyKad [ID_NUMBER_1], household income [OTHER_1]. Guardian [PERSON_2], [PHONE_1], [EMAIL_1].",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-27",
+   "ms": 1027.300000011921,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Intan\",\"type\":\"PERSON\"},{\"text\":\"Intan\",\"type\":\"PERSON\"},{\"text\":\"Ibu Intan\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "Intan",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Ibu Intan",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Intan",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "Intan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Ibu Intan",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Cikgu, [PERSON_1] tak sihat hari ni. [PERSON_1] dah makan ubat. Esok dia datang. - [PERSON_2]",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-28",
+   "ms": 1659.5999999642372,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Tan Hui Xin\",\"type\":\"PERSON\"}, {\"text\":\"100803-10-1234\",\"type\":\"ID_NUMBER\"}, {\"text\":\"4000 1234 5678 9010\",\"type\":\"ACCOUNT_NUMBER\"}]}",
+   "entities": [
+    {
+     "text": "100803-10-1234",
+     "type": "ID_NUMBER",
+     "source": "rule"
+    },
+    {
+     "text": "Tan Hui Xin",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "4000 1234 5678 9010",
+     "type": "ACCOUNT_NUMBER",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Tan Hui Xin",
+      "state": "hidden"
+     },
+     {
+      "category": "ID_NUMBER",
+      "value": "100803-10-1234",
+      "state": "hidden"
+     },
+     {
+      "category": "ACCOUNT_NUMBER",
+      "value": "4000 1234 5678 9010",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "100803-10-1234",
+      "type": "ID_NUMBER",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ID_NUMBER"
+     },
+     {
+      "text": "Tan Hui Xin",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "4000 1234 5678 9010",
+      "type": "ACCOUNT_NUMBER",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "ACCOUNT_NUMBER"
+     }
+    ]
+   },
+   "redacted": "Lost and found: a wallet belonging to [PERSON_1] (Form 4) with her MyKad [ID_NUMBER_1] and a bank card [ACCOUNT_NUMBER_1]. Parent please collect from the office.",
+   "mismatches": 0
+  },
+  {
+   "id": "heldout-29",
+   "ms": 1567.199999988079,
+   "source": "on_device",
+   "raw": "{\"entities\":[{\"text\":\"Mrs Pereira\",\"type\":\"PERSON\"},{\"text\":\"Lucas\",\"type\":\"PERSON\"},{\"text\":\"Level 12, Menara Binjai, 2 Jalan Binjai, 50450 Kuala Lumpur\",\"type\":\"ADDRESS\"},{\"text\":\"Gabriel Pereira\",\"type\":\"PERSON\"}]}",
+   "entities": [
+    {
+     "text": "Level 12, Menara Binjai, 2 Jalan Binjai, 50450 Kuala Lumpur",
+     "type": "ADDRESS",
+     "source": "rule"
+    },
+    {
+     "text": "Mrs Pereira",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Lucas",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Gabriel Pereira",
+     "type": "PERSON",
+     "source": "on-device"
+    },
+    {
+     "text": "Pereira",
+     "type": "PERSON",
+     "source": "on-device"
+    }
+   ],
+   "score": {
+    "labels": [
+     {
+      "category": "PERSON",
+      "value": "Pereira",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Lucas",
+      "state": "hidden"
+     },
+     {
+      "category": "ADDRESS",
+      "value": "Level 12, Menara Binjai, 2 Jalan Binjai, 50450 Kuala Lumpur",
+      "state": "hidden"
+     },
+     {
+      "category": "PERSON",
+      "value": "Gabriel Pereira",
+      "state": "hidden"
+     }
+    ],
+    "preds": [
+     {
+      "text": "Level 12, Menara Binjai, 2 Jalan Binjai, 50450 Kuala Lumpur",
+      "type": "ADDRESS",
+      "source": "rule",
+      "verdict": "correct",
+      "category": "ADDRESS"
+     },
+     {
+      "text": "Mrs Pereira",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Lucas",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Gabriel Pereira",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     },
+     {
+      "text": "Pereira",
+      "type": "PERSON",
+      "source": "on-device",
+      "verdict": "correct",
+      "category": "PERSON"
+     }
+    ]
+   },
+   "redacted": "Dear [PERSON_1], thank you for the update on [PERSON_3]. Please send future letters to my office: [ADDRESS_1]. Regards, [PERSON_4].",
+   "mismatches": 0
+  }
+ ]
+}

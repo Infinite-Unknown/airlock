@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { detectWithRules } from '../src/rules';
 import { findLeaks, mergeEntities, redact, restore } from '../src/redact';
-import { checkOnDevice, detect, parseEntities, write, type TextModel } from '../src/airlock';
+import { checkOnDevice, detect, parseEntities, write, type TextModel } from '../src/sulit';
 import { SAMPLES } from '../src/samples';
 
 // Test doubles for the Firebase AI Logic model boundary. They let the tests
-// check Airlock's own logic; they are not used by the app.
+// check Sulit's own logic; they are not used by the app.
 function stubModel(text: string, inferenceSource: 'on_device' | 'in_cloud'): TextModel & { calls: string[] } {
   const calls: string[] = [];
   return {

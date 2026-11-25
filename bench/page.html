@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redaction benchmark runner</title>
+  </head>
+  <body>
+    <p id="status">Loading…</p>
+    <script type="module">
+      // Runs the app's own on-device step (pattern rules + Gemini Nano through Firebase AI Logic,
+      // ONLY_ON_DEVICE) on one message at a time. Driven by bench/run.mjs.
+      import { checkOnDevice, detect } from '/src/sulit.ts';
+      import { getModels } from '/src/firebase.ts';
+
+      const status = await checkOnDevice();
+      document.getElementById('status').textContent = `Gemini Nano: ${status}`;
+      window.benchStatus = status;
+      window.benchDetect = async (text) => {
+        const { detector } = getModels();
+        const t0 = performance.now();
+        try {
+          const r = await detect(text, detector, status);
+          return { ms: performance.now() - t0, entities: r.entities, usedOnDevice: r.usedOnDevice, source: r.inferenceSource, raw: r.raw };
+        } catch (e) {
+          return { ms: performance.now() - t0, error: String(e?.message ?? e) };
+        }
+      };
+    </script>
+  </body>
+</html>

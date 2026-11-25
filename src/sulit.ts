@@ -1,7 +1,7 @@
 import { detectWithRules, type Entity, ENTITY_TYPES, type EntityType } from './rules';
-import { findLeaks, mergeEntities, redact, restore, type Redaction } from './redact';
+import { expandNames, findLeaks, mergeEntities, redact, restore, type Redaction } from './redact';
 
-/** The subset of a Firebase AI Logic GenerativeModel that Airlock uses. */
+/** The subset of a Firebase AI Logic GenerativeModel that Sulit uses. */
 export interface TextModel {
   generateContent(prompt: string): Promise<{
     response: { text(): string; inferenceSource?: 'on_device' | 'in_cloud' };
@@ -22,10 +22,10 @@ const ON_DEVICE_OPTIONS = {
 /**
  * Ask Chrome whether Gemini Nano can run here.
  *
- * This check is Airlock's own and is deliberate: in Firebase AI Logic, when the
+ * This check is Sulit's own and is deliberate: in Firebase AI Logic, when the
  * browser has no LanguageModel API at all, a model created with ONLY_ON_DEVICE
  * gets no on-device adapter and sends the request to the cloud instead. For a
- * redaction step that would mean shipping the raw text out, so Airlock never
+ * redaction step that would mean shipping the raw text out, so Sulit never
  * calls the detector unless this returns 'available'.
  */
 export async function checkOnDevice(g: unknown = globalThis): Promise<OnDeviceStatus> {
@@ -42,15 +42,35 @@ export async function checkOnDevice(g: unknown = globalThis): Promise<OnDeviceSt
 
 export function detectorPrompt(text: string): string {
   return [
-    'You are a privacy filter. List every piece of personal or identifying data in the TEXT below.',
-    'Include: people\'s names (full names and first names), street addresses, emails, phone numbers,',
-    'national ID / passport / IC numbers, bank or card numbers, dates of birth, and employer or school names',
-    'that identify a person. Copy each item exactly as it appears in the TEXT. Do not include generic words.',
+    'You are a privacy filter for a clinic front desk in Malaysia. List every piece of personal or identifying data in the TEXT below.',
+    'The TEXT may be in English, Bahasa Melayu, or a mix of both.',
+    'Include:',
+    '- people\'s names: full names and names used on their own (Malay, Chinese, Indian and other names, e.g. "Nurul Aina binti Kamarudin", "Tan Wei Ming", "Priya a/p Subramaniam"), even when written in lowercase or when the name is also an ordinary word (Hope, Joy, Intan, May);',
+    '- street addresses; emails (also written as "name at example dot com"); phone numbers; IC / MyKad / passport / staff / student numbers; bank account and card numbers; dates of birth;',
+    '- numbers written as words ("zero one two ...", "kosong satu dua ...") or split into parts: list each part as it appears.',
+    'Do not include: appointment dates, weekdays, times, ages, money amounts, class names, medicines, towns on their own, or generic words.',
+    'Copy each item exactly as it appears in the TEXT.',
     'Answer as JSON: {"entities":[{"text":"...","type":"PERSON|ADDRESS|EMAIL|PHONE|ID_NUMBER|ACCOUNT_NUMBER|DATE_OF_BIRTH|ORGANIZATION|OTHER"}]}',
     '',
     'TEXT:',
     text,
   ].join('\n');
+}
+
+const STREET_WORD = /\b(jalan|jln|lorong|lrg|lot|no\.?|taman|tmn|kampung|kg|blok|block|unit|level|tingkat|persiaran|lebuh|street|road|lane|avenue|residensi|pangsapuri|apartment|kondominium|condo)\b/i;
+
+/**
+ * Drop on-device answers that do not look like the type they claim: a "date of birth" with no year
+ * (an appointment date), an "address" with no street word or postcode (a town or a class name),
+ * a time or an age. The small model over-reports these; the user can still hide anything by hand.
+ */
+export function plausible(e: Entity): boolean {
+  const t = e.text.trim();
+  if (e.type === 'DATE_OF_BIRTH') return /\b(19|20)\d{2}\b|\b\d{1,2}[/.-]\d{1,2}[/.-]\d{2}\b/.test(t);
+  if (e.type === 'ADDRESS') return /\b\d{5}\b/.test(t) || (STREET_WORD.test(t) && /\d/.test(t));
+  if (e.type === 'OTHER')
+    return !/^\d{1,2}([.:]\d{2})?\s*(am|pm|pagi|petang|malam)$|year-old$|^umur\s+\d+|^\d+\s+tahun$/i.test(t);
+  return true;
 }
 
 /** Parse the detector's JSON. Tolerates code fences and stray prose around the JSON. */
@@ -66,7 +86,8 @@ export function parseEntities(raw: string): Entity[] {
         text: String(e.text),
         type: (ENTITY_TYPES.includes(e.type as EntityType) ? e.type : 'OTHER') as EntityType,
         source: 'on-device' as const,
-      }));
+      }))
+      .filter(plausible);
   } catch {
     return [];
   }
@@ -76,6 +97,8 @@ export interface DetectResult {
   entities: Entity[];
   usedOnDevice: boolean;
   inferenceSource?: string;
+  /** The on-device model's raw answer, kept for the benchmark and debugging. Never sent anywhere. */
+  raw?: string;
 }
 
 /**
@@ -93,15 +116,47 @@ export async function detect(text: string, detector: TextModel, onDevice: OnDevi
     // Should be impossible after the availability check; refuse rather than trust it.
     throw new Error(`Redaction ran ${source}, not on-device. Stopping.`);
   }
-  const model = parseEntities(result.response.text());
-  return { entities: mergeEntities(text, rules, model), usedOnDevice: true, inferenceSource: source };
+  const raw = result.response.text();
+  const model = parseEntities(raw);
+  const entities = expandNames(text, mergeEntities(text, rules, model));
+  return { entities, usedOnDevice: true, inferenceSource: source, raw };
+}
+
+export interface Task {
+  label: string;
+  prompt: string;
+  /** writer: PREFER_IN_CLOUD by default; quick: PREFER_ON_DEVICE by default (see settings.ts). */
+  model: 'writer' | 'quick';
 }
 
 export const TASKS = {
-  reply: 'Draft a short, warm, professional reply to this message. Sign off as "the team".',
-  summary: 'Summarise this message in 3 bullet points for a colleague, then list any deadline.',
-  actions: 'Extract the action items as a checklist. Say who has to do each one and by when, if stated.',
-} as const;
+  reply: {
+    label: 'Draft a reply (English)',
+    model: 'writer',
+    prompt: 'Draft a short, warm, professional reply to this message from a clinic front desk. Sign off as "the front desk".',
+  },
+  reply_ms: {
+    label: 'Draft a reply in Bahasa Melayu',
+    model: 'writer',
+    prompt: 'Draft a short, warm, professional reply to this message in Bahasa Melayu, from a clinic front desk. Sign off as "Kaunter hadapan".',
+  },
+  summary: {
+    label: 'Summarise for a colleague',
+    model: 'writer',
+    prompt: 'Summarise this message in 3 bullet points for a colleague, then list any deadline.',
+  },
+  actions: {
+    label: 'Extract action items',
+    model: 'writer',
+    prompt: 'Extract the action items as a checklist. Say who has to do each one and by when, if stated.',
+  },
+  triage: {
+    label: 'Quick triage (on this device)',
+    model: 'quick',
+    prompt:
+      'Triage this message for a clinic front desk. Answer in exactly two short lines, in English:\nRoute: front desk, doctor, nurse or billing\nUrgency: urgent, today or routine, with a reason of at most eight words.',
+  },
+} satisfies Record<string, Task>;
 export type TaskId = keyof typeof TASKS | 'custom';
 
 export function writerPrompt(task: string, redacted: string): string {
