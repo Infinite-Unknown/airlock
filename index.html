@@ -30,7 +30,7 @@
       <div class="status" aria-live="polite">
         <span id="chip-device" class="chip"><span class="chip-k">On-device</span> <span class="chip-v">checking…</span></span>
         <span id="chip-cloud" class="chip"><span class="chip-k">Cloud</span> <span class="chip-v">checking…</span></span>
-        <label class="outage" title="Blocks this tab's requests to the Gemini endpoints, like a dropped connection, to show the on-device fallback."><input type="checkbox" id="outage" /> Simulate a cloud outage</label>
+        <div class="outage-row"><label class="outage" title="Blocks this tab's requests to the Gemini endpoints, like a dropped connection, to show the on-device fallback."><input type="checkbox" id="outage" /> Simulate a cloud outage</label></div>
       </div>
     </header>
 
@@ -122,7 +122,7 @@
       <div class="log-head">
         <div>
           <h2 id="h-log">Egress log</h2>
-          <p class="log-sub">Every request that left this device, with its full payload.</p>
+          <p class="log-sub">Every request with its full payload: what left this device, what stayed on it, and what an outage stopped.</p>
         </div>
         <dl class="tally">
           <div><dt>Requests sent</dt><dd id="tally-req">0</dd></div>
@@ -137,7 +137,7 @@
     </section>
 
     <footer class="foot enter">
-      Sulit (Malay): confidential. Built with Firebase AI Logic hybrid inference: Gemini Nano on this device redacts (ONLY_ON_DEVICE) and triages (PREFER_ON_DEVICE); Gemini in the cloud writes (PREFER_IN_CLOUD). Model and modes from Firebase Remote Config. All sample data is made up.
+      Sulit (Malay): confidential. Built with Firebase AI Logic hybrid inference: Gemini Nano on this device redacts (ONLY_ON_DEVICE) and triages (PREFER_ON_DEVICE); Gemini in the cloud writes (PREFER_IN_CLOUD). Model and modes can be set from Firebase Remote Config. All sample data is made up.
     </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>

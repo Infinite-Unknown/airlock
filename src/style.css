@@ -368,7 +368,8 @@ main.enter { animation-delay: 60ms; }
 
 /* ---------- task mode + cloud outage switch ---------- */
 .hint.mode { margin-top: calc(-1 * var(--s1)); min-height: 0; }
-.outage { flex-basis: 100%; display: flex; justify-content: flex-end; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
+.outage-row { flex-basis: 100%; display: flex; justify-content: flex-end; }
+.outage { display: inline-flex; align-items: center; gap: 6px; padding: 2px 4px; font-size: 13px; color: var(--muted); cursor: pointer; }
 .outage input { accent-color: var(--cloud); }
 .outage:has(input:checked) { color: var(--cloud); font-weight: 500; }
-@media (max-width: 720px) { .outage { justify-content: flex-start; } }
+@media (max-width: 720px) { .outage-row { justify-content: flex-start; } }

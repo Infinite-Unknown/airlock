@@ -1,6 +1,6 @@
-# Airlock design
+# Sulit design
 
-Airlock is a working tool for front-desk, support and HR staff. It has to feel calm, clerical and trustworthy, like a well-kept paper form, and make one thing obvious at a glance: what stays on this device and what leaves it.
+Sulit is a working tool for clinic front-desk staff. It has to feel calm, clerical and trustworthy, like a well-kept paper form, and make one thing obvious at a glance: what stays on this device and what leaves it.
 
 ## Direction
 

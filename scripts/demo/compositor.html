@@ -96,7 +96,7 @@
   .foot2 { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; font-size: 25px; color: var(--muted); }
   .foot2 span { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 10px 22px; }
   .foot2 b { color: var(--ink); font-weight: 600; }
-  [data-k] { position: relative; border-radius: 14px; }
+  [data-k] { position: relative; }
   [data-k]::after { content: ''; position: absolute; inset: -10px; border-radius: 18px; border: 4.5px solid #23955c; box-shadow: 0 0 0 4px rgba(255,253,248,.85);
     opacity: 0; transform: scale(.97); }
   [data-k].out::after { border-color: #d27a1c; }
@@ -132,7 +132,7 @@
 
   <div id="card-bench" class="card hidden"><div class="in">
     <p class="kicker f" id="bench-kicker"></p>
-    <p class="h2 f">How many personal details would reach the cloud?</p>
+    <p class="h2 f">What still reaches the cloud?</p>
     <div class="cols f">
       <div class="col rules" data-k="rules"><h3><i></i>Pattern rules only</h3><div class="big" id="b-rules"></div><p class="cap2">of personal details hidden</p><div class="leak" data-k="rulesLeak"><b id="b-rules-leak"></b>still reach the cloud</div></div>
       <div class="col nano" data-k="nano"><h3><i></i>Rules + Gemini Nano, on device</h3><div class="big" id="b-nano"></div><p class="cap2">of personal details hidden</p><div class="leak" data-k="nanoLeak"><b id="b-nano-leak"></b>still reach the cloud</div></div>
@@ -143,7 +143,7 @@
   <div id="card-sdk" class="card hidden"><div class="in">
     <p class="kicker f">Found while building: Firebase JS SDK 13.4.0</p>
     <p class="h2 f">ONLY_ON_DEVICE can still go to the cloud.</p>
-    <pre class="code f" data-k="call"><span class="c">// a browser with no LanguageModel API (Firefox, Safari, Chromium)</span>
+    <pre class="code f" data-k="call"><span class="c">// in a browser without the LanguageModel API, e.g. Firefox or Safari</span>
 getGenerativeModel(ai, { mode: <span class="k">InferenceMode.ONLY_ON_DEVICE</span> })
   .generateContent(<span class="k">"Aisyah binti Rahman, IC 900101-14-5678 …"</span>)</pre>
     <pre class="term f out" data-k="out" id="sdk-term"></pre>
@@ -358,7 +358,7 @@ getGenerativeModel(ai, { mode: <span class="k">InferenceMode.ONLY_ON_DEVICE</spa
     $('b-nano').innerHTML = d.bench.nano;
     $('b-rules-leak').textContent = d.bench.rulesLeak;
     $('b-nano-leak').textContent = d.bench.nanoLeak;
-    $('bench-foot').innerHTML = d.bench.foot.map((x) => `<span>${x}</span>`).join('');
+    $('bench-foot').innerHTML = d.bench.foot.map((x) => `<span${x.k ? ` data-k="${x.k}"` : ''}>${x.html}</span>`).join('');
     $('sdk-term').innerHTML = d.sdk.term;
   };
   window.ready = document.fonts.ready.then(() => Promise.all([...document.fonts].map((f) => f.load()))).then(() => true);

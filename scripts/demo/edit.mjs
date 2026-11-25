@@ -120,161 +120,244 @@ const cam = (t, dur, to) => camKeys.push({ t, dur, to });
 const focus = (t0, o) => callouts.push({ t0, zone: 'device', rings: [{ t: t0, rects: [o.spot] }], label: null, ...o });
 const glyph = (r) => ({ x: r.x - 2, y: r.y, w: r.h * 0.62 + 4, h: r.h });
 
-// anchors from the in-page landing log: placeholders in the redacted text, real values in the answer
+// anchors from the in-page landing log: placeholders in the redacted text, real values in the answers
 const tokL = run.landed.filter((l) => l.kind === 'placeholder').map((l) => ({ ...l, t: l.t - t0 }));
-const resL = run.landed.filter((l) => l.kind === 'restored' && l.t - t0 < M.rawClick).map((l) => ({ ...l, t: l.t - t0 }));
-const tokRender = tokL[0].t - 0.5; // first strike lands LEAD + SWEEP after the text is shown
-const resRender = resL[0].t - 0.22;
+const restoredIn = (a, b) => run.landed.filter((l) => l.kind === 'restored').map((l) => ({ ...l, t: l.t - t0 })).filter((l) => l.t >= a && l.t < b);
+const resReply = restoredIn(M.sendClick, M.scroll);
+const resFb = restoredIn(M.fallbackClick, M.end);
+const litT = run.lit.t - t0;
+const tokRender = tokL[0].t - 0.5;
+const sweepEndSrc = tokL.at(-1).t + 0.45;
+const nDetails = run.lit.n;
+const moveAt = (src) => mv.find((m) => m.t0 >= src - 0.05); // the first cursor glide after a source time
 
-// S0 hook: the redaction sweep, zoomed in, real time
-const hookA = tokRender - 0.05;
-seg(hookA, hookA + 4.3, 4.3, { hook: true });
-cam(0, 0, fit(R('redacted', 'sweepEnd'), 18));
-cam(1.6, 2.6, fit(union(R('redacted', 'sweepEnd'), R('subHead', 'sweepEnd')), 34));
+// S0 hook: every detail lit up, about to be struck; held while the risk is named
+const litBox = union(...run.lit.rects);
+cam(0, 0, fit(litBox, 40));
+seg(litT + 0.03, litT + 0.031, 8.6, { hook: true });
 vo('hook', 0.3, 'out');
-focus(0.2, { zone: 'out', spot: R('redacted', 'sweepEnd'), t1: 4.1 });
+focus(0.15, { zone: 'out', spot: { x: litBox.x - 8, y: litBox.y - 6, w: litBox.w + 16, h: litBox.h + 12 }, rings: [{ t: 0.15, rects: run.lit.rects }], label: `${nDetails} details that identify a family` });
+// the sweep, real time: each detail struck and replaced
+const hookSweep = T;
+seg(litT + 0.031, sweepEndSrc + 0.4, sweepEndSrc + 0.4 - litT - 0.031, { hook: true });
+vo('hook2', hookSweep + 0.05);
+focus(hookSweep, { zone: 'device', spot: R('redacted', 'sweepEnd'), rings: tokL.map((l) => ({ t: hookSweep + (l.t - litT - 0.031), rects: l.rects })), label: 'Replaced on this PC' });
+seg(sweepEndSrc + 0.4, sweepEndSrc + 0.401, Math.max(0.3, voEnd('hook2') + 0.35 - T), { hook: true });
 
 // title card over the opening frame of the app
-cards.title = { t0: 3.8 };
+cards.title = { t0: T - 0.35 };
 const startFrame = mv[0].t0 - 0.8;
-cam(4.3, 0, WIDE);
-vo('title', voEnd('hook') + 0.45);
-cards.title.t1 = voEnd('title') + 1.0;
+cam(T + 0.2, 0, WIDE);
+vo('title', T + 0.5);
+cards.title.t1 = voEnd('title') + 0.9;
 holdUntil(startFrame, startFrame + 0.001, cards.title.t1 + 0.1);
 
-// S2 the problem: load the clinic sample
+// S1 Nurul and the patient's message
 const pStart = T;
 play(startFrame + 0.001, M.sample + 0.8);
-vo('problem1', Math.max(pStart + 0.25, out(M.sample) + 0.25 - cueIn('problem1', 'messages')));
 cam(out(M.sampleClick) + 0.25, 1.2, fit(union(R('samples', 'sample'), R('input', 'sample')), 30));
-focus(voStart('problem1') - 0.05, { spot: R('clinic', 'sample'), label: 'Sample message, all details fictional' });
-focus(voStart('problem1') + cueIn('problem1', 'messages') - 0.1, { spot: R('input', 'sample') });
-vo('problem2', voEnd('problem1') + 0.3);
-holdUntil(M.sample + 0.8, mv[1].t0, voEnd('problem2') + 0.3);
+vo('persona1', pStart + 0.3);
+focus(voStart('persona1') - 0.05, { spot: R('clinic', 'sample'), label: 'A patient’s WhatsApp (fictional)' });
+vo('persona2', Math.max(voEnd('persona1') + 0.3, out(M.sample) + 0.2));
+focus(voStart('persona2') - 0.05, { spot: R('input', 'sample') });
+vo('persona3', voEnd('persona2') + 0.3);
+focus(voStart('persona3') + cueIn('persona3', 'health') - 0.1, { spot: R('input', 'sample'), label: 'PDPA 2010: health data is sensitive' });
+holdUntil(M.sample + 0.8, moveAt(M.sample).t0, voEnd('persona3') + 0.3);
 
-// S3 status chips
+// S2 status chips
 const sStart = T;
-play(mv[1].t0, mv[1].t1 + 0.3);
+const mChips = moveAt(M.sample);
+play(mChips.t0, mChips.t1 + 0.3);
 cam(sStart - 0.05, 1.2, fit(R('status', 'chips'), 44, 2.1));
 vo('status1', sStart + 0.2);
-focus(sStart + 0.15, { spot: R('status', 'chips'), label: 'Hybrid: on this device + in the cloud' });
+focus(sStart + 0.15, { spot: R('status', 'chips'), label: 'Hybrid: this PC + the cloud' });
 vo('status2', voEnd('status1') + 0.3);
-focus(voStart('status2') - 0.05, { spot: R('chipDevice', 'chips'), label: 'Runs on this device' });
+focus(voStart('status2') - 0.05, { spot: R('chipDevice', 'chips'), label: 'Runs on this PC' });
 vo('status3', voEnd('status2') + 0.3, 'out');
-focus(voStart('status3') + cueIn('status3', 'Gemini') - 0.1, { zone: 'out', spot: R('chipCloud', 'chips'), label: 'Runs in the cloud' });
-holdUntil(mv[1].t1 + 0.3, mv[2].t0, voEnd('status3') + 0.3);
+focus(voStart('status3') - 0.05, { zone: 'out', spot: R('chipCloud', 'chips'), label: 'Runs in the cloud' });
+holdUntil(mChips.t1 + 0.3, moveAt(mChips.t1 + 0.1).t0, voEnd('status3') + 0.3);
 
-// S4 step 1, redaction on the device
+// S3 redaction on the PC
 const rStart = T;
+const mRedact = moveAt(mChips.t1 + 0.1);
 cam(rStart, 1.1, fit(union(R('input', 'redactClick'), R('redact', 'redactClick'), R('redacted', 'sweepEnd')), 24));
-play(mv[2].t0, M.redactClick);
+play(mRedact.t0, M.redactClick);
 vo('redact1', out(M.redactClick) - 0.45);
 focus(voStart('redact1') - 0.1, { spot: R('redact', 'redactClick') });
 play(M.redactClick, tokRender);
-labels.push({ t0: out(M.redactClick) + 0.25, t1: out(tokRender), text: 'Gemini Nano working on this device · real time', zone: 'device' });
+labels.push({ t0: out(M.redactClick) + 0.25, t1: out(tokRender), text: 'Gemini Nano working on this PC · real time', zone: 'device' });
 vo('redact2', voEnd('redact1') + 0.3);
-focus(voStart('redact2') - 0.05, { spot: R('redact', 'redactClick'), label: 'Gemini Nano + pattern rules, on this device' });
-cam(out(tokRender) - 1.3, 1.1, fit(R('redacted', 'sweepEnd'), 22));
-// the sweep at half speed, one ring per placeholder as it lands
-const sweepEndSrc = tokL.at(-1).t + 0.45;
-slow(tokRender, sweepEndSrc, 2);
-labels.push({ t0: out(tokRender), t1: out(sweepEndSrc), text: 'Slowed down 2×', zone: 'device' });
-vo('redact3', Math.max(voEnd('redact2') + 0.25, out(tokRender) + 0.05), 'out');
-focus(out(tokRender), {
-  zone: 'out',
-  spot: R('redacted', 'sweepEnd'),
-  rings: tokL.map((l) => ({ t: out(l.t), rects: l.rects })),
-});
+focus(voStart('redact2') - 0.05, { spot: R('redact', 'redactClick'), label: 'Gemini Nano + pattern rules, on this PC' });
+cam(out(tokRender) - 1.2, 1.0, fit(R('redacted', 'sweepEnd'), 22));
+play(tokRender, sweepEndSrc);
+vo('redact3', Math.max(voEnd('redact2') + 0.25, out(tokRender)), 'out');
+focus(out(tokRender), { zone: 'out', spot: R('redacted', 'sweepEnd'), rings: tokL.map((l) => ({ t: out(l.t), rects: l.rects })) });
 play(sweepEndSrc, M.sweepEnd);
-holdUntil(M.sweepEnd, mv[3].t0, voEnd('redact3') + 0.35);
+const mEnt = moveAt(M.sweepEnd);
+holdUntil(M.sweepEnd, mEnt.t0, voEnd('redact3') + 0.3);
 
-// S5 review: what the cloud will see, who found each detail
+// S4 review: what leaves, who found each detail
 const vStart = T;
 cam(vStart - 0.1, 1.1, fit(R('panelLock', 'entities'), 10));
 vo('review1', vStart + 0.15, 'out');
-focus(vStart + 0.1, { zone: 'out', spot: R('panelLock', 'entities') });
-play(mv[3].t0, mv[3].t1 + 0.2);
+focus(vStart + 0.1, { zone: 'out', spot: R('panelLock', 'entities'), label: 'Exactly what leaves' });
+play(mEnt.t0, mEnt.t1 + 0.2);
 vo('review2', voEnd('review1') + 0.3);
 const srcAll = [...R('srcNano', 'entities'), ...R('srcRule', 'entities')];
 cam(voStart('review2') - 0.3, 1.0, fit(union(R('entities', 'entities'), R('addForm', 'entities')), 24, 1.8));
-focus(voStart('review2') - 0.05, { spot: union(...srcAll), rings: [{ t: voStart('review2') - 0.05, rects: srcAll }], label: 'Who found it' });
-vo('review3', voEnd('review2') + 0.25);
-focus(voStart('review3') - 0.05, {
+focus(voStart('review2') - 0.05, {
   spot: union(...srcAll),
   rings: [
-    { t: voStart('review3') - 0.05, rects: R('srcNano', 'entities') },
-    { t: voStart('review3') + cueIn('review3', 'pattern') - 0.1, rects: R('srcRule', 'entities') },
+    { t: voStart('review2') - 0.05, rects: srcAll },
+    { t: voStart('review2') + cueIn('review2', 'Gemini') - 0.1, rects: R('srcNano', 'entities') },
+    { t: voStart('review2') + cueIn('review2', 'pattern') - 0.1, rects: R('srcRule', 'entities') },
   ],
+  label: 'Who found it',
 });
-vo('review4', voEnd('review3') + 0.3);
-focus(voStart('review4') + cueIn('review4', 'hide') - 0.1, { spot: R('addForm', 'entities'), label: 'Hide anything that was missed' });
-holdUntil(mv[3].t1 + 0.2, mv[4].t0, voEnd('review4') + 0.3);
+const mTri = moveAt(mEnt.t1 + 0.1);
+holdUntil(mEnt.t1 + 0.2, mTri.t0, voEnd('review2') + 0.3);
 
-// S6 send to the cloud, answer restored on the device
-cam(T - 0.1, 1.1, fit(union(R('redacted', 'entities'), R('send', 'entities')), 30));
-play(mv[4].t0, mv[4].t1 + 0.25);
-vo('send1', T + 0.05, 'out');
-focus(voStart('send1') - 0.05, { zone: 'out', spot: R('send', 'entities') });
-holdUntil(mv[4].t1 + 0.25, M.sendClick - 0.03, voStart('send1') + 0.4);
-play(M.sendClick - 0.03, resRender + 0.2);
-labels.push({ t0: out(M.sendClick) + 0.2, t1: out(resRender), text: 'Waiting for Gemini in the cloud · real time', zone: 'out' });
-vo('send2', voEnd('send1') + 0.3, 'out');
-focus(voStart('send2') + cueIn('send2', 'redacted') - 0.1, { zone: 'out', spot: R('redacted', 'entities'), label: 'Only this text leaves the device' });
-cam(out(resRender) - 1.0, 1.0, fit(union(R('badge', 'restored'), R('result', 'restored')), 22));
-// the answer arrives with placeholders; hold that frame, then show the restore at half speed
-const send3 = Math.max(voEnd('send2') + 0.3, out(resRender) + 0.1);
-vo('send3', send3);
-focus(send3 - 0.05, { spot: R('result', 'restored'), rings: [{ t: send3 - 0.05, rects: [R('result', 'restored')] }] });
-holdUntil(resRender + 0.2, resRender + 0.201, send3 + cueIn('send3', 'puts') - 0.1);
-const restoreEnd = resL.at(-1).t + 0.45;
-const slowFrom = T;
-slow(resRender + 0.201, restoreEnd, 2);
-labels.push({ t0: out(resRender) + 0.2, t1: out(restoreEnd), text: 'Slowed down to show the restore', zone: 'device' });
-callouts.at(-1).rings.push(...resL.map((l) => ({ t: out(l.t), rects: l.rects })));
-void slowFrom;
-play(restoreEnd, M.restored);
-vo('send4', voEnd('send3') + 0.3);
-focus(voStart('send4') - 0.05, { spot: R('result', 'restored'), rings: [{ t: voStart('send4') - 0.05, rects: R('restoredMarks', 'restored') }], label: 'Restored on this device' });
-holdUntil(M.restored, mv[5].t0, voEnd('send4') + 0.3);
+// S5 quick triage, PREFER_ON_DEVICE
+const tStart = T;
+cam(tStart - 0.1, 1.1, fit(union(R('task', 'triageTask'), R('modeHint', 'triageTask'), R('redact', 'triageTask')), 30, 2.0));
+play(mTri.t0, M.triageTask);
+vo('triage1', tStart + 0.2);
+focus(voStart('triage1') - 0.05, { spot: R('task', 'triageTask'), label: 'Quick triage' });
+focus(voStart('triage1') + cueIn('triage1', 'prefers') - 0.1, { spot: R('modeHint', 'triageTask'), label: 'PREFER_ON_DEVICE' });
+const mTriSend = moveAt(M.triageTask);
+holdUntil(M.triageTask, mTriSend.t0, voEnd('triage1') + 0.2);
+cam(T - 0.1, 1.1, fit(union(R('send', 'triageClick'), R('outBody', 'triageDone')), 26));
+play(mTriSend.t0, M.triageDone);
+focus(out(M.triageClick) - 0.6, { spot: R('send', 'triageClick'), label: 'Run on this device' });
+vo('triage2', Math.max(voEnd('triage1') + 0.3, out(M.triageDone) - 0.3));
+focus(voStart('triage2') - 0.05, { spot: R('outBody', 'triageDone'), rings: [{ t: voStart('triage2') - 0.05, rects: [R('badge', 'triageDone')] }], label: `Gemini Nano · ${run.summary.triage_s.toFixed(1)} s · nothing sent` });
+const mReply = moveAt(M.triageDone);
+holdUntil(M.triageDone, mReply.t0, voEnd('triage2') + 0.3);
 
-// S7 what the cloud really wrote
-play(mv[5].t0, M.rawClick - 0.05);
-vo('raw1', Math.max(voEnd('send4') + 0.3, T - 0.3), 'out');
-focus(voStart('raw1') - 0.05, { zone: 'out', spot: R('rawToggleBox', 'rawOn'), label: 'What the cloud model wrote' });
-play(M.rawClick - 0.05, M.rawOn);
-vo('raw2', voEnd('raw1') + 0.3, 'out');
-focus(voStart('raw2') - 0.05, { zone: 'out', spot: R('result', 'rawOn'), rings: [{ t: voStart('raw2') - 0.05, rects: R('resultToks', 'rawOn') }], label: 'Placeholders only' });
-holdUntil(M.rawOn, M.rawOffClick - 0.02, voEnd('raw2') + 0.3);
-play(M.rawOffClick - 0.02, M.scroll);
+// S6 reply in Bahasa Melayu, PREFER_IN_CLOUD
+const wStart = T;
+cam(wStart - 0.1, 1.1, fit(union(R('task', 'replyTask'), R('modeHint', 'replyTask'), R('redact', 'replyTask')), 30, 2.0));
+play(mReply.t0, M.replyTask);
+vo('reply1', wStart + 0.2, 'out');
+focus(voStart('reply1') - 0.05, { zone: 'out', spot: R('task', 'replyTask'), label: 'Reply in Bahasa Melayu' });
+focus(voStart('reply1') + cueIn('reply1', 'prefers') - 0.1, { zone: 'out', spot: R('modeHint', 'replyTask'), label: 'PREFER_IN_CLOUD' });
+const mSend = moveAt(M.replyTask);
+holdUntil(M.replyTask, mSend.t0, voEnd('reply1') + 0.2);
+cam(T - 0.1, 1.1, fit(union(R('redacted', 'sendClick'), R('send', 'sendClick')), 30));
+play(mSend.t0, M.sendClick);
+vo('reply2', T + 0.1, 'out');
+focus(voStart('reply2') - 0.05, { zone: 'out', spot: R('redacted', 'sendClick'), label: 'Only this text leaves' });
+const resRender = resReply[0].t - 0.22;
+slow(M.sendClick, resRender, 0.5);
+labels.push({ t0: out(M.sendClick) + 0.2, t1: out(resRender), text: 'Waiting for Gemini in the cloud · 2× speed', zone: 'out' });
+holdUntil(resRender, resRender + 0.001, voEnd('reply2') + 0.3);
+cam(T - 0.6, 1.0, fit(union(R('badge', 'restored'), R('result', 'restored')), 22));
+play(resRender + 0.001, M.restored);
+vo('reply3', T - (M.restored - resRender) + 0.2);
+focus(voStart('reply3') - 0.05, { spot: R('result', 'restored'), rings: [{ t: voStart('reply3') - 0.05, rects: [R('badge', 'restored')] }, ...resReply.map((l) => ({ t: out(l.t), rects: l.rects }))], label: 'Restored on this PC' });
+holdUntil(M.restored, M.scroll, voEnd('reply3') + 0.3);
 
-// S8 egress log
+// S7 egress log
 const lStart = T;
 cam(lStart - 0.1, 1.1, WIDE);
 vo('log1', lStart + 0.3);
 play(M.scroll, M.logOpen);
-const logA = union(R('logHead', 'logShown'), R('logRow', 'logShown'));
-const logB = union(R('logHead', 'logOpen'), R('logRow', 'logOpen'));
+const logA = union(R('logHead', 'logShown'), R('logRow', 'logShown'), R('logRow2', 'logShown'));
 focus(voStart('log1') - 0.05, { spot: logA, scrollRef: M.logShown });
-focus(out(M.logOpen) - 0.25, { spot: logB });
-cam(out(M.logShown) - 0.2, 1.1, fit({ x: 40, y: logB.y, w: 1060, h: logB.h }, 12));
-holdUntil(M.logOpen, M.logOpen + 0.5, voEnd('log1') + 0.3);
+cam(out(M.logShown) - 0.2, 1.1, fit({ x: 40, y: R('logHead', 'logOpen').y, w: 1520, h: R('logRow2', 'logOpen').y + R('logRow2', 'logOpen').h - R('logHead', 'logOpen').y }, 12));
+holdUntil(M.logOpen, M.logOpen + 0.5, voEnd('log1') + 0.2);
 {
   const tally = R('tally', 'logOpen');
   const sum = R('logSummary', 'logOpen');
   cam(T - 0.35, 1.0, fit({ x: 1000, y: tally.y - 8, w: sum.x + sum.w - 1000, h: sum.y + sum.h - tally.y + 16 }, 26, 2.0));
 }
 vo('log2', T + 0.1, 'out');
-focus(voStart('log2') - 0.05, { zone: 'out', spot: R('tallyReqBox', 'logOpen'), rings: [{ t: voStart('log2') - 0.05, rects: [glyph(R('tallyReq', 'logOpen'))] }], label: '1 request left the device', pulse: true });
-vo('log3', voEnd('log2') + 0.35);
-focus(voStart('log3') - 0.05, { spot: R('tallyLeakBox', 'logOpen'), rings: [{ t: voStart('log3') - 0.05, rects: [glyph(R('tallyLeak', 'logOpen'))] }], label: '0 personal details in it', pulse: true, t1: voEnd('log3') + 0.9 });
-holdUntil(M.logOpen + 0.5, M.end, voEnd('log3') + 1.0);
+focus(voStart('log2') - 0.05, { zone: 'out', spot: R('tallyReqBox', 'logOpen'), rings: [{ t: voStart('log2') - 0.05, rects: [glyph(R('tallyReq', 'logOpen'))] }], label: '1 request left the PC', pulse: true });
+vo('log3', voEnd('log2') + 0.3);
+focus(voStart('log3') - 0.05, { spot: R('tallyLeakBox', 'logOpen'), rings: [{ t: voStart('log3') - 0.05, rects: [glyph(R('tallyLeak', 'logOpen'))] }], label: '0 personal details sent', pulse: true, t1: voEnd('log3') + 0.6 });
+holdUntil(M.logOpen + 0.5, M.logOpen + 0.501, voEnd('log3') + 0.5);
 
-// S9 end card
-cards.end = { t0: T - 0.5 };
-vo('close1', T + 0.35);
+// S8 cloud outage: the writer falls back to Gemini Nano
+const oStart = T;
+cam(oStart - 0.1, 1.0, WIDE);
+play(M.scrollUp - 0.3, M.outageOn);
+// "Switch" is spoken as the box is ticked
+vo('outage1', Math.max(oStart + 0.3, out(M.outageClick) - cueIn('outage1', 'Switch') - 0.15), 'out');
+cam(voStart('outage1') - 0.2, 1.0, fit(R('status', 'outageOn'), 40, 2.0));
+focus(voStart('outage1') - 0.05, { zone: 'out', spot: R('status', 'outageOn'), rings: [{ t: voStart('outage1') - 0.05, rects: [R('chipCloud', 'outageOn')] }] });
+focus(voStart('outage1') + cueIn('outage1', 'Switch') - 0.1, { zone: 'out', spot: R('status', 'outageOn'), rings: [{ t: voStart('outage1') + cueIn('outage1', 'Switch') - 0.1, rects: [R('outage', 'outageOn')] }, { t: out(M.outageOn), rects: [R('chipCloud', 'outageOn')] }], label: 'Simulated outage: Gemini endpoints blocked' });
+const mFbTask = moveAt(M.outageOn);
+holdUntil(M.outageOn, mFbTask.t0, voEnd('outage1') + 0.2);
+cam(T - 0.1, 1.1, fit(union(R('task', 'fallbackTask'), R('modeHint', 'fallbackTask'), R('redact', 'fallbackTask')), 30, 2.0));
+play(mFbTask.t0, M.fallbackClick);
+vo('outage2', Math.max(voEnd('outage1') + 0.3, out(M.fallbackClick) - 1.6));
+focus(voStart('outage2') - 0.05, { spot: union(R('task', 'fallbackTask'), R('modeHint', 'fallbackTask')), label: 'Same writer: PREFER_IN_CLOUD', t1: voEnd('outage2') + 0.15 });
+holdUntil(M.fallbackClick, M.fallbackClick + 0.001, voEnd('outage2') + 0.1);
+cam(T + 0.1, 1.0, fit(union(R('badge', 'fallbackDone'), R('result', 'fallbackDone')), 22));
+play(M.fallbackClick + 0.001, M.fallbackDone);
+vo('outage3', Math.max(voEnd('outage2') + 0.3, out(M.fallbackDone) - 1.2));
+focus(voStart('outage3') - 0.05, { spot: R('result', 'fallbackDone'), rings: [{ t: voStart('outage3') + cueIn('outage3', 'falls') - 0.1, rects: [R('badge', 'fallbackDone')] }, ...resFb.map((l) => ({ t: Math.max(voStart('outage3'), out(l.t)), rects: l.rects }))], label: 'Written by Gemini Nano on this PC' });
+holdUntil(M.fallbackDone, M.scroll2, voEnd('outage3') + 0.2);
+cam(T - 0.1, 1.1, WIDE);
+play(M.scroll2, M.logFallback);
+{
+  const a = R('logDest', 'logFallback');
+  const b = R('logDest2', 'logFallback');
+  cam(T - 0.2, 1.0, fit({ x: 40, y: a.y - 6, w: 1100, h: b.y + b.h - a.y + 12 }, 14, 2.0));
+}
+vo('outage4', T + 0.25);
+focus(voStart('outage4') - 0.05, {
+  spot: union(R('logRow', 'logFallback'), R('logRow2', 'logFallback')),
+  rings: [{ t: voStart('outage4') - 0.05, rects: [R('logDest2', 'logFallback')] }],
+  label: 'Blocked: never left this PC',
+});
+{
+  const tally = R('tally', 'logFallback');
+  const r2 = R('logRow2', 'logFallback');
+  const tStill = voStart('outage4') + cueIn('outage4', 'Still') - 0.1;
+  cam(tStill - 0.2, 1.0, fit({ x: 1000, y: tally.y - 8, w: r2.x + r2.w - 1000, h: r2.y + r2.h - tally.y + 16 }, 24, 2.0));
+  focus(tStill, {
+    spot: union(R('tallyReqBox', 'logFallback'), R('tallyLeakBox', 'logFallback')),
+    rings: [{ t: tStill, rects: [glyph(R('tallyReq', 'logFallback')), glyph(R('tallyLeak', 'logFallback'))] }],
+    label: 'Still 1 sent · 0 personal details',
+    pulse: true,
+  });
+}
+holdUntil(M.logFallback, M.end, voEnd('outage4') + 0.5);
+
+// S9 benchmark card
+const bench = { t0: T - 0.4, hl: [] };
+cards.bench = bench;
+vo('bench1', T + 0.4);
+vo('bench2', voEnd('bench1') + 0.35);
+bench.hl.push({ t0: voStart('bench2') - 0.05, k: 'rules' });
+bench.hl.push({ t0: voStart('bench2') + cueIn('bench2', '56') - 0.1, k: 'rulesLeak' });
+vo('bench3', voEnd('bench2') + 0.35);
+bench.hl.push({ t0: voStart('bench3') - 0.05, k: 'nano' });
+bench.hl.push({ t0: voStart('bench3') + cueIn('bench3', '99.4') + 0.5, k: 'nanoLeak' });
+bench.hl.push({ t0: voStart('bench3') + cueIn('bench3', 'hand-written') - 0.1, k: 'heldout' });
+bench.t1 = voEnd('bench3') + 0.8;
+holdUntil(M.end, M.end + 0.001, bench.t1);
+
+// S10 the SDK finding
+const sdk = { t0: T - 0.4, hl: [] };
+cards.sdk = sdk;
+vo('sdk1', T + 0.4);
+vo('sdk2', voEnd('sdk1') + 0.3);
+sdk.hl.push({ t0: voStart('sdk2') - 0.05, k: 'call' });
+sdk.hl.push({ t0: voStart('sdk2') + cueIn('sdk2', 'quietly') - 0.1, k: 'out' });
+vo('sdk3', voEnd('sdk2') + 0.35);
+sdk.hl.push({ t0: voStart('sdk3') - 0.05, k: 'guard' });
+sdk.t1 = voEnd('sdk3') + 0.8;
+holdUntil(M.end + 0.001, M.end + 0.002, sdk.t1);
+
+// S11 end card
+cards.end = { t0: T - 0.4 };
+vo('close1', T + 0.4);
 vo('close2', voEnd('close1') + 0.45);
-holdUntil(M.end, M.end + 0.001, voEnd('close2') + 1.6);
+holdUntil(M.end + 0.002, M.end + 0.003, voEnd('close2') + 1.6);
 cards.end.t1 = T + 10;
+for (const c of [bench, sdk]) c.hl.forEach((h, i) => (h.t1 = c.hl[i + 1]?.t0 ?? c.t1 - 0.3));
 const TOTAL = T;
 
 // checks; each focus ends where the next starts (or 0.3 s after its line if nothing follows)
@@ -288,7 +371,7 @@ for (let i = 1; i < camKeys.length; i++) {
     camKeys[i].t = p.t + p.dur;
   }
 }
-const ON_CARDS = new Set(['title', 'close1', 'close2']);
+const ON_CARDS = new Set(['title', 'close1', 'close2', 'bench1', 'bench2', 'bench3', 'sdk1', 'sdk2', 'sdk3']);
 callouts.sort((a, b) => a.t0 - b.t0);
 callouts.forEach((c, i) => {
   c.id = i;
@@ -300,7 +383,7 @@ callouts.forEach((c, i) => {
   if (!Number.isFinite(c.t1)) c.t1 = lineEnd;
 });
 // every spoken line must have a focus on screen, unless a card covers the footage
-const onCard = (t) => [cards.title, cards.end].some((c) => c && t >= c.t0 + 0.3 && t < c.t1);
+const onCard = (t) => [cards.title, cards.bench, cards.sdk, cards.end].some((c) => c && t >= c.t0 + 0.3 && t < c.t1);
 for (const v of vos) {
   if (ON_CARDS.has(v.id)) continue;
   for (let t = v.t + 0.4; t < v.t + v.d - 0.2; t += 0.1) {
@@ -468,7 +551,11 @@ function stateAt(t) {
   const ci = captions.findIndex((c) => t >= c.t0 && t < c.t1);
   const cap = captions[ci];
   const lab = labels.find((l) => t >= l.t0 && t < l.t1);
-  const cardState = (c) => (c && t >= c.t0 && t < c.t1 ? { o: fadeBox(t, c.t0, c.t1, 0.5), p: t - c.t0 } : null);
+  const cardState = (c) => {
+    if (!c || t < c.t0 || t >= c.t1) return null;
+    const h = c.hl?.find((x) => t >= x.t0 && t < x.t1);
+    return { o: fadeBox(t, c.t0, c.t1, 0.5), p: t - c.t0, hl: h ? { k: h.k, u: fadeBox(t, h.t0, h.t1, 0.3) } : null };
+  };
   return {
     t,
     src,
@@ -479,7 +566,7 @@ function stateAt(t) {
     callout,
     caption: cap ? { text: cap.text, zone: cap.zone, o: fadeBox(t, cap.t0, cap.t1, 0.25), top: captionTop(ci) } : null,
     label: lab ? { text: lab.text, zone: lab.zone, o: fadeBox(t, lab.t0, lab.t1, 0.25) } : null,
-    cards: { title: cardState(cards.title), end: cardState(cards.end) },
+    cards: { title: cardState(cards.title), bench: cardState(cards.bench), sdk: cardState(cards.sdk), end: cardState(cards.end) },
   };
 }
 
@@ -489,6 +576,33 @@ writeFileSync(
 );
 console.log(`timeline ${TOTAL.toFixed(2)} s, ${vos.length} voice-over lines, ${callouts.length} callouts, ${camKeys.length} camera keys`);
 for (const v of vos) console.log(`  ${v.t.toFixed(2).padStart(6)}  ${v.id}`);
+
+// ---------- data for the benchmark and SDK cards: the real results and the real repro output
+const res = (f) => JSON.parse(readFileSync(join(root, 'bench', 'results', f), 'utf8'));
+const rulesR = res('dataset.rules.v2.json').summary.overall;
+const nanoR = res('dataset.nano.v2.json');
+const heldR = res('heldout.nano.v2.json');
+const pct = (x) => `${x.toFixed(1)}<small>%</small>`;
+const reproOut = execFileSync('node', [join(root, 'repro', 'only-on-device.mjs')]).toString().split('\n');
+const esc = (x) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const termLines = ['$ node repro/only-on-device.mjs', ...reproOut.slice(0, 5)].map((l) =>
+  esc(l.replace(/v1beta\/projects\/repro-project\/models\//, '…/')).replace(/(in_cloud|true|generateContent)$/, '<span class="bad">$1</span>'),
+);
+const cardData = {
+  bench: {
+    kicker: `Benchmark · ${nanoR.messages} synthetic Malaysian messages · ${nanoR.labels} personal details`,
+    rules: pct(rulesR.recall),
+    nano: pct(nanoR.summary.overall.recall),
+    rulesLeak: String(rulesR.reachedCloud),
+    nanoLeak: String(nanoR.summary.overall.reachedCloud),
+    foot: [
+      { k: 'heldout', html: `<b>${heldR.summary.overall.recall.toFixed(1)}%</b> on ${heldR.messages} hand-written messages kept out of tuning` },
+      { html: `median <b>${(nanoR.latency.warm.median / 1000).toFixed(1)} s</b> per message on the device` },
+      { html: `<b>${nanoR.network.generateContentCalls + heldR.network.generateContentCalls}</b> cloud calls during ${nanoR.messages + heldR.messages} redactions` },
+    ],
+  },
+  sdk: { term: termLines.join('\n') },
+};
 
 // ---------- static server for frames, fonts and the compositor page
 const TYPES = { '.html': 'text/html', '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.js': 'text/javascript' };
@@ -510,6 +624,7 @@ async function newRenderer() {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
   await page.goto(`${base}/scripts/demo/compositor.html`);
   await page.evaluate(() => window.ready);
+  await page.evaluate((d) => window.setCards(d), cardData);
   const cdp = await page.context().newCDPSession(page);
   return {
     async shot(state, file) {

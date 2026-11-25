@@ -65,6 +65,8 @@ const RECTS = {
   logRow2: '#log > li:nth-child(2)',
   logOutcome: '#log > li:first-child .log-outcome',
   logOutcome2: '#log > li:nth-child(2) .log-outcome',
+  logDest: '#log > li:first-child .log-dest',
+  logDest2: '#log > li:nth-child(2) .log-dest',
 };
 // groups of small elements, clipped to the visible part of their scroll container
 const GROUPS = {
@@ -316,7 +318,7 @@ await mark('scrollUp');
 await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
 await wait(1400);
 run.scrolls.push({ t: now(), y: await page.evaluate(() => scrollY) });
-await glideTo('label.outage', 1000, -60, 0);
+await glideTo('#outage', 1000);
 await wait(250);
 await mark('outageClick');
 await click();

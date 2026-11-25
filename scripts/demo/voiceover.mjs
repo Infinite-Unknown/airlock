@@ -14,9 +14,9 @@ const lines = JSON.parse(readFileSync(join(root, 'scripts', 'demo', 'voiceover.j
 const dir = join(root, 'assets', 'raw-launch', 'vo');
 mkdirSync(dir, { recursive: true });
 const durations = {};
-for (const { id, text } of lines) {
+for (const { id, text, say } of lines) {
   const out = join(dir, `${id}.wav`);
-  execFileSync(py, ['-I', tts, text, out, '--voice', 'af_heart'], { stdio: 'inherit' });
+  execFileSync(py, ['-I', tts, say ?? text, out, '--voice', 'af_heart'], { stdio: 'inherit' });
   const d = execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', out]).toString().trim();
   durations[id] = Number(d);
 }

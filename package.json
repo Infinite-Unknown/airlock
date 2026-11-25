@@ -14,11 +14,11 @@
     "demo:record": "node scripts/demo/record.mjs",
     "demo:edit": "node scripts/demo/edit.mjs",
     "demo:upload": "node scripts/demo/upload.mjs",
-    "demo:nano": "node scripts/record-nano-clip.mjs",
     "bench": "node bench/run.mjs --tag v2 && node bench/run.mjs --set heldout --tag v2 && node bench/report.mjs",
     "bench:rules": "node bench/run.mjs --rules-only --tag v2 && node bench/run.mjs --set heldout --rules-only --tag v2 && node bench/report.mjs",
     "check:hybrid": "node scripts/check-hybrid.mjs",
-    "repro": "node repro/only-on-device.mjs"
+    "repro": "node repro/only-on-device.mjs",
+    "demo:thumbnail": "node scripts/demo/thumbnail.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",
