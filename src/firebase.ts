@@ -1,5 +1,5 @@
 import { initializeApp, type FirebaseApp, type FirebaseOptions } from 'firebase/app';
-import { CustomProvider, initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check';
+import { CustomProvider, initializeAppCheck, ReCaptchaEnterpriseProvider, ReCaptchaV3Provider } from 'firebase/app-check';
 import {
   getAI,
   getGenerativeModel,
@@ -95,10 +95,12 @@ function getApp(): FirebaseApp {
   );
 
   const siteKey = import.meta.env.VITE_RECAPTCHA_ENTERPRISE_SITE_KEY;
+  // reCAPTCHA v3 is the free alternative for a hosted copy (Firebase App Check supports both).
+  const v3SiteKey = import.meta.env.VITE_RECAPTCHA_V3_SITE_KEY;
   // The debug token is for local development only and is never read in a production build, so a
   // hosted copy cannot ship it by accident.
   const debugToken = import.meta.env.DEV ? import.meta.env.VITE_APPCHECK_DEBUG_TOKEN : undefined;
-  if (cloudConfigured && (siteKey || debugToken)) {
+  if (cloudConfigured && (siteKey || v3SiteKey || debugToken)) {
     if (debugToken) {
       // Firebase App Check debug provider: https://firebase.google.com/docs/app-check/web/debug-provider
       // The token must be registered in Firebase console > App Check > Apps > Manage debug tokens.
@@ -109,9 +111,11 @@ function getApp(): FirebaseApp {
       // With only a debug token (local development), the provider is never asked for a token.
       provider: siteKey
         ? new ReCaptchaEnterpriseProvider(siteKey)
-        : new CustomProvider({
+        : v3SiteKey
+          ? new ReCaptchaV3Provider(v3SiteKey)
+          : new CustomProvider({
             getToken: () =>
-              Promise.reject(new Error('No App Check provider: set VITE_RECAPTCHA_ENTERPRISE_SITE_KEY.')),
+              Promise.reject(new Error('No App Check provider: set VITE_RECAPTCHA_V3_SITE_KEY or VITE_RECAPTCHA_ENTERPRISE_SITE_KEY.')),
           }),
       isTokenAutoRefreshEnabled: true,
     });
