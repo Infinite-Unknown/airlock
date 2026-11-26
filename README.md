@@ -2,6 +2,8 @@
 
 **Patient details stay at the counter. The cloud only sees placeholders.**
 
+**Try it:** https://helios-1-d1ef7.web.app (Chrome; the on-device steps need Gemini Nano, which Chrome downloads on first use where the device supports it. Without it, Sulit says so and uses its local pattern rules.)
+
 *Sulit* is Malay for "confidential". It is a web app for clinic front desks in Malaysia: Gemini Nano, running in Chrome on the front-desk PC, finds and hides every personal detail in a patient's message; Gemini in the cloud drafts the reply (in English or Bahasa Melayu) on placeholders only; the real details are put back on the PC. Built on **Firebase AI Logic hybrid inference**.
 
 ![Sulit: the redacted message, the hidden details and who found them, the reply restored on the device](assets/sulit-reply.png)
